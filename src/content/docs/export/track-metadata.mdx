@@ -1,0 +1,106 @@
+---
+title: Track Metadata Export
+description: Export all your track details—including song names, BPM, collaborators, splits, and metadata—to a single CSV file for your records, spreadsheets, or industry submissions.
+---
+
+Track Metadata Export gives you a quick way to download a comprehensive snapshot of all your tracks in a single CSV file. Whether you need to review your catalog offline, share track details with collaborators, or prepare data for external tools, the export covers the essential information producers need to manage their work.
+
+When you click Export, the system gathers everything from your tracks—song names, workflow stages, collaborator details, split percentages, tags, and more—and compiles it into one file you can open in Excel, Google Sheets, or any spreadsheet app.
+
+---
+
+## How to Export Your Track Metadata
+
+Exporting is straightforward. Here's how to get your data:
+
+1. Navigate to the **Track Metadata** section in the Export area of the app
+2. Click the **Export** button in the toolbar
+3. Your browser will automatically download a file named `track-metadata-YYYY-MM-DD.csv`
+
+The file downloads immediately with a timestamp in the filename so you can keep multiple exports organized by date. The CSV uses UTF-8 encoding with a byte order mark, which means special characters like accents in artist names or song titles display correctly when you open the file in Excel.
+
+---
+
+## What's Included in the Export
+
+The exported CSV contains all the key details about your tracks organized into columns. Here's what each column represents:
+
+### Track Information
+
+| Column | Description |
+|--------|-------------|
+| Song Name | The title of the track |
+| Stage | Current production stage (Idea, Writing, Recording, Mixing, etc.) |
+| Workflow State | Additional workflow flags and statuses |
+| Bucket | Which project or playlist the track belongs to |
+| Tags | Comma-separated tags applied to the track |
+| BPM | Tempo in beats per minute |
+| Key | Musical key (e.g., C Major, F# Minor) |
+| Genre | Genre classification |
+| Mood | Mood descriptors |
+| Excitement | Excitement rating if set |
+| Due Date | Assigned deadline |
+| Favourite | Whether the track is marked as a favourite |
+
+### Collaborator Details
+
+| Column | Description |
+|--------|-------------|
+| Collaborators | Full collaborator information including name, email, role, and split percentages |
+
+The Collaborators column combines multiple pieces of information into one readable format. Each collaborator appears with their name, email (if available), role (if not a standard collaborator), and their master/publishing split percentages.
+
+For example, a collaborator entry might look like:
+
+```
+Sarah Chen (sarah@example.com) 50%/50%
+```
+
+If there are multiple collaborators, they're separated by semicolons within the cell, making it easy to see who owns what on each track.
+
+### Administrative Fields
+
+| Column | Description |
+|--------|-------------|
+| Notes | Any notes attached to the track |
+| Created | Date the track was first created |
+| Updated | Date the track was last modified |
+
+---
+
+## Understanding the Collaborator Column
+
+Since split percentages are critical for PRO registration and royalty tracking, the Collaborators column is designed to give you a complete picture at a glance. Each entry includes:
+
+- **Name** — The collaborator's full name
+- **Email** — Their contact email in parentheses
+- **Role** — Shown in brackets if they're not a standard collaborator (e.g., [producer], [mixer])
+- **Splits** — Master ownership percentage and publishing percentage, shown as `X%/Y%`
+
+If you have three collaborators on a track with different splits, the Collaborators cell will contain all three entries separated by semicolons. This format works well for quick reference, though for detailed PRO submissions you may want to use the dedicated split sheet exports which format the data for specific organizations.
+
+---
+
+## Tips
+
+:::tip[Export Before Major Updates]
+If you're about to restructure your collaborators, change split percentages, or reorganize your buckets, download a metadata export first. This gives you a backup of your current data in case you need to reference it later.
+:::
+
+:::tip[Filter Your Tracks First]
+Before exporting, use the track grid filters to narrow down what you want to include. You might export your entire catalog once, then export specific subsets (like all tracks in a particular bucket or at a specific stage) for different purposes.
+:::
+
+:::tip[Check Collaborator Details]
+Review the Collaborators column in your exported file to verify all emails, roles, and split percentages are correct. This is especially important before sending the file to publishers or using it for PRO registrations.
+:::
+
+:::tip[Use for Catalog Reviews]
+Open your export in a spreadsheet app and sort by different columns—like BPM, genre, or due date—to discover patterns in your catalog. You might notice gaps in your workflow or opportunities you hadn't considered.
+
+---
+
+## Related
+
+- [Split Sheets](/export/split-sheets) — Export formatted split sheets for specific publishers and PROs like Kobalt or Musicbed
+- [Writer Roles & IPI](/export/writer-roles-and-ipi) — Learn about PRO registration roles and IPI numbers for your collaborators

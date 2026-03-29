@@ -1,0 +1,131 @@
+---
+title: Overview Widget
+description: Get a quick visual summary of your selected track — artwork, stage, collaborators, due date, and more — all in one glanceable card.
+---
+
+The overview widget sits at the top of the activity panel and gives you the essential details of the selected track(s) in one compact, visually rich view. It is the first thing you see when you click a song in the grid.
+
+Think of it as the track's snapshot — everything you need to know at a glance before diving into the more detailed widgets below.
+
+---
+
+## What You See (Single Track)
+
+When you select one track, the overview widget displays:
+
+- **Artwork background** — the track's album art fills the card backdrop, or a generated gradient appears if no artwork is set
+- **Stage badge** — a circular progress ring showing the current workflow stage (Idea, Editing, Ready to Post, Published, and so on)
+- **Due date** — shown as a small chip in the top overlay if one is set
+- **Collaborator avatars** — up to three circular profile pictures of people working on the track
+- **Favourite toggle** — a heart icon to quickly mark the track as a favourite
+- **Track title** — the song name appears in the footer area
+- **Bucket assignment** — which project or playlist the track belongs to
+- **Workflow colour bar** — a thin stripe at the bottom indicating the track's workflow state
+
+All of this loads instantly. Collaborator details populate in the background after the initial render, so you never wait for the widget to appear.
+
+---
+
+## What You See (Multiple Tracks)
+
+When you select two or more tracks in the grid, the overview widget adapts to show summary information:
+
+- **Artwork carousel** — a stacked view of the selected tracks' artwork thumbnails
+- **Track count** — displays the number of tracks selected (e.g. "3 TRACKS SELECTED")
+- **Stage indicator** — if all selected tracks share the same stage, that stage displays; otherwise a mixed indicator appears
+- **Collaborators row** — shows avatar circles for all unique collaborators across the selection
+- **Due date row** — indicates whether the selected tracks share a due date or have mixed dates
+- **Bucket row** — shows shared bucket assignments or indicates mixed buckets
+- **Tags row** — displays workflow badges and tags applied to the selection
+- **Bulk artwork button** — an edit button lets you upload or generate artwork for all selected tracks at once
+
+This multi-select view is useful for reviewing a group of songs before applying batch actions like changing stage or assigning buckets.
+
+---
+
+## Artwork Display
+
+The widget uses track artwork in two ways depending on selection:
+
+**Single track** — your artwork fills the entire background of the overview card. If no artwork has been uploaded, the widget generates a gradient based on the track name and genre. This makes even untagged tracks look visually distinct.
+
+**Multiple tracks** — a carousel effect stacks the artwork thumbnails behind the overlay. The most recent artwork appears on top, with the others visible beneath it.
+
+To change artwork, click the image icon button in the bottom-right corner of the overview. A menu offers two options: upload an image from your computer or generate artwork using AI. For bulk operations with multiple tracks selected, the same menu applies the chosen artwork to all selected tracks.
+
+---
+
+## Stage & Workflow
+
+The circular badge in the top-right corner represents the track's current stage in your workflow. It uses a progress ring that fills based on how far along the track is.
+
+Click the badge to open a popup where you can change the stage for the selected track(s). When multiple tracks are selected and they share the same stage, that stage is highlighted. If they have different stages, you'll see a mixed indicator.
+
+The coloured bar at the bottom of the overview card reflects the workflow state. Different colours represent different workflows (e.g., mixing, mastering, vocals), helping you quickly identify the track's context.
+
+---
+
+## Collaborators
+
+Collaborator avatars appear in the top overlay as small circular profile pictures. The widget shows up to three avatars, representing the people currently assigned to work on the track.
+
+When multiple tracks are selected, the widget gathers all unique collaborators across the selection and displays them together. If a collaborator has a profile picture uploaded, that image shows; otherwise, a generated avatar appears.
+
+The list loads asynchronously after the initial widget render, so you see the layout immediately while the names and pictures fill in behind the scenes.
+
+---
+
+## Due Dates
+
+If a due date is set on the track, it appears as a small date chip near the top of the overview. The widget colour-codes due dates to give you instant context:
+
+- **Red** — the date has passed (overdue)
+- **Orange** — due today or tomorrow
+- **Yellow** — due within the next week
+- **Grey** — a future date beyond a week
+
+Click the due date to open a calendar popup where you can set or remove the deadline. When multiple tracks are selected, you can set the same due date on all of them at once.
+
+---
+
+## Buckets
+
+The bucket section shows which playlist or project the track belongs to. Buckets help you organise tracks into categories like "Client A", "EP Project", or "Release Queue".
+
+When you select multiple tracks, the widget indicates whether they share the same bucket assignment or belong to different ones. Click the bucket row to open a popup for reassigning tracks to different buckets.
+
+---
+
+## Opening Your DAW Project
+
+For single-track selections, the overview widget includes an "Open Project" button if a compatible project file is detected in the track's folder. This lets you jump straight from the dashboard into your DAW with the correct session loaded.
+
+The button appears automatically when the widget detects a project file. Clicking it launches your DAW application and opens the session.
+
+---
+
+## Tips
+
+:::tip[Use the Overview for Quick Context]
+Before making changes to a track, glance at the overview first. You can quickly confirm the stage, deadline, and who else is involved without opening multiple widgets.
+:::
+
+:::tip[Batch Updates with Multi-Select]
+Select multiple tracks and use the overview's stage, due date, or bucket section to update all of them simultaneously. This saves time when managing a group of songs at the same production stage.
+:::
+
+:::tip[Artwork Preview Before Upload]
+The generated gradient backgrounds use your track name and genre to create visually consistent artwork. You can use these previews to test how tracks will look in your grid before uploading final artwork.
+:::
+
+---
+
+## Related
+
+- [Activity Panel Overview](/activity-panel)
+- [Stage & Workflow Widget](/activity-panel/stage-workflow-widget)
+- [Due Date Widget](/activity-panel/due-date-widget)
+- [Collaborators Widget](/activity-panel/collaborators-widget)
+- [Artwork Widget](/activity-panel/artwork-widget)
+- [Tags Widget](/activity-panel/tags-widget)
+- [Bucket Widget](/activity-panel/bucket-widget)

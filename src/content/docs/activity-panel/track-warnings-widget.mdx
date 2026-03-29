@@ -1,0 +1,73 @@
+---
+title: Track Warnings Widget
+description: Understand version consistency issues in your tracks with the Track Warnings widget — see what needs attention and dismiss resolved warnings.
+---
+
+The Track Warnings widget helps you stay on top of version-related issues across your tracks. When a track has problems like missing audio files, outdated bounces, or stems that don't match the current project state, this widget makes sure you know about it.
+
+## What You See
+
+When a selected track has active warnings, you'll notice a small red bubble with a number next to its name. This bubble pulses gently to catch your attention. The number inside tells you exactly how many issues need your attention.
+
+Clicking the bubble opens a dropdown showing each specific warning, complete with an icon, description, and suggested action. You can dismiss warnings individually or clear them all at once.
+
+The widget appears as part of the Activity Panel whenever you're working with tracks that have version consistency checks enabled.
+
+## Warning Types Explained
+
+Different icons represent different kinds of version issues. Understanding what each means helps you prioritize and fix problems efficiently.
+
+**📁 Missing bounce** — The rendered audio file isn't where it should be in the project folder. This typically happens when you export a new version but the file wasn't saved to the correct location.
+
+**🎛️ Missing stems** — One or more individual stem files (drums, bass, vocals, and so on) haven't been uploaded yet. This is common when you're collecting parts from collaborators.
+
+**⚠️ Version mismatch** — Something about the bounce or stems doesn't align with what's expected based on the project file. This could mean the export settings changed or a file was replaced without updating the reference.
+
+**🕐 Stale bounce** — An audio file exists, but it's older than the current project. The bounce may be outdated and might need re-exporting.
+
+**🕐 Stale stems** — Similar to stale bounces, the stem files are present but were last updated before recent changes to the project.
+
+## Viewing Warning Details
+
+To see what's going on with a specific track:
+
+1. Select the track in the grid so it appears in the Activity Panel
+2. Look for the red bubble next to the track name
+3. Click the bubble to open the warning dropdown
+4. Read through each issue — the description explains the problem and the suggestion tells you how to fix it
+
+The dropdown positions itself below the bubble so it stays visually connected to the track you're inspecting. Click anywhere outside the dropdown to close it.
+
+## Dismissing Warnings
+
+Once you've resolved an issue, you can clear the warning from the dropdown. This keeps your view clean and focused on problems that still need attention.
+
+**Dismiss one at a time** — Click the small × button on the right side of any warning item. The warning disappears immediately and the bubble count decreases.
+
+**Dismiss everything at once** — Click the "Dismiss All" link in the top right corner of the dropdown. All warnings for that track clear in one step. If this was the last issue, the bubble disappears entirely.
+
+The widget updates automatically, so the numbers you see always reflect the current state of warnings.
+
+## How the Widget Works
+
+Warning data loads automatically as you interact with your tracks. When the track grid loads, the widget fetches warning counts in the background for all visible tracks — this is why bubbles appear quickly without a noticeable delay.
+
+When you click a bubble to open the dropdown, the widget fetches the full details for that specific track, populating the list with individual warning messages and suggestions.
+
+### Tips
+
+- **Watch for pulsing bubbles while browsing** — The subtle animation makes it easy to spot tracks with issues while you're scanning through your project list.
+
+- **Use Dismiss All after big sync sessions** — If you've just finished uploading a batch of new files or re-exporting stems, dismiss all warnings at once instead of clearing them individually.
+
+- **Review warnings before sharing** — Before sending a track to a collaborator or exporting it for mastering, open the dropdown to make sure everything is in sync.
+
+- **The bubble disappears when issues are resolved** — Once you dismiss the last warning for a track, the bubble goes away completely, giving you a clear visual cue that the track is clean.
+
+## Related
+
+- [Activity Panel Overview](/activity-panel)
+- [Overview Widget](/activity-panel/overview-widget)
+- [Files Widget](/activity-panel/files-widget)
+- [Tags Widget](/activity-panel/tags-widget)
+- [Stage & Workflow Widget](/activity-panel/stage-workflow-widget)

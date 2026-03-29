@@ -1,0 +1,121 @@
+---
+title: Musical Attributes Widget
+description: View and edit musical details for your tracks — key, BPM, genre, mood, and more — directly in the Activity Panel.
+---
+
+The Musical Attributes widget lives in the Activity Panel and gives you a quick way to view and edit the essential musical details of your tracks. Think of it as your track's musical ID card — key signature, tempo, genre, mood, and registration codes all in one place.
+
+When you select a track, this widget pulls together information that helps you keep your catalog organized and properly registered for distribution.
+
+---
+
+## What the Widget Shows
+
+When you select a single track, you'll see a grid of color-coded attribute pills organized into two sections.
+
+**Core musical attributes:**
+
+- **Key** — the musical key signature (e.g., C major, F# minor)
+- **BPM** — tempo in beats per minute
+- **Genre** — the musical style you've tagged (Electronic, Hip-Hop, Pop)
+- **Mood** — the emotional character (Uplifting, Dark, Chill)
+
+**Registration and metadata:**
+
+- **Artist** — the credited performer name
+- **Album** — the album or project the track belongs to
+- **ISRC** — International Standard Recording Code (unique track identifier)
+- **ISWC** — International Standard Musical Work Code (for compositions)
+- **Territory** — release territory (Worldwide, US-only, etc.)
+- **Duration** — track length in minutes and seconds
+
+Each attribute appears as a colored pill. The colors help you scan the widget quickly — purple for key, blue for BPM, orange for genre, and so on. If a field hasn't been filled in yet, you'll see it marked as "Not set" in muted text.
+
+---
+
+## View Mode vs. Edit Mode
+
+By default, the widget displays all attributes in a clean, read-only view. This lets you quickly check a track's details without accidentally changing anything.
+
+### Entering Edit Mode
+
+Click the **Edit Attributes** button at the bottom of the widget. The view transforms into a form with input fields for each attribute. You'll see dropdowns for the key signature (organized by root note and mode) and text inputs for everything else.
+
+Make your changes, then click **Save Changes** to persist them. If you change your mind, click **Cancel** to discard your edits and return to view mode.
+
+### Editing Limitations
+
+You cannot edit attributes on tracks that have been shared with you by collaborators. The Edit Attributes button appears faded and disabled on shared tracks, with a tooltip explaining why.
+
+---
+
+## Multi-Track Selection
+
+When you select two or more tracks in the grid, the widget adapts to show summary information. Rather than displaying individual fields, you'll see aggregated or mixed indicators:
+
+- **Mixed values** appear when the selected tracks have different key signatures, BPMs, or other attributes
+- **Consistent values** display when all selected tracks share the same attribute
+
+This helps you quickly see whether a group of tracks is musically cohesive or if some attributes need to be standardized before release.
+
+---
+
+## Analyzing Audio Files
+
+Below the attribute fields, you'll find an **Analyze** button. This triggers automatic detection of musical attributes by analyzing your track's audio file directly in your browser.
+
+The analysis extracts:
+
+- **Key signature** — detected using harmonic analysis of the audio
+- **BPM** — tempo detected from beat patterns
+
+This is useful when you want accurate tempo information for tracks imported from other DAWs or recorded externally, where metadata might be missing or incorrect.
+
+### How It Works
+
+When you click Analyze, the widget scans your track's audio files to detect musical properties. The detected key and BPM are then written back to your track's attributes automatically.
+
+The button is disabled for shared tracks, since you don't have permission to modify attributes on tracks owned by others.
+
+---
+
+## Color Coding Reference
+
+The widget uses consistent colors to categorize attributes at a glance:
+
+| Color | Attributes |
+|-------|------------|
+| Purple | Key signature |
+| Blue | BPM (tempo) |
+| Orange | Genre, Territory |
+| Pink | Mood |
+| Cyan | Artist, Album |
+| Amber | ISWC |
+| Green | ISRC |
+| Slate | Duration |
+
+---
+
+## Tips
+
+:::tip
+Before registering your tracks with a distributor, use this widget to verify that ISRC and ISWC codes are correctly set. These codes are essential for royalty tracking and can't be changed after registration.
+:::
+
+:::tip
+If you're working with a producer who sent you stems in a different key, use the Analyze button to quickly detect the actual key before importing into your project. This saves time compared to manually listening and transcribing.
+:::
+
+:::tip
+When batch-editing a group of tracks for an album, select them all and check the multi-track view. If you see mixed values for genre or territory, this is a good indicator those tracks need standardization before export.
+:::
+
+---
+
+## Related
+
+- [Activity Panel Overview](/activity-panel) — understand how the Activity Panel works as a whole
+- [Overview Widget](/activity-panel/overview-widget) — the snapshot view at the top of the Activity Panel
+- [Tags Widget](/activity-panel/tags-widget) — manage workflow tags and categorical labels
+- [Comments Widget](/activity-panel/comments-widget) — review and add feedback on tracks
+- [Files Widget](/activity-panel/files-widget) — access and manage your track files

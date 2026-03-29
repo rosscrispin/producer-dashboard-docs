@@ -1,0 +1,186 @@
+---
+title: Dropbox for Teams
+description: Connect your Dropbox account to enable seamless file sharing and collaboration with your team.
+---
+
+Dropbox integration is at the heart of how Producer Dashboard handles file sharing. Whether you're sending stems to a collaborator, packaging a bounce for client review, or accepting shared projects from teammates, Dropbox makes it happen behind the scenes.
+
+This page explains what Dropbox does in Producer Dashboard, how the folder structure works, and how to manage your connection.
+
+---
+
+## Why Dropbox Is Required
+
+When you use Producer Dashboard, all your audio files are stored locally on your computer. However, when you want to share those files with others, Dropbox steps in as the delivery mechanism.
+
+Without a connected Dropbox account, you won't be able to:
+
+- Generate share links for collaborators
+- Download ZIP packages of your stems and bounces
+- Invite collaborators to shared folders
+- Receive shared projects from teammates
+
+Think of it this way: your computer holds your music, and Dropbox handles the handoff to everyone else.
+
+---
+
+## What Gets Created in Your Dropbox
+
+When you connect your Dropbox for the first time, Producer Dashboard automatically creates a folder structure to keep your projects organized. This happens silently in the background — you don't need to set anything up manually.
+
+For **personal Dropbox accounts**, the structure looks like this:
+
+```
+/PRODUCER-DASHBOARD
+├── /projects
+├── /bounces
+└── /stems
+```
+
+For **team/business accounts**, it includes your account prefix:
+
+```
+/Your Name/PRODUCER-DASHBOARD
+├── /projects
+├── /bounces
+└── /stems
+```
+
+Producer Dashboard uses these folders when creating share links and packaging downloads. The app handles folder creation automatically, so you can start sharing right away.
+
+---
+
+## Connecting Your Dropbox
+
+Connecting Dropbox happens through a secure OAuth flow — the same standard that most apps use when asking for permission to access your account.
+
+### To connect your Dropbox:
+
+1. Go to **Settings** in Producer Dashboard
+2. Click **Connected Accounts** in the sidebar
+3. Find the **Dropbox** section and click **Connect**
+4. Sign in to Dropbox if prompted and grant permission
+
+You'll see a confirmation when the connection is successful. Your Dropbox email and account type (personal or team) will display in the settings panel.
+
+---
+
+## Understanding Account Types
+
+Producer Dashboard works with both personal and business Dropbox accounts. The main difference is how your folder path is constructed.
+
+**Personal accounts** use the standard Dropbox root. Your shared files appear under `/PRODUCER-DASHBOARD`.
+
+**Team accounts** (Dropbox Business or Dropbox Professional) include your team folder prefix in the path. This ensures your files stay organized within your team's Dropbox structure and follow any team sharing policies in place.
+
+The app automatically detects your account type during the OAuth flow and configures the correct folder paths for you.
+
+---
+
+## Managing Your Connection
+
+Once connected, you can view your Dropbox status and account details in the Connected Accounts section of your settings.
+
+### Viewing your status
+
+The Dropbox card shows:
+
+- Whether your account is currently connected
+- Your Dropbox email address
+- Your account type (personal or team)
+- The folder path where Producer Dashboard stores your files
+- Token expiration status (for security, Dropbox tokens periodically expire and refresh automatically)
+
+### Disconnecting
+
+If you no longer want Producer Dashboard to have access to your Dropbox:
+
+1. Go to **Settings** → **Connected Accounts**
+2. Click **Disconnect** next to your Dropbox account
+3. Confirm the action
+
+Disconnecting removes all stored Dropbox tokens from Producer Dashboard. You can reconnect at any time by going through the OAuth flow again. Note that disconnecting does not delete any files from your actual Dropbox — it only removes the app's access.
+
+---
+
+## Sharing Files with Dropbox
+
+With your Dropbox connected, sharing becomes straightforward. When you create a share link for a track or package a ZIP download, Producer Dashboard uses your Dropbox credentials to generate temporary download links.
+
+These share links are time-limited for security — collaborators receive a URL that works for a set period before expiring. ZIP downloads are created on-demand and include all the files you've selected.
+
+Collaborators receive these links via email or in-app notifications, and can download the files directly without needing their own Dropbox accounts.
+
+---
+
+## Folder Organization
+
+Producer Dashboard creates three main subfolders within your PRODUCER-DASHBOARD folder:
+
+- **projects** — Contains project files and session data
+- **bounces** — Holds finished mixes and exports ready for sharing
+- **stems** — Stores individual stems and isolated tracks
+
+When you share files, Producer Dashboard references the appropriate folder based on what you're sharing. You don't need to manually organize these folders — the app handles the path construction automatically.
+
+---
+
+## Token Management
+
+Dropbox uses OAuth tokens to verify your identity when making API requests. Producer Dashboard manages these tokens securely:
+
+- **Automatic refresh** — If your token expires, the app refreshes it automatically so sharing continues without interruption
+- **Secure storage** — Tokens are encrypted and stored on secure servers
+- **Per-user isolation** — Each user's tokens are kept separate and are never shared between accounts
+
+You don't need to manually manage or rotate tokens. The system handles this in the background.
+
+---
+
+## Troubleshooting
+
+### Connection issues
+
+If connecting fails, check that:
+
+- You're signed into the correct Dropbox account in your browser
+- Dropbox is not experiencing an outage (check the Dropbox status page)
+- Your browser allows popups from Producer Dashboard
+
+### Share links not working
+
+If collaborators report broken links:
+
+- The link may have expired (share links are time-limited for security)
+- Regenerate a new share link from the track or project
+- Ensure your Dropbox connection is still active in Settings
+
+### Folder access errors
+
+If you see permission errors when sharing:
+
+- Verify your Dropbox account still has access to the PRODUCER-DASHBOARD folder
+- Check that you haven't exceeded your Dropbox storage limit
+- Try disconnecting and reconnecting your Dropbox account
+
+---
+
+## Tips
+
+:::tip
+If you're on a Dropbox Business team, make sure you've signed into the correct team account during the OAuth flow. Personal and team Dropbox accounts are separate — the app will create folders in whichever account you authorize.
+:::
+
+:::tip
+Your Dropbox connection persists even after you log out of Producer Dashboard. If you're on a shared computer, disconnect your Dropbox when finished to prevent unauthorized sharing.
+:::
+
+---
+
+## Related
+
+- [Connecting Dropbox](/settings/connecting-dropbox)
+- [Managing Dropbox Connection](/settings/managing-dropbox-connection)
+- [How Files Are Organized](/settings/how-files-are-organized)
+- [Connected Accounts](/settings/connected-accounts)
+- [Account Management](/settings/account-management)

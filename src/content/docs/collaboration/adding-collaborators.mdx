@@ -1,0 +1,118 @@
+---
+title: Adding Collaborators
+description: Learn how to add collaborators to your tracks, manage split percentages, and ensure fair allocation across all parties.
+---
+
+When you're working on a track with other producers, songwriters, or artists, you'll want to make sure everyone gets credited properly. Adding collaborators in Producer Dashboard lets you assign ownership splits, track contributions, and keep everyone in the loop as your project moves through production.
+
+---
+
+## How to Add a Collaborator
+
+You can add collaborators directly from the **Collaborators widget** in the activity panel on the right side of your screen. Here's how:
+
+1. Select one or more tracks in the grid
+2. Click the **Collab** tab in the activity panel
+3. Click the **Add Collaborator** button at the bottom of the widget
+4. Enter their email address and name
+5. Assign their **master split** and **publishing split** percentages
+6. Click **Save**
+
+The collaborator will appear in the list immediately, and the changes sync to the server in the background.
+
+---
+
+## Understanding Split Allocation
+
+Every collaborator on a track has two types of splits:
+
+- **Master Split** — represents the ownership percentage for the recording itself
+- **Publishing Split** — represents the ownership percentage for the underlying composition
+
+Both splits are tracked independently. The total for each type across all collaborators should equal **100%**, but the system lets you know if you've gone over.
+
+### The Total Allocation Display
+
+Above the collaborator list, you'll see a summary showing the combined allocation:
+
+- **Total: 100% ✓** — everything is properly allocated (shown in green)
+- **Total: 125% ⚠️ Warning: Exceeds 100%** — someone has been overallocated (shown in amber or red)
+
+This indicator updates in real-time as you add or edit collaborators, so you can catch allocation issues before saving.
+
+---
+
+## Smart Default Splits
+
+When you add a new collaborator, the system doesn't just leave you with a blank form. It calculates a **suggested split** based on what's already allocated.
+
+If you're starting fresh with just the owner at 100%, adding a collaborator will suggest splitting the remaining allocation evenly. For example, if the owner is at 100% and you add Joshua, the system might suggest **50% for the owner and 50% for Joshua**.
+
+If you've already allocated partial splits, the system calculates how much is left and suggests dividing it fairly. You can accept the suggestion or enter your own values — the choice is always yours.
+
+### Input Helpers
+
+As you type in the split fields, you'll see helpful hints below each input:
+
+- **"X% remaining"** — tells you how much is left to allocate
+- **"No allocation remaining"** — shows in amber text when that split type is fully allocated
+
+The inputs also have built-in maximums based on remaining allocation, so you can't accidentally enter more than what's available.
+
+---
+
+## Using Auto Allocate
+
+If you want to distribute splits evenly across all collaborators with one click, use the **Auto allocate** button in the top-right corner of the Collaborators widget.
+
+This feature:
+
+- Divides both master and publishing splits evenly among everyone on the track
+- Rounds to two decimal places (e.g., 33.33%, 33.33%, 33.34% for three people)
+- Updates all collaborator rows immediately
+- Works whether you're editing one track or multiple at once
+
+Auto allocate is handy when you're adding a group of collaborators and want to start with a clean slate before fine-tuning individual percentages.
+
+---
+
+## Managing Multiple Tracks
+
+When you select multiple tracks in the grid, the Collaborators widget switches to **bulk mode**. This lets you add, edit, or remove collaborators across several tracks simultaneously.
+
+In bulk mode, you'll see a notice at the top of the widget indicating how changes will be applied. By default, collaborator edits apply to all selected tracks. You can adjust this behavior in your **Settings** under Bulk Apply Modes if you prefer to only affect tracks that have actually changed.
+
+When a collaborator appears in bulk mode with a count badge (e.g., "Owner (3/5)"), it means they're on some but not all of the selected tracks. Hover over the badge to see which specific tracks they're assigned to.
+
+---
+
+## Validation and Protection
+
+The system protects you from overallocation at multiple levels:
+
+**In the interface**, you're blocked from saving if your changes would push any split total above 100%. You'll see a clear error message explaining the issue, and you won't be able to proceed until you adjust the values.
+
+**On the server**, the same validation happens automatically. Even if something bypasses the interface checks, the backend won't accept splits that exceed 100%. This ensures data integrity regardless of how changes are submitted.
+
+---
+
+## Tips
+
+- **Add the owner first** — if you're starting a new track, the owner is already included by default. If you need to adjust their split percentage, just click Edit on their row.
+
+- **Use auto allocate as a starting point** — it's much faster to auto-allocate and then tweak individual percentages than to manually enter everything from scratch.
+
+- **Check both split types** — master and publishing splits can (and often should) be different. If you're producing for a songwriter, you might split the master 80/20 in your favor while splitting publishing 50/50.
+
+- **Bulk mode saves time** — when adding the same collaborator to multiple tracks (like a vocalist appearing on three songs), select all three tracks first and add them in one operation.
+
+---
+
+## Related
+
+- [Splits & Rights](/collaboration/splits-and-rights) — understand the difference between master and publishing rights
+- [Sharing with Collaborators](/collaboration/sharing-with-collaborators) — control what collaborators can see and do
+- [Permissions](/collaboration/permissions) — learn about role-based access levels
+- [Invitations](/collaboration/invitations) — send and manage collaborator invitations
+- [Default Project Collaborators](/collaboration/default-project-collaborators) — set up collaborators automatically for new tracks
+- [Unsharing & Leaving](/collaboration/unsharing-and-leaving) — remove collaborators or leave a shared track

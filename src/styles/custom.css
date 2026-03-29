@@ -1,0 +1,54 @@
+/* Producer Dashboard Docs — Custom Theme */
+/* Matches the PD design system (dark-mode only) */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+	--sl-color-accent-low: #1e3a5f;
+	--sl-color-accent: #3b82f6;
+	--sl-color-accent-high: #93c5fd;
+	--sl-font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+:root[data-theme='dark'] {
+	--sl-color-bg: #0a0a0f;
+	--sl-color-bg-nav: #12121a;
+	--sl-color-bg-sidebar: #12121a;
+	--sl-color-text: rgba(255, 255, 255, 0.92);
+	--sl-color-text-accent: #93c5fd;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: rgba(255, 255, 255, 0.64);
+	--sl-color-gray-2: rgba(255, 255, 255, 0.40);
+	--sl-color-gray-3: rgba(255, 255, 255, 0.16);
+	--sl-color-gray-4: rgba(255, 255, 255, 0.08);
+	--sl-color-gray-5: #12121a;
+	--sl-color-gray-6: #0a0a0f;
+	--sl-color-black: #0a0a0f;
+}
+
+/* Force dark mode */
+:root[data-theme='light'] {
+	--sl-color-bg: #0a0a0f;
+	--sl-color-bg-nav: #12121a;
+	--sl-color-bg-sidebar: #12121a;
+	--sl-color-text: rgba(255, 255, 255, 0.92);
+	--sl-color-text-accent: #93c5fd;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: rgba(255, 255, 255, 0.64);
+	--sl-color-gray-2: rgba(255, 255, 255, 0.40);
+	--sl-color-gray-3: rgba(255, 255, 255, 0.16);
+	--sl-color-gray-4: rgba(255, 255, 255, 0.08);
+	--sl-color-gray-5: #12121a;
+	--sl-color-gray-6: #0a0a0f;
+	--sl-color-black: #0a0a0f;
+}
+
+/* Smooth transitions */
+a, button {
+	transition: all 0.15s ease;
+}
+
+/* Card-style sidebar */
+nav.sidebar {
+	border-right: 1px solid rgba(255, 255, 255, 0.06);
+}

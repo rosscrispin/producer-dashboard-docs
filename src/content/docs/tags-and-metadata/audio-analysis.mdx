@@ -1,0 +1,114 @@
+---
+title: Audio Analysis
+description: Automatically detect BPM and musical key for your tracks so you can organize and find the right sounds faster.
+---
+
+Audio analysis automatically detects the tempo (BPM) and musical key of your audio bounces, giving you searchable metadata without manual tagging. This makes it easier to find tracks that match your current project or fit a particular mood.
+
+When you trigger an analysis, the system reads your audio file and extracts two pieces of information: the beats-per-minute tempo and the musical key with its scale (like "C major" or "A minor"). These values then appear in your track's metadata, ready to filter and search.
+
+---
+
+## What Gets Analyzed
+
+The analysis engine looks at your audio file and extracts:
+
+- **BPM (Beats Per Minute)** — The track's tempo, detected by identifying rhythmic patterns in the audio
+- **Key** — The musical key and scale (for example, "G major" or "E minor"), detected by analyzing the harmonic content
+
+These attributes update in real-time after analysis completes. You'll see them appear in the track's detail view and in any tag or filter interfaces.
+
+---
+
+## How to Trigger Analysis
+
+You can start an analysis directly from the activity panel when viewing a track:
+
+1. Select a track in your project grid
+2. Open the **Tags & Metadata** section in the activity panel
+3. Click the **Analyze** button in the Audio Analysis widget
+4. Wait 1–3 seconds for processing to complete
+5. The BPM and key fields populate automatically
+
+For desktop app users, analysis runs locally on your machine. This means it's fast, works offline, and your audio never leaves your device during processing.
+
+---
+
+## Analysis Status Indicators
+
+The widget shows the current state of analysis for each track:
+
+| Status | Meaning |
+|--------|---------|
+| Ready | Track hasn't been analyzed yet |
+| Analyzing | Processing in progress |
+| Completed | BPM and key are saved and available |
+| Failed | Analysis encountered an error (try again) |
+
+If analysis fails, you can click **Analyze** again to retry. The system automatically clears stuck processing jobs after a brief timeout, so you won't get stuck in an "analyzing" state.
+
+---
+
+## How Analysis Works
+
+When you click **Analyze**, the system processes your audio file through these steps:
+
+1. **Read the file** — The system locates your audio bounce file (WAV, MP3, FLAC, AIFF, M4A, and OGG are supported)
+2. **Decode audio** — The file converts to raw audio data the analyzer can process
+3. **Extract features** — Algorithms identify rhythmic patterns for BPM and harmonic content for key
+4. **Store results** — The detected values save to your track's metadata
+
+Desktop users benefit from local processing, which completes in 1–3 seconds. Web users get cloud-based processing, which may take slightly longer depending on file size and network conditions.
+
+---
+
+## Why Use Audio Analysis
+
+Auto-detected BPM and key help you work faster in several ways:
+
+**Find matching tracks instantly** — Filter your project library by tempo or key. Need a track in G minor for your latest beat? Search instead of scrolling through every file.
+
+**Organize by musical characteristics** — Create smart collections based on tempo ranges (like "90 BPM vibes") or keys that work together.
+
+**Save manual work** — No need to tap out BPM yourself or guess which key a track is in. The system does it for you, accurately.
+
+**Mix and match confidently** — Knowing a track's key helps you layer sounds that harmonize. Two tracks in the same key will generally blend better than random combinations.
+
+---
+
+## Supported Audio Formats
+
+Analysis works with common audio bounce formats:
+
+- WAV
+- MP3
+- FLAC
+- AIFF / AIF
+- M4A
+- OGG
+
+If your bounce is in a different format, convert it to one of these before triggering analysis for best results.
+
+---
+
+## Tips
+
+:::tip[Use Analysis for Quick Sorting]
+After a session, run analysis on your new bounces before closing the project. By the time you're ready to start the next session, your tracks will be organized by tempo and key, ready to search.
+:::
+
+:::tip[Key Compatibility]
+Tracks in the same key generally work well together. Use the key attribute to find complementary sounds — for example, "A minor" tracks often sit nicely with "C major" tracks since they share similar harmonic characteristics.
+:::
+
+:::tip[Batch Analysis]
+When working on multiple tracks, analyze them as you go rather than trying to catch up later. The 1–3 second processing time per track means you can work through a full session's bounces in under a minute.
+:::
+
+---
+
+## Related
+
+- [Using Tags](/tags-and-metadata/using-tags) — Apply custom tags to complement auto-detected metadata
+- [Managing Tags & Categories](/tags-and-metadata/managing-tags-and-categories) — Organize your metadata with categories and hierarchies
+- [Musical Attributes](/tags-and-metadata/musical-attributes) — Learn more about how musical metadata works in your workflow

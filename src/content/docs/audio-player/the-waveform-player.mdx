@@ -1,0 +1,145 @@
+---
+title: The Waveform Player
+description: Play, pause, and manage your audio tracks with the Waveform Player — your command center for listening, scrubbing, and navigating through your productions.
+---
+
+The Waveform Player is a floating audio control bar that lives at the bottom of your screen. It appears whenever you select and start playing a track, giving you instant access to playback controls, volume adjustment, progress scrubbing, and more — without leaving your current view.
+
+Once activated, the player slides up from the bottom of the screen and stays visible while you browse your projects, check out other tracks, or manage your workflow.
+
+---
+
+## Playing a Track
+
+When you click on any track in your grid, the player becomes active. The track information appears on the left side of the player bar, showing the track name, artist, and a colorful artwork thumbnail. Click the large play button in the center to start listening.
+
+The player automatically detects the correct audio file to play, whether it's a full bounce, stem, or alternate version. It handles common audio formats like WAV, MP3, FLAC, AIFF, and M4A seamlessly.
+
+### How the Player Finds Your Audio
+
+The Waveform Player checks several sources to locate your audio file:
+
+- The track's direct audio file attachment
+- The bounce file stored in your Audio Bounces folder
+- The original project file's bounce output
+
+If a track has multiple versions or stems available, the player intelligently selects the primary bounce unless you specify otherwise.
+
+---
+
+## Playback Controls
+
+The center section of the Waveform Player houses your main playback controls.
+
+### Transport Buttons
+
+From left to right, you'll find:
+
+- **Shuffle** — Randomizes the playback order of your queue
+- **Previous** — Jumps to the previous track in the queue
+- **Play/Pause** — Toggles playback on and off (also responds to the spacebar on your keyboard)
+- **Next** — Skips ahead to the next track
+- **Repeat** — Cycles through repeat modes (off, repeat all, repeat one)
+
+The play and pause buttons are visually distinct — the play button is solid with a rounded shape, while pause shows parallel lines. They swap automatically based on the current playback state.
+
+### Progress Bar
+
+Beneath the transport buttons sits the progress bar. Drag the slider left to rewind or right to fast-forward through the track. Time stamps on either end show your current position and the total duration, displayed as minutes and seconds (for example, "1:24 / 3:47").
+
+When you drag the progress slider, the audio jumps to that position immediately, giving you precise control over where you're listening.
+
+---
+
+## Volume Control
+
+The right side of the Waveform Player gives you quick access to volume adjustments.
+
+### Volume Slider
+
+A horizontal slider lets you set your playback volume from 0% to 100%. The default volume starts at 80%, which is loud enough to hear clearly while leaving headroom.
+
+### Mute Toggle
+
+Click the speaker icon to mute your audio completely. Click it again to restore your previous volume level. This is useful when you need to quickly silence playback to talk to someone or check an external reference.
+
+---
+
+## The Queue
+
+Your queue is the list of tracks that will play next. When you start playing a track, it becomes the first item in your queue, and any tracks you add afterwards line up behind it.
+
+### Viewing Your Queue
+
+Click the queue icon (it looks like a list with lines) to see all tracks currently waiting to play. The queue panel slides open, showing track names, artists, and durations.
+
+### Managing the Queue
+
+From the queue panel, you can:
+
+- Drag tracks to reorder them
+- Remove individual tracks by clicking an X button
+- Clear the entire queue at once
+
+When a track finishes playing, the next item in your queue automatically starts, so you can queue up multiple tracks for uninterrupted listening during review sessions.
+
+---
+
+## Keyboard Shortcuts
+
+The Waveform Player responds to keyboard controls so you can manage playback without touching your mouse.
+
+| Key | Action |
+|-----|--------|
+| Spacebar | Play or pause the current track |
+| Left Arrow | Rewind 5 seconds |
+| Right Arrow | Fast-forward 5 seconds |
+| Up Arrow | Increase volume by 10% |
+| Down Arrow | Decrease volume by 10% |
+
+These shortcuts work even when the player isn't focused, making them handy during creative sessions when your hands are already on the keyboard.
+
+---
+
+## Closing the Player
+
+Click the X button in the top-right corner of the Waveform Player to stop playback and dismiss the player bar. The player slides back down and disappears from view. Your audio stops completely, and the queue is cleared.
+
+To bring the player back, simply click on any track in your grid again.
+
+---
+
+## Troubleshooting
+
+**Audio won't play:** Check that your track has an attached audio file or bounce. Projects without audio output won't trigger playback.
+
+**Progress bar won't drag:** Wait a moment for the audio to fully load before attempting to scrub. The slider becomes active once the track is ready.
+
+**Wrong track playing:** Your queue might still contain tracks from a previous session. Click the queue icon and clear it before starting fresh.
+
+---
+
+## Tips
+
+:::tip[Queue Before a Session]
+If you're reviewing multiple tracks, start by building your queue first. Click the queue icon, add the tracks you want to hear, then arrange them in the order that makes sense for your review workflow. This keeps your hands free for actual listening instead of clicking between tracks.
+:::
+
+:::tip[Use Spacebar for Quick Pauses]
+Instead of reaching for the mouse to pause playback, just hit the spacebar. This is especially useful when a client walks in mid-listen or you need to quickly compare a section against a reference track.
+:::
+
+:::tip[Reference Check with Mute]
+Toggle the mute button when you need to quickly check your mix against a commercial reference playing elsewhere. Hit mute, listen to the reference, then unmute to jump back into your own mix without losing your place.
+:::
+
+---
+
+## Related
+
+- [Playback Controls](/audio-player/playback-controls) — Detailed guide to all transport functions
+- [Playback Modes](/audio-player/playback-modes) — Shuffle, repeat, and queue behavior
+- [Waveform Interactions](/audio-player/waveform-interactions) — Scrubbing and navigating audio
+- [Versions & Stems](/audio-player/versions-and-stems) — Playing alternate mixes
+- [Player Contexts](/audio-player/player-contexts) — How the player adapts to different views
+- [Supported Formats](/audio-player/supported-formats) — Audio file types the player handles

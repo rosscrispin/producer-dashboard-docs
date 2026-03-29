@@ -1,0 +1,130 @@
+---
+title: Project Hierarchy
+description: Learn how to organize your tracks in a nested project structure, filter by parent buckets, and assign songs to multiple projects at once.
+---
+
+In Producer Dashboard, projects are more than just containers — they form a hierarchy. Think of it like folders within folders on your computer, but purpose-built for managing your music workflow. A parent project can gather tracks from itself and all its child projects, giving you flexible ways to organize your songs by album, client, release wave, or creative phase.
+
+This guide walks you through how the project hierarchy works, how to navigate it from the sidebar, and how to assign your tracks to multiple projects without losing your existing organization.
+
+---
+
+## How Projects Form a Hierarchy
+
+Projects in Producer Dashboard can be nested. Any project can serve as a parent to other projects, creating a tree structure that mirrors how you naturally think about your music.
+
+For example, you might have:
+
+- **2025 Releases** (parent)
+  - **Q1 Singles** (child)
+  - **Q2 EPs** (child)
+    - **Summer Vibes EP** (grandchild)
+
+When you select a parent project, the app automatically collects tracks from the parent and every descendant beneath it. This means you can view all your Q1 work by selecting "2025 Releases," or drill down to just the Summer Vibes EP by selecting its bucket directly.
+
+### System Buckets
+
+Some buckets are system-created and protected. The **Archived** bucket, for instance, stores tracks you've finished or shelved. You can assign tracks to it alongside other projects — archiving doesn't remove a track from its active buckets.
+
+---
+
+## Navigating Projects in the Sidebar
+
+The sidebar displays your complete project hierarchy as a collapsible tree. Here's how to work with it:
+
+### Selecting a Single Project
+
+Click any project name in the sidebar to filter your track grid to only that project's songs. The selected project highlights, and the track count updates to show how many songs belong to it.
+
+### Selecting a Parent Project
+
+When you click a parent project, you see tracks from:
+
+- The parent project itself
+- All child projects (and grandchildren, and so on)
+
+This aggregation gives you a broad view without losing the ability to narrow down later.
+
+### Drilling Down to Children
+
+To see only a specific child project's tracks, expand the parent in the sidebar (click the chevron) and select the child directly. The grid then shows only that child's songs — not siblings or the parent.
+
+### Multi-Project Selection
+
+You can select multiple projects simultaneously by clicking additional buckets while holding the modifier key. When multiple projects are selected, the track grid shows songs that belong to any of the chosen projects. The sidebar indicates your multi-selection with checkmarks or highlighted states.
+
+---
+
+## Assigning Tracks to Projects
+
+When you select one or more tracks in the grid, the Activity Panel opens with the Bucket Assignment widget. This widget lets you manage which projects your songs belong to.
+
+### Single Track Assignment
+
+With one track selected, the widget shows all available projects as a scrollable list. Each project appears with:
+
+- A color swatch matching its project color
+- Its name
+- The current track count in that project
+
+Check the box next to a project to assign the track to it. Uncheck to remove it. Your changes save automatically when you click the **Save** button at the bottom of the widget.
+
+### Multiple Track Assignment
+
+When you select two or more tracks, the widget adapts to bulk operations. It shows:
+
+- The number of tracks you've selected
+- Your current bulk apply mode (set in Settings)
+- A union view of all current project assignments across the selection
+
+If the selected tracks belong to different projects, you'll see multiple checkmarks pre-filled. You can add or remove assignments for the entire group at once, and the widget shows only the changes you're making — not the full assignment history for each track.
+
+### The Unassigned Option
+
+At the top of the bucket list sits an **Unassigned** checkbox. Selecting this removes the track(s) from all projects entirely. This is useful for clearing old assignments or starting fresh with a new organization scheme.
+
+### Searching for Projects
+
+If you have many projects, use the search input at the top of the bucket widget. Type part of a project name to filter the list instantly. This helps you find specific buckets without scrolling through a long hierarchy.
+
+---
+
+## How Parent Aggregation Works
+
+Understanding parent aggregation helps you navigate efficiently. Here's the behavior at a glance:
+
+| Selection | Tracks Shown |
+|-----------|--------------|
+| Parent project | Parent + all descendants |
+| Child project | Child only (no siblings, no parent) |
+| No bucket filter | All tracks across all projects |
+| "Unassigned" filter | Tracks not in any project |
+
+This design means you can always widen or narrow your view. Start broad with a parent, then drill down when you're ready to focus on a specific release or group.
+
+### Deadline Cascading
+
+When you set or update a deadline on a parent project, the app offers to cascade that date to all child tracks that don't already have their own due date. This keeps your release timeline organized without manually updating every song.
+
+---
+
+## Tips
+
+- **Use parent projects for broad views** — Select a parent when reviewing all tracks for an album or quarter, then switch to children when working on specific releases.
+
+- **Tracks can live in multiple buckets** — Don't feel pressured to pick one home for each song. A track can belong to a client project and an album project simultaneously.
+
+- **Search before scrolling** — If your sidebar is long, use the search input in the bucket widget rather than hunting through nested folders.
+
+- **Archive doesn't erase** — Moving a track to Archived keeps it there alongside its original project assignments. It's not a move — it's an additional label.
+
+- **Bulk selection is powerful** — Select several tracks and assign them all to a new project in one action. This is faster than editing each track individually.
+
+---
+
+## Related
+
+- [Creating Projects](/projects/creating-projects) — Set up your first project and organize your workspace.
+- [Assigning Songs](/projects/assigning-songs) — Assign individual and multiple tracks to projects using the Activity Panel.
+- [Project Due Dates](/projects/project-due-dates) — Set deadlines and cascade dates across your project hierarchy.
+- [Multi-Project Selection](/projects/multi-project-selection) — Select and filter by multiple projects at once for batch operations.

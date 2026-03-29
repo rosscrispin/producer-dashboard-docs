@@ -1,0 +1,186 @@
+---
+title: Default Project Collaborators
+description: Set default collaborators for new tracks in your projects and manage split allocations automatically.
+---
+
+When you work with the same bandmates, co-producers, or writers on multiple tracks, setting default collaborators saves you from adding the same people over and over. This page explains how default project collaborators work, how splits are calculated, and how to keep your allocations balanced.
+
+---
+
+## What Are Default Collaborators?
+
+Default collaborators are people you pre-assign to a project so they automatically appear on any new tracks you create within that project. Instead of manually adding your co-producer Joshua or your bandmate Sarah every time you start a new song, they're already there.
+
+This feature is especially useful when you:
+
+- Work consistently with the same small team
+- Want to establish ownership splits upfront for every new recording
+- Need certain collaborators to have access to all tracks in a project from day one
+
+When you create a new track in a project with default collaborators, those people are automatically added with the split percentages you configured. You can always adjust their splits or remove them from individual tracks later.
+
+---
+
+## Accessing Default Collaborators
+
+To manage default collaborators for a project:
+
+1. Open the **Projects** view and select your project
+2. Click the **Collaborators** button in the project header
+3. A panel opens showing all current default collaborators
+
+You can also access collaborator settings from the **Overview Widget** when you have tracks selected. Look for the collaborator avatars and click the **Manage Collaborators** link to open the same panel.
+
+---
+
+## Adding a Default Collaborator
+
+In the Collaborators panel, click **Add Collaborator**. A form appears where you can:
+
+- **Search for a user** by name or email address
+- **Set their role** (Owner, Co-Owner, or Contributor)
+- **Configure their splits** for master rights and publishing rights
+
+The split fields accept percentages between 0 and 100. These percentages represent how ownership or publishing rights are divided among collaborators.
+
+:::tip
+Before adding a collaborator, check your current total allocation. If you're already at or near 100%, you'll need to reduce existing splits first to make room for the new collaborator.
+:::
+
+---
+
+## Understanding Splits
+
+Every collaborator on a track has two types of splits:
+
+- **Master Split** — ownership of the recorded audio and master rights
+- **Publishing Split** — ownership of the songwriting and publishing rights
+
+These can be the same or different. For example, a producer might own 50% of the master but 0% of publishing if they didn't write any of the lyrics or melody.
+
+The Collaborators panel displays the total allocation for both split types. You'll see a running total that updates as you add or adjust collaborators:
+
+- **Green text with a checkmark** — total is at or below 100%
+- **Amber or red text with a warning** — total exceeds 100% (this blocks saving)
+
+---
+
+## Auto-Allocate Button
+
+When you have multiple collaborators on a track, manually adjusting each split to total exactly 100% can be tedious. The **Auto-allocate** button solves this.
+
+Click **Auto-allocate** in the Collaborators panel toolbar. The system divides ownership evenly among all current collaborators:
+
+```
+Before Auto-allocate:
+  You (Owner):    Master 100%, Publishing 100%
+  Joshua:         Master 50%, Publishing 50%
+  Sarah:          Master 25%, Publishing 25%
+  Total: 175% ⚠️
+
+After Auto-allocate:
+  You (Owner):    Master 33.33%, Publishing 33.33%
+  Joshua:         Master 33.33%, Publishing 33.33%
+  Sarah:          Master 33.34%, Publishing 33.34%
+  Total: 100% ✓
+```
+
+The system handles odd divisions gracefully. If three collaborators don't divide evenly, the remainder goes to the last collaborator so the total still equals 100%.
+
+A confirmation message appears before applying the changes. If you change your mind, a toast notification lets you undo the action for a few seconds.
+
+---
+
+## Smart Defaults When Adding
+
+When you add a new collaborator to an existing track, the system suggests a split that keeps your total at or below 100%. This is called **smart default splits**.
+
+For example, if you have:
+
+```
+You (Owner): Master 100%, Publishing 100%
+```
+
+And you add Joshua, the system suggests:
+
+```
+You (Owner): Master 50%, Publishing 50%
+Joshua:      Master 50%, Publishing 50%
+```
+
+The suggested split for the new collaborator is calculated based on the remaining allocation after accounting for existing collaborators. You can override this suggestion and enter your own value if needed.
+
+The input field shows a hint indicating how much allocation remains available. If no allocation remains, the hint changes to amber text:
+
+> "No allocation remaining — adjust existing splits first"
+
+---
+
+## Allocation Validation
+
+To prevent accidentally exceeding 100%, the system enforces allocation limits in real time:
+
+1. **Input clamping** — when you type a value larger than the remaining allocation, the input automatically caps at the maximum allowed
+2. **Live totals** — the total percentage updates as you type, with visual warnings when you approach or exceed 100%
+3. **Hard blocks** — you cannot save changes that would cause total allocation to exceed 100%, even if you somehow bypass the input limits
+
+This protection applies whether you're adding a new collaborator, editing an existing one, or bulk-updating multiple rows.
+
+:::tip
+If you need to add a collaborator but have no allocation remaining, go back to existing collaborators and reduce their splits first. Even a small reduction (like 1%) gives you room to add the new person with a token split they can renegotiate later.
+:::
+
+---
+
+## Editing Collaborator Splits
+
+To change a collaborator's splits:
+
+1. Click the split value you want to edit in the Collaborators panel
+2. Enter the new percentage
+3. The total updates automatically
+4. Click **Save** to confirm
+
+You can edit master split and publishing split independently. For example, you might increase a songwriter's publishing split while keeping their master split unchanged.
+
+Changes take effect immediately and sync across all views — the Collaborators panel, the Overview Widget, and the Tracks grid all reflect the updated values.
+
+---
+
+## Removing a Collaborator
+
+To remove a collaborator from a track, click the **Remove** button next to their name in the Collaborators panel. A confirmation prompt appears, and once confirmed, the collaborator is removed.
+
+Removing a collaborator frees up their split allocation. You can then redistribute that percentage to remaining collaborators or add a different person.
+
+---
+
+## Bulk Operations
+
+If you need to apply collaborator changes across multiple tracks at once, use the bulk selection feature in the Tracks grid. Select several tracks, then open the Collaborators panel — your changes apply to all selected tracks simultaneously.
+
+This is useful when you bring on a new band member and need to add them as a default collaborator across an entire album's worth of tracks.
+
+---
+
+## Troubleshooting
+
+**Splits still showing 100% after editing**
+Try refreshing the page. If the issue persists, check that you're editing the correct track and that your changes saved without errors.
+
+**Cannot add collaborator — allocation exceeded**
+Reduce existing collaborators' splits first, then try again. The warning message tells you how much allocation is available.
+
+**Changes not appearing in other views**
+Changes should sync automatically across the Collaborators panel, Overview Widget, and Tracks grid. If you notice a delay, wait a moment for the sync to complete, then refresh if needed.
+
+---
+
+## Related
+
+- [Adding Collaborators](/collaboration/adding-collaborators)
+- [Splits & Rights](/collaboration/splits-and-rights)
+- [Sharing with Collaborators](/collaboration/sharing-with-collaborators)
+- [Permissions](/collaboration/permissions)
+- [Invitations](/collaboration/invitations)
+- [Unsharing & Leaving](/collaboration/unsharing-and-leaving)

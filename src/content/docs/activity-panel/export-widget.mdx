@@ -1,0 +1,119 @@
+---
+title: Export Widget
+description: Export your track metadata as split sheets in multiple formats for Kobalt, Musicbed, PRO registration, and more.
+---
+
+The Export widget in the activity panel lets you generate split sheets and onboarding documents from your track metadata. You can export to CSV, Excel, or PDF formats depending on the destination platform — perfect for sending to music distributors, PROs, or collaborators.
+
+---
+
+## What the Export Widget Does
+
+When you select tracks in the grid and open the Export widget, it gathers all the relevant metadata — composer splits, ISRC codes, artist names, durations, and more — and packages it into a downloadable file tailored to your needs.
+
+The widget intelligently scans your selected tracks for missing information and warns you before export, so you do not send incomplete documents to labels or publishers.
+
+---
+
+## Selecting Tracks to Export
+
+The Export widget works with highlighted tracks in the grid — not bucket assignments. This means you have precise control over exactly which songs go into each export.
+
+**Single selection** — select one track to export its individual split sheet.
+
+**Multiple selection** — highlight multiple tracks in the grid to batch-export them together. The widget shows a count (e.g., "3 tracks selected") so you know what you are about to export.
+
+If no tracks are selected, the widget displays a prompt: "Select tracks to export" with a hint to highlight songs in the grid.
+
+---
+
+## Missing Data Warnings
+
+Before you export, the widget checks each selected track for essential metadata. If anything is missing, you will see warnings displayed prominently above the export options:
+
+- Tracks missing **ISRC** codes
+- Tracks missing **ISWC** codes
+- Tracks missing **artist name**
+- Tracks missing **duration**
+
+These warnings appear in amber to catch your attention without blocking the export. You can still proceed with incomplete data, but the resulting split sheets will have gaps.
+
+### Filling Missing Details
+
+Next to the warning summary, you will find a **"Fill Details"** button. Clicking it opens the Musical Attributes widget in a popup, pre-loaded with the selected track. From there, you can add missing ISRCs, ISWCs, artist names, and durations before returning to export.
+
+---
+
+## Choosing an Export Format
+
+The Export widget supports several format presets, each designed for a specific destination:
+
+### Kobalt Onboard Sheet
+One row per composer per song. Contains 19 columns of data formatted for Kobalt's intake process. Exports as CSV or Excel.
+
+### Musicbed Onboard Sheet
+Consolidated format that includes owner details. Best for Musicbed's composer onboarding workflow. Exports as CSV or Excel.
+
+### Generic Split Sheet
+Standard split sheet format with no platform-specific requirements. Useful for direct artist collaborations or custom workflows. Exports as CSV or Excel.
+
+### PRO Registration
+Multi-tab format containing separate sheets for Works, Writers, and Publishers. Ideal when registering with performing rights organizations. Exports as CSV, Excel, or PDF.
+
+Select your format using the dropdown at the top of the widget. The description updates to explain what each format includes.
+
+---
+
+## Choosing a File Type
+
+Depending on the selected format, you can choose your output file type:
+
+| File Type | Best For |
+|-----------|----------|
+| **CSV** | Universal compatibility, importing into any system |
+| **Excel (.xlsx)** | Maintaining formatting, multi-tab sheets, easy editing |
+| **PDF** | Sharing read-only documents, print-ready output |
+
+The available file types update automatically when you switch formats. For example, PRO Registration format includes PDF as an option, while Kobalt and Musicbed formats do not.
+
+---
+
+## Exporting Your File
+
+Once you have selected your format and file type, click the **Export** button. The button label updates to match your choice (e.g., "Export CSV", "Export Excel", "Export PDF").
+
+### Download Flow
+
+When you click Export:
+
+1. The button shows a loading spinner with "Exporting..."
+2. Your browser's Save As dialog opens automatically, letting you choose where to save the file
+3. If your browser does not support Save As dialogs, the file downloads directly to your default downloads folder
+4. A success toast appears confirming the export
+
+If something goes wrong — a network error, missing data, or server issue — the widget displays an error message and restores the export button so you can try again.
+
+---
+
+## Tips
+
+:::tip
+**Export only what you need.** Since the widget exports highlighted tracks (not buckets), you can precisely select exactly which songs go into each export. This is useful when sending split sheets to different labels or collaborators.
+
+:::tip
+**Batch fill missing data.** If you have multiple tracks missing ISRCs or artist names, use the Fill Details button to add that information one track at a time, then return to the Export widget to check warnings again.
+
+:::tip
+**Use Excel for PRO registration.** The PRO Registration format creates multiple tabs (Works, Writers, Publishers) that are easier to review and edit in Excel than in a CSV viewer.
+
+:::tip
+**Save your exports.** After downloading, keep a copy of your split sheets organized by project or release. You will need them for future reference, royalty claims, or disputes.
+
+---
+
+## Related
+
+- [Activity Panel Overview](/activity-panel)
+- [Musical Attributes Widget](/activity-panel/musical-attributes-widget)
+- [Collaborators Widget](/activity-panel/collaborators-widget)
+- [Overview Widget](/activity-panel/overview-widget)
