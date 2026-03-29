@@ -1,8 +1,10 @@
 {
-	"compatibility_date": "2025-10-08",
-	"main": "src/index.ts",
 	"name": "producer-dashboard-docs",
-	"upload_source_maps": true,
+	"main": "src/worker/index.ts",
+	"compatibility_date": "2026-02-17",
+	"assets": {
+		"directory": "./dist"
+	},
 	"d1_databases": [
 		{
 			"binding": "DB",
