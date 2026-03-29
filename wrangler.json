@@ -1,0 +1,16 @@
+{
+	"compatibility_date": "2025-10-08",
+	"main": "src/index.ts",
+	"name": "producer-dashboard-docs",
+	"upload_source_maps": true,
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_id": "6b330909-1ce5-46cf-aa71-137d392470a6",
+			"database_name": "producer-dashboard-docs"
+		}
+	],
+	"observability": {
+		"enabled": true
+	}
+}
