@@ -1,0 +1,198 @@
+---
+---
+
+<div class="export-menu">
+	<button class="export-toggle" aria-expanded="false" aria-haspopup="true" title="Download this page">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+			<polyline points="7 10 12 15 17 10"/>
+			<line x1="12" y1="15" x2="12" y2="3"/>
+		</svg>
+		<span>Download</span>
+	</button>
+	<div class="export-dropdown" role="menu">
+		<button role="menuitem" data-export="pdf">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+			PDF
+		</button>
+		<button role="menuitem" data-export="text">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+			Plain Text
+		</button>
+		<button role="menuitem" data-export="markdown">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+			Markdown
+		</button>
+	</div>
+</div>
+
+<script>
+	function initExportMenu() {
+		const menu = document.querySelector('.export-menu');
+		if (!menu) return;
+
+		const toggle = menu.querySelector('.export-toggle') as HTMLButtonElement;
+		const dropdown = menu.querySelector('.export-dropdown') as HTMLElement;
+
+		toggle.addEventListener('click', () => {
+			const expanded = toggle.getAttribute('aria-expanded') === 'true';
+			toggle.setAttribute('aria-expanded', String(!expanded));
+			dropdown.classList.toggle('show');
+		});
+
+		document.addEventListener('click', (e) => {
+			if (!menu.contains(e.target as Node)) {
+				toggle.setAttribute('aria-expanded', 'false');
+				dropdown.classList.remove('show');
+			}
+		});
+
+		menu.querySelectorAll('[data-export]').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const format = (btn as HTMLElement).dataset.export;
+				dropdown.classList.remove('show');
+				toggle.setAttribute('aria-expanded', 'false');
+
+				if (format === 'pdf') exportPdf();
+				else if (format === 'text') exportText();
+				else if (format === 'markdown') exportMarkdown();
+			});
+		});
+	}
+
+	function getPageTitle(): string {
+		const h1 = document.querySelector('h1');
+		return h1?.textContent?.trim() || 'document';
+	}
+
+	function getSlug(): string {
+		return window.location.pathname.replace(/\/$/, '') || '/index';
+	}
+
+	function sanitizeFilename(name: string): string {
+		return name.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
+	}
+
+	function downloadBlob(content: string, filename: string, mimeType: string) {
+		const blob = new Blob([content], { type: mimeType });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = filename;
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	}
+
+	function exportPdf() {
+		window.print();
+	}
+
+	function exportText() {
+		const content = document.querySelector('.sl-markdown-content');
+		if (!content) return;
+		const text = content.innerText || content.textContent || '';
+		const title = getPageTitle();
+		downloadBlob(text, `${sanitizeFilename(title)}.txt`, 'text/plain');
+	}
+
+	async function exportMarkdown() {
+		const slug = getSlug();
+		const title = getPageTitle();
+
+		// Try fetching the source .mdx file
+		const paths = [`/_source${slug}.mdx`, `/_source${slug}/index.mdx`];
+		for (const path of paths) {
+			try {
+				const res = await fetch(path);
+				if (res.ok) {
+					const text = await res.text();
+					downloadBlob(text, `${sanitizeFilename(title)}.mdx`, 'text/markdown');
+					return;
+				}
+			} catch { /* try next */ }
+		}
+
+		// Fallback: extract from page content
+		const content = document.querySelector('.sl-markdown-content');
+		if (!content) return;
+		const text = content.innerText || content.textContent || '';
+		downloadBlob(`# ${title}\n\n${text}`, `${sanitizeFilename(title)}.md`, 'text/markdown');
+	}
+
+	// Init on page load and Astro view transitions
+	initExportMenu();
+	document.addEventListener('astro:page-load', initExportMenu);
+</script>
+
+<style>
+	.export-menu {
+		position: relative;
+		display: inline-block;
+	}
+
+	.export-toggle {
+		display: flex;
+		align-items: center;
+		gap: 0.375rem;
+		padding: 0.375rem 0.625rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.375rem;
+		background: transparent;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-xs);
+		cursor: pointer;
+		transition: color 0.15s, border-color 0.15s;
+		white-space: nowrap;
+	}
+
+	.export-toggle:hover {
+		color: var(--sl-color-white);
+		border-color: var(--sl-color-gray-3);
+	}
+
+	.export-dropdown {
+		display: none;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		margin-top: 0.25rem;
+		min-width: 140px;
+		background: var(--sl-color-bg-nav);
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.375rem;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+		z-index: 10;
+		overflow: hidden;
+	}
+
+	.export-dropdown.show {
+		display: block;
+	}
+
+	.export-dropdown button {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		width: 100%;
+		padding: 0.5rem 0.75rem;
+		border: none;
+		background: transparent;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-xs);
+		cursor: pointer;
+		text-align: left;
+	}
+
+	.export-dropdown button:hover {
+		background: var(--sl-color-gray-6);
+		color: var(--sl-color-white);
+	}
+
+	@media print {
+		.export-menu {
+			display: none !important;
+		}
+	}
+</style>

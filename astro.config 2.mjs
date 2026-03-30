@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import copySource from './src/integrations/copy-source';
 
 export default defineConfig({
 	integrations: [
@@ -9,9 +8,6 @@ export default defineConfig({
 			title: 'Producer Dashboard',
 			description: 'Help documentation for Producer Dashboard — the music production management platform.',
 			customCss: ['./src/styles/custom.css'],
-			components: {
-				PageSidebar: './src/components/starlight/PageSidebar.astro',
-			},
 			sidebar: [
 				{
 					label: 'Getting Started',
@@ -226,6 +222,5 @@ export default defineConfig({
 				},
 			],
 		}),
-		copySource(),
 	],
 });

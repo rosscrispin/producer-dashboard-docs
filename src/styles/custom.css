@@ -52,3 +52,90 @@ a, button {
 nav.sidebar {
 	border-right: 1px solid rgba(255, 255, 255, 0.06);
 }
+
+/* Print styles for PDF export */
+@media print {
+	/* Hide everything except content */
+	header,
+	nav,
+	.sidebar,
+	.right-sidebar-panel,
+	.mobile-preferences,
+	starlight-menu-button,
+	.pagination-links,
+	footer,
+	.export-menu,
+	starlight-theme-select,
+	.lg\:sl-hidden {
+		display: none !important;
+	}
+
+	/* Reset dark theme for print */
+	:root,
+	:root[data-theme='dark'],
+	:root[data-theme='light'] {
+		--sl-color-bg: #ffffff;
+		--sl-color-text: #1a1a1a;
+		--sl-color-white: #1a1a1a;
+		--sl-color-gray-1: #333333;
+		--sl-color-gray-2: #666666;
+		--sl-color-text-accent: #2563eb;
+	}
+
+	html, body {
+		background: white !important;
+		color: #1a1a1a !important;
+	}
+
+	/* Full-width content */
+	.main-frame,
+	.main-pane,
+	.content-panel {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	/* Clean typography */
+	.sl-markdown-content {
+		font-size: 11pt;
+		line-height: 1.6;
+		color: #1a1a1a !important;
+	}
+
+	.sl-markdown-content h1,
+	.sl-markdown-content h2,
+	.sl-markdown-content h3 {
+		color: #1a1a1a !important;
+		page-break-after: avoid;
+	}
+
+	.sl-markdown-content pre {
+		border: 1px solid #ddd;
+		background: #f5f5f5 !important;
+		color: #1a1a1a !important;
+		page-break-inside: avoid;
+	}
+
+	.sl-markdown-content code {
+		color: #1a1a1a !important;
+	}
+
+	.sl-markdown-content a {
+		color: #2563eb !important;
+		text-decoration: underline;
+	}
+
+	.sl-markdown-content img {
+		max-width: 100%;
+		page-break-inside: avoid;
+	}
+
+	/* Page title */
+	h1#_top {
+		color: #1a1a1a !important;
+		font-size: 22pt;
+		margin-bottom: 0.5em;
+	}
+}
