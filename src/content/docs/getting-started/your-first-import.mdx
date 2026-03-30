@@ -29,34 +29,30 @@ Producer Dashboard handles three main categories of files:
 
 ## How to Import Your Files
 
-### Step 1: Open the Import Dialog
+There are two ways to get files into Producer Dashboard:
 
-Click the **Import Files** button in the top navigation bar or toolbar. A dialog appears with two main options:
+### Option 1: Drop files into your inbox folders
 
-- **Add Bounces** — select your audio files
-- **Add Projects** — select your project folders
+The simplest approach is to copy or move files directly into the relevant folder inside your PRODUCER-DASHBOARD directory:
 
-You can also add stems by clicking **Add Bounces** and selecting audio files you've designated as stems. The app categorizes them based on which button you use.
+- `PRODUCER-DASHBOARD/bounces/` — for your exported audio mixes
+- `PRODUCER-DASHBOARD/stems/` — for individual instrument or vocal tracks
+- `PRODUCER-DASHBOARD/projects/` — for your DAW project files
 
-### Step 2: Select Your Files
+Once files are in those folders, open the **Files page** in the app and click **Import Files**. The app scans the inbox folders, groups everything by song name, and adds the tracks to your library.
 
-Click **Add Bounces** to open a file picker. Navigate to your bounces folder and select the audio files you want to import. You can select multiple files at once. Supported formats are filtered automatically, so you won't accidentally pick the wrong file types.
+### Option 2: Use the import dialog on the Files page
 
-Click **Add Projects** to select project folders. When you pick a folder containing an Ableton Live project (.als file), the app automatically includes the entire folder structure since Ableton projects rely on external samples and assets.
+On the **Files page**, click **Import Files** to open the dialog. It has two buttons:
 
-### Step 3: Review Your Queue
+- **Add Bounces** — opens a file picker for audio files (WAV, MP3, AIFF, FLAC, M4A, OGG)
+- **Add Projects** — opens a folder picker for DAW project folders
 
-After selecting files, you'll see them listed in the dialog organized by category:
+Select your files, review the queue, then click **Import Files** in the bottom right to start. You'll see a notification when import completes.
 
-- **Bounces** — shown with a blue indicator
-- **Stems** — shown with a purple indicator
-- **Projects** — shown with a yellow indicator
-
-Each file shows its filename so you can verify what you're about to import. If you added files to the wrong category, use the **Clear** button next to that category to remove them all, then re-add them correctly.
-
-### Step 4: Start the Import
-
-Once you've reviewed your queue, click the **Import Files** button in the bottom right corner. The app processes your files, organizes them, and syncs them to your dashboard. Progress is shown in the dialog, and you'll see a notification when import completes.
+:::note
+**Stems:** To import stems, use the inbox folder approach — drop your stem files into `PRODUCER-DASHBOARD/stems/` before running the import. The dialog only handles bounces and projects.
+:::
 
 ---
 
@@ -70,26 +66,26 @@ Behind the scenes, Producer Dashboard does a lot of work to keep your library ne
 
 **Smart Matching** — If you've imported songs before, new files that look like variations of existing tracks get matched to those groups. So if you import "Ancient Dusk - Clean.wav" after already having "Ancient Dusk.wav," both files end up in the same track group.
 
-**Project Symlinks** — For DAW projects, the app creates symbolic links to your original files rather than copying them. This saves disk space while keeping your projects accessible from the dashboard.
+**Project Symlinks** — For Ableton Live projects, the app moves the entire project folder (including `Samples/`) rather than just the `.als` file. For other project types, the original file is replaced with a shortcut (symlink) to save disk space.
 
 ---
 
 ## Understanding the Import Dialog
 
-The import dialog shows several pieces of information to help you track what's happening:
+When you open the import dialog from the Files page:
 
-- **File count** — The bottom of the dialog shows how many files are currently queued across all categories
-- **Category headers** — Each file type shows its own count in parentheses
-- **Welcome banner** — First-time users see a helpful message explaining what import does
+- **File count** — The bottom shows how many files are queued across bounces and projects
+- **Category headers** — Each type shows its own count in parentheses
+- **Welcome banner** — First-time users see a brief explanation of what import does
 
-You can close the dialog at any time by clicking **Cancel** or the X button. If you close without importing, your file selection is discarded.
+You can close the dialog at any time by clicking **Cancel** or the X button. If you close without importing, your selection is discarded.
 
 ---
 
 ## Tips
 
 :::tip
-**Organize your inbox first.** Before importing, keep your bounces, stems, and projects in separate folders on your computer. This makes selecting files faster and reduces the chance of mixing up categories.
+**Use the correct inbox folder.** Bounces go in `PRODUCER-DASHBOARD/bounces/`, stems in `PRODUCER-DASHBOARD/stems/`, and projects in `PRODUCER-DASHBOARD/projects/`. The app classifies files based on which folder they're in — putting stems anywhere else will import them as bounces.
 :::
 
 :::tip

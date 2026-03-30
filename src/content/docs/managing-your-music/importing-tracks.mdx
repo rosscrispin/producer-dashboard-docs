@@ -22,24 +22,30 @@ The grouping step is the clever part. The app normalizes filenames (removing ver
 
 ---
 
-## Opening the Import Dialog
+## Two Ways to Import
 
-You'll find the import option in the toolbar at the top of the Tracks page. Click the **Import Files** button to open the dialog.
+### Drop files into inbox folders
 
-The first time you import, you'll see a welcome message explaining the basics. On subsequent visits, the dialog opens directly to the file selection area.
+Copy or move files into the relevant folder inside your PRODUCER-DASHBOARD directory:
 
-You can also close the dialog by clicking the X button, pressing Escape, or clicking outside the dialog window.
+- `PRODUCER-DASHBOARD/bounces/` — exported audio mixes
+- `PRODUCER-DASHBOARD/stems/` — individual instrument or vocal tracks
+- `PRODUCER-DASHBOARD/projects/` — DAW project files
 
----
+The app classifies files by which folder they're in, not by their extension. Stems **must** go in the `stems/` folder — files added to `bounces/` are always treated as bounces regardless of their content.
 
-## Selecting Files to Import
+Once your files are in place, open the **Files page** and click **Import Files** to trigger the pipeline.
 
-The import dialog has two main buttons for adding files:
+### Use the import dialog on the Files page
 
-- **Add Bounces** — Use this for audio files like WAV, MP3, AIFF, FLAC, and M4A
-- **Add Projects** — Use this for project files like Ableton Live sets (.als), Logic Pro (.logicx), FL Studio (.flp), and others
+On the **Files page**, click **Import Files** to open the dialog. It has two buttons:
 
-When you click either button, a file picker opens. For bounces and stems, you can select multiple files at once. For projects, you select project folders (the app includes any related files in that folder).
+- **Add Bounces** — opens a file picker for audio files (WAV, MP3, AIFF, FLAC, M4A, OGG)
+- **Add Projects** — opens a folder picker for DAW project folders
+
+The dialog handles bounces and projects only. To import stems, use the inbox folder approach above.
+
+You can close the dialog by clicking **Cancel**, pressing Escape, or clicking outside the dialog.
 
 ### File Types Supported
 
@@ -58,7 +64,6 @@ Files that don't match these extensions are skipped automatically.
 After selecting files, they appear in the queue with color-coded sections:
 
 - **Blue** — Bounces (your mixed-down audio files)
-- **Purple** — Stems (individual instrument tracks)
 - **Yellow** — Projects (DAW project files)
 
 Each section shows the filename and includes a count in parentheses. You can remove individual files or clear an entire category using the **Clear** button next to each section.
@@ -116,7 +121,7 @@ The shortest filename in each cluster becomes the track name (after cleanup).
 
 ## Tips
 
-- **Organize your inbox folders first** — Keep bounces, stems, and projects in separate folders before importing. The app reads these folders and categorizes files accordingly.
+- **Use the correct inbox folder** — Bounces go in `PRODUCER-DASHBOARD/bounces/`, stems in `PRODUCER-DASHBOARD/stems/`, projects in `PRODUCER-DASHBOARD/projects/`. The app classifies files by folder location, not extension. Stems placed in any other folder will be treated as bounces.
 - **Name files with the song name first** — Files like "Midnight Bloom - Radio Edit.wav" group correctly. Random names like "Track42_Final_v3.wav" may create their own solo groups.
 - **Import regularly** — The more tracks you have, the better the matching works. An existing library helps new imports connect automatically.
 - **Watch for duplicate warnings** — If a file already exists in your tracks folder, it won't be re-imported. This prevents clutter and keeps your library clean.
