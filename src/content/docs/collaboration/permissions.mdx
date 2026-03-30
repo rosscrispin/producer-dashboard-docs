@@ -1,0 +1,141 @@
+---
+title: Permissions
+description: Understand collaborator roles, access levels, and split allocations in your projects — who can do what and how ownership breaks down.
+---
+
+When you bring collaborators into your projects, understanding permissions helps you control who sees what, who can make changes, and how ownership and royalties get distributed. This guide walks you through the permission model in Producer Dashboard so you can collaborate with confidence.
+
+---
+
+## Roles: Owner vs. Collaborator
+
+Every track has one person who created it — the **owner** — and any number of people they've invited to work on it — the **collaborators**. These roles work differently:
+
+**Owner**
+The person who originally created the track. Owners have full control over everything: editing the track, managing collaborators, changing split allocations, and even deleting the track. When you create a new track, you start as its owner by default.
+
+**Collaborator**
+Someone invited to work on the track. Collaborators can view and (depending on their access level) edit the track, but they cannot delete it or manage other collaborators without the owner's permission.
+
+### Track Groups and Permissions
+
+When you organize tracks into track groups, permissions cascade down from the group level. Adding a collaborator to a track group gives them access to all tracks within that group. This is useful for managing permissions across entire albums or projects without setting them up track by track.
+
+---
+
+## Access Levels
+
+When inviting a collaborator, you choose their access level — essentially, how much control they have over the project:
+
+**Full Access**
+Collaborators can edit the track, adjust their own split allocations, and invite other collaborators. Use this for producers, co-writers, or trusted creative partners who need to make decisions.
+
+**Edit Only**
+Collaborators can modify the track but cannot change collaborator settings or invite new team members. This works well for mix engineers or session musicians who contribute to the work without needing administrative control.
+
+**View Only**
+Collaborators can see the track, its details, and any shared files — but they cannot make any changes. Great for managers, A&R representatives, or anyone who needs to stay informed without editing permissions.
+
+### Choosing Access Levels
+
+Match access levels to what each person actually needs to do. A mixing engineer needs edit access to do their job. A songwriter may only need to view progress and leave feedback. A manager might just want visibility without touching anything. Giving people the minimum access they need keeps your project secure while still enabling smooth collaboration.
+
+---
+
+## Split Allocations (Rights)
+
+Split allocations determine what percentage of ownership or royalty rights each person holds on a track. Producer Dashboard tracks three types of splits:
+
+**Master Split**
+Ownership of the actual recording — the produced, mixed, and mastered audio file.
+
+**Publishing Split**
+Ownership of the composition — the songwriting, lyrics, and musical elements.
+
+**Writer Split**
+Attribution specifically for songwriting contributions (a subset of publishing).
+
+These splits matter because they determine who gets paid royalties, who receives credit, and how legal ownership breaks down. Getting them right protects everyone involved.
+
+### Viewing and Editing Splits
+
+When you open the Collaborators panel for a track, you see each person's role and their allocations across master, publishing, and writer splits. The owner and each collaborator have their own rows with editable percentage fields.
+
+The interface shows the current total for each split type, making it easy to see if you're at 100% or if there's room to allocate more.
+
+### Auto-Allocate
+
+Instead of calculating percentages manually, use the **Auto-allocate** button to split ownership evenly among all collaborators. Click it, and the system divides each split type equally — handling rounding automatically (for example, three people might get 33.33%, 33.33%, and 33.34%).
+
+This is handy when you want fair, equal ownership without doing math. You can always override the suggested values afterward if you need to adjust.
+
+### Smart Defaults
+
+When you add a new collaborator, the system suggests a split based on what's left unallocated. It looks at the remaining percentage and offers a fair starting point — something like "25% remaining" shown under the input field.
+
+The system also prevents you from accidentally creating an over-allocation. If entering a value would push the total above 100%, you'll see a warning and the save will be blocked. This protects everyone from allocation mistakes.
+
+### Validation in Action
+
+The split system enforces a few important rules:
+
+- Each split type (master, publishing, writer) must total exactly 100%
+- You cannot save allocations that exceed 100% — the system blocks the action and shows a warning
+- When adding a collaborator, inputs are capped at the remaining available percentage
+- Server-side validation ensures these rules can't be bypassed through the API
+
+### Example: Adding a New Collaborator
+
+Say you're working on "Midnight Sessions" with producer Alex. You each hold 50% of all splits. Now you want to bring in songwriter Jordan for the lyrics.
+
+When you click "Add Collaborator," the system sees that only 50% is unallocated. It suggests allocating that remaining 50% between Alex and Jordan — so Alex might stay at 50%, and Jordan gets 25% across all split types. The interface clearly shows "50% remaining" under the inputs.
+
+You can accept the suggestion or adjust it within the remaining limit. Once Jordan's allocations are set, the totals show 100% across all split types.
+
+### Owner Splits
+
+Even as the track owner, your splits need to be recorded explicitly in the collaborator system — they're not assumed to be 100% by default. This ensures every allocation is intentional. If you haven't set your own splits, they may display as 0% until you enter values, which acts as a reminder to define ownership clearly.
+
+---
+
+## How Permissions Affect the Dashboard
+
+Permissions determine what collaborators can see and do throughout Producer Dashboard:
+
+- **Collaborators widget** — shows everyone working on the track, their roles, and current split allocations
+- **Overview widget** — displays collaborator avatars so you can quickly see who's involved
+- **Tracks grid** — represents collaborators visually so you can spot team members across your project list
+- **Activity panel** — tracks changes and notifies relevant collaborators about updates
+
+A collaborator with view-only access sees the track but cannot open editing panels or modify anything. Someone with edit access can make changes but won't see options to manage other collaborators.
+
+---
+
+## Revoking Access
+
+When you remove a collaborator from a track, their access ends immediately. They'll no longer see the track in their dashboard, and their split allocations open up for redistribution among remaining collaborators.
+
+For complete removal from a project or track group (including all associated tracks), use the **Unsharing** feature from the Sharing panel. Collaborators who leave a project voluntarily use the **Leave** option, which removes their access from all shared content.
+
+---
+
+## Tips
+
+- **Start with clear splits** — Define ownership early, even if it's just you and one collaborator. It prevents confusion later when more people join.
+
+- **Use full access sparingly** — Only grant full access to people who genuinely need to manage collaborators. This reduces the risk of accidental changes.
+
+- **Review splits before releasing** — Before you publish or distribute a track, verify all split totals equal 100%. This protects everyone legally and ensures royalties flow correctly.
+
+- **Group-level permissions save time** — If you're working with the same team across an album, use track groups to manage permissions in one place rather than track by track.
+
+---
+
+## Related
+
+- [Adding Collaborators](/collaboration/adding-collaborators)
+- [Splits & Rights](/collaboration/splits-and-rights)
+- [Sharing with Collaborators](/collaboration/sharing-with-collaborators)
+- [Invitations](/collaboration/invitations)
+- [Default Project Collaborators](/collaboration/default-project-collaborators)
+- [Unsharing & Leaving](/collaboration/unsharing-and-leaving)

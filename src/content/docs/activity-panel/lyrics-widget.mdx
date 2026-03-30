@@ -1,0 +1,93 @@
+---
+title: Lyrics Widget
+description: Write, edit, and save lyrics directly from the activity panel while working on your tracks.
+---
+
+The lyrics widget gives you a dedicated space to write and edit song lyrics without leaving your workflow. It lives in the activity panel alongside other track details, so you can keep your focus on the big picture while refining the words that bring your music to life.
+
+Whether you're drafting verses in a coffee shop or polishing a bridge section before a deadline, the lyrics widget keeps your text accessible and up to date with your track's metadata.
+
+---
+
+## Viewing the Widget
+
+The lyrics widget appears collapsed by default in the activity panel. Look for the document icon (a page with a folded corner) in the widget list. When you click to expand it, the widget loads immediately with your current selection context.
+
+### Single Track Selected
+
+When you have one track selected, the widget displays:
+
+- A **text area** pre-filled with any existing lyrics from that track
+- A **Save Lyrics** button below the text area
+- Helper text prompting you to click save when you're done
+
+The text area is large enough to accommodate full song lyrics with room to spare. It scrolls independently using the app's dark theme scrollbar, so long documents don't break the panel's layout.
+
+### No Track Selected
+
+If you open the activity panel without selecting any tracks, the widget shows a simple placeholder message: "Select a track to view lyrics." This is normal behavior — the widget needs to know which track to read from and write to.
+
+### Multiple Tracks Selected
+
+When you select two or more tracks in the grid, the widget adapts to acknowledge the situation. You'll see a yellow warning banner that reads: "3 tracks selected — lyrics are track-specific" (or whatever number applies). The text area below becomes read-only and displays placeholder text inviting you to select a single track.
+
+Lyrics are stored per-track in each song's metadata, so it wouldn't make sense to edit them across multiple selections. This design prevents accidental overwrites and keeps the interface honest about what actions are possible.
+
+---
+
+## Writing and Saving Lyrics
+
+Here's how to work with the lyrics widget in practice:
+
+1. **Select your track** — click any song in the track grid to load it into the activity panel
+2. **Expand the lyrics widget** — click the widget header or wait for it to auto-expand if configured
+3. **Type or paste your lyrics** — the text area accepts standard keyboard input, including multi-line text and special characters
+4. **Click Save Lyrics** — the button processes your input and updates the track
+
+The save process shows visual feedback directly on the button itself. When you click save, the button briefly displays "Saving..." with a spinning icon while the update processes. If everything works, it switches to "Saved!" with a green background for two seconds before returning to normal. If something goes wrong, you'll see "Failed to Save" in red, and the button resets after two seconds so you can try again.
+
+Behind the scenes, your lyrics are stored in the track's metadata and sync with the server automatically. The next time you select that track, your saved lyrics will be there waiting.
+
+---
+
+## Using Lyrics Across Your Workflow
+
+The lyrics widget integrates naturally with the rest of the activity panel. Here are some scenarios where it shines:
+
+**Before a vocal session** — open the lyrics widget and review your draft while listening to the instrumental. Make quick edits and save them before you head into the booth.
+
+**Collaborating with a lyricist** — if you're working with a writer who doesn't have DAW access, they can send you text files. Copy and paste their verses into the widget and save it to the track so everyone's working from the same document.
+
+**During mix revisions** — sometimes a lyric lands differently after hearing the final mix. Jump to the lyrics widget, tweak a line, and save it without interrupting your mixing flow.
+
+**Organizing ideas** — even if a track is just an instrumental demo, you can use the lyrics widget as a scratchpad for future ideas. Write placeholder verses that might become real lyrics someday.
+
+---
+
+## Tips
+
+:::tip
+Use keyboard shortcuts like Ctrl+A (or Cmd+A on Mac) to select all text quickly, making it easy to replace entire lyrics in one action.
+:::
+
+:::tip
+Your lyrics save automatically when you click the button, but there's no auto-save while you type. Get into the habit of saving before switching to another widget to avoid losing changes.
+:::
+
+:::tip
+If you're copying lyrics from a word processor or notes app, paste them in plain text (Ctrl+Shift+V) to avoid bringing over unexpected formatting.
+:::
+
+:::tip
+The lyrics widget displays content from the track's metadata. If your track is linked to a metadata source like Spotify for Artists, those lyrics won't automatically appear here — you'd need to paste them in manually.
+:::
+
+---
+
+## Related
+
+- [Activity Panel Overview](/activity-panel) — understand how widgets work together in the panel
+- [Overview Widget](/activity-panel/overview-widget) — see all track details in one snapshot
+- [Comments Widget](/activity-panel/comments-widget) — discuss lyrics with your collaborators
+- [Metadata Widget](/activity-panel/metadata-widget) — manage other track metadata fields
+- [Tags Widget](/activity-panel/tags-widget) — organize tracks by style, mood, or theme

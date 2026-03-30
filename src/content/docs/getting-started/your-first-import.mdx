@@ -1,0 +1,116 @@
+---
+title: Your First Import
+description: Learn how to import your bounces, stems, and project files into Producer Dashboard to start organizing your music library.
+---
+
+Welcome to Producer Dashboard! Before you can start managing your tracks, you'll need to import your music files. This guide walks you through the import process so you can get your bounces, stems, and projects organized and ready to work with.
+
+---
+
+## What Is Import?
+
+Import is how you bring your music files into Producer Dashboard. When you import files, the app scans them, figures out which songs they belong to, and organizes everything into a tidy folder structure. It also syncs your tracks to the database so they appear in your dashboard grid.
+
+Think of import as the bridge between your raw files scattered across your computer and your organized music library inside the app.
+
+---
+
+## Supported File Types
+
+Producer Dashboard handles three main categories of files:
+
+**Bounces** are your exported audio files — the final mixes, radio edits, or alternate versions of your songs. Supported formats include WAV, MP3, AIFF, FLAC, and M4A.
+
+**Stems** are the individual track elements you bounced out separately — bass stems, vocal stems, drums, and so on. They use the same audio formats as bounces.
+
+**Projects** are your actual DAW session files from Ableton Live, Logic Pro, FL Studio, Pro Tools, Cubase, Reason, or Reaper. These let you jump straight into editing a project from your dashboard.
+
+---
+
+## How to Import Your Files
+
+### Step 1: Open the Import Dialog
+
+Click the **Import Files** button in the top navigation bar or toolbar. A dialog appears with two main options:
+
+- **Add Bounces** — select your audio files
+- **Add Projects** — select your project folders
+
+You can also add stems by clicking **Add Bounces** and selecting audio files you've designated as stems. The app categorizes them based on which button you use.
+
+### Step 2: Select Your Files
+
+Click **Add Bounces** to open a file picker. Navigate to your bounces folder and select the audio files you want to import. You can select multiple files at once. Supported formats are filtered automatically, so you won't accidentally pick the wrong file types.
+
+Click **Add Projects** to select project folders. When you pick a folder containing an Ableton Live project (.als file), the app automatically includes the entire folder structure since Ableton projects rely on external samples and assets.
+
+### Step 3: Review Your Queue
+
+After selecting files, you'll see them listed in the dialog organized by category:
+
+- **Bounces** — shown with a blue indicator
+- **Stems** — shown with a purple indicator
+- **Projects** — shown with a yellow indicator
+
+Each file shows its filename so you can verify what you're about to import. If you added files to the wrong category, use the **Clear** button next to that category to remove them all, then re-add them correctly.
+
+### Step 4: Start the Import
+
+Once you've reviewed your queue, click the **Import Files** button in the bottom right corner. The app processes your files, organizes them, and syncs them to your dashboard. Progress is shown in the dialog, and you'll see a notification when import completes.
+
+---
+
+## How Your Files Get Organized
+
+Behind the scenes, Producer Dashboard does a lot of work to keep your library neat:
+
+**Song Grouping** — The app reads each filename and extracts the core song name by stripping out version numbers (like "v1" or "v11"), date stamps, suffixes like "clean," "radio edit," or "final mix," and technical specs like bitrate or BPM. Files that belong to the same song get grouped together automatically.
+
+**Folder Structure** — Your imported files are organized into a `tracks/` folder hierarchy. Bounces go into song-specific folders alongside their stems and projects, keeping everything connected.
+
+**Smart Matching** — If you've imported songs before, new files that look like variations of existing tracks get matched to those groups. So if you import "Ancient Dusk - Clean.wav" after already having "Ancient Dusk.wav," both files end up in the same track group.
+
+**Project Symlinks** — For DAW projects, the app creates symbolic links to your original files rather than copying them. This saves disk space while keeping your projects accessible from the dashboard.
+
+---
+
+## Understanding the Import Dialog
+
+The import dialog shows several pieces of information to help you track what's happening:
+
+- **File count** — The bottom of the dialog shows how many files are currently queued across all categories
+- **Category headers** — Each file type shows its own count in parentheses
+- **Welcome banner** — First-time users see a helpful message explaining what import does
+
+You can close the dialog at any time by clicking **Cancel** or the X button. If you close without importing, your file selection is discarded.
+
+---
+
+## Tips
+
+:::tip
+**Organize your inbox first.** Before importing, keep your bounces, stems, and projects in separate folders on your computer. This makes selecting files faster and reduces the chance of mixing up categories.
+:::
+
+:::tip
+**Use clear filenames.** The app strips version numbers and suffixes automatically, but descriptive names like "Midnight Walk (Radio Edit)" group more reliably than "MW_RE_v2_final_FINAL.wav."
+:::
+
+:::tip
+**Import regularly.** Rather than dumping hundreds of files at once, import new bounces and projects as you finish them. This keeps your dashboard current and makes it easier to track your workflow.
+:::
+
+:::tip
+**Match to existing tracks.** When you import a new bounce of a song you already have in the app, the app automatically groups it with that track. No extra steps needed — just import and it's sorted.
+:::
+
+---
+
+## Related
+
+- [Getting Started](/getting-started) — Return to the getting started hub
+- [Download & Install](/getting-started/download-and-install) — Set up the desktop app
+- [Creating Your Account](/getting-started/creating-your-account) — Connect to the cloud
+- [Quick Start](/getting-started/quick-start) — Get up and running fast
+- [Your First Project](/getting-started/your-first-project) — Create and manage your first track
+- [Quick Tour](/getting-started/quick-tour) — Explore the interface

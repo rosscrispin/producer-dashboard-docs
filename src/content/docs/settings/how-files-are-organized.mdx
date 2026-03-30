@@ -1,0 +1,157 @@
+---
+title: How Files Are Organized
+description: Learn how Producer Dashboard automatically groups your bounces, stems, and projects into track folders during import.
+---
+
+When you drop files into Producer Dashboard's inbox folders, the system doesn't just store them randomly. It intelligently scans, groups, and organizes everything by song — so you always know where your work lives.
+
+This page explains what happens to your files when you import them, how the system determines which files belong together, and what the organized folder structure looks like afterward.
+
+---
+
+## The Import Pipeline
+
+When you add files to your inbox folders, Producer Dashboard processes them through a four-stage pipeline. You don't need to do anything manually — it all happens automatically in the background.
+
+### Stage 1: Scanning
+
+The app scans three inbox folders for new files:
+
+- `bounces/` — for exported audio mixes
+- `stems/` — for individual instrument or vocal tracks
+- `projects/` — for your DAW project files (Ableton Live, Logic Pro, FL Studio, and more)
+
+Any files already linked to existing track groups are skipped to avoid duplicates.
+
+### Stage 2: Grouping
+
+Files are grouped by song name using intelligent pattern matching. The system strips out version numbers, timestamps, and other suffixes to find the core song identity — so `My Song v3 - Clean.wav` and `My Song Full Mix.wav` both get grouped under "My Song."
+
+### Stage 3: Organizing
+
+Files are moved from the inbox folders into a structured `tracks/` hierarchy organized by song name and file type. If you already have a project file in the organized folder, the inbox copy gets replaced with a shortcut (symlink) to save disk space.
+
+### Stage 4: Syncing
+
+The organized track groups and their associated files are synced to your cloud database, making them available across devices and visible to collaborators.
+
+---
+
+## File Types and Folders
+
+Understanding which files go where helps you set up your workflow correctly.
+
+### Audio Files (Bounces and Stems)
+
+Both bounces and stems use the same audio formats: WAV, MP3, AIFF, FLAC, and M4A. The difference is purely about location:
+
+| Inbox Folder | Expected Content |
+|--------------|------------------|
+| `bounces/` | Full song mixes — your final or work-in-progress renders |
+| `stems/` | Isolated tracks — drums, bass, vocals, and so on |
+
+### Project Files
+
+Your DAW projects are stored in the `projects/` inbox folder. Supported formats include:
+
+- Ableton Live (`.als`) — the entire project folder is moved, not just the file
+- Logic Pro (`.logicx`)
+- FL Studio (`.flp`)
+- Pro Tools (`.ptx`)
+- Cubase (`.cpr`)
+- Reaper (`.rpp`)
+- Reason (`.reason`)
+- Studio One (`.song`)
+
+:::note
+**Ableton Live projects:** When you import an `.als` file, Producer Dashboard moves the entire project folder including the `Samples/` subfolder. This keeps all referenced audio files linked correctly.
+:::
+
+---
+
+## How Song Names Are Extracted
+
+The grouping system needs to figure out which files belong to the same song. To do this, it normalizes every filename by removing things that aren't part of the song name itself.
+
+### What Gets Stripped
+
+The normalizer removes common suffixes and metadata from filenames:
+
+- Version numbers (`v1`, `V3`, `version 2`)
+- Timestamps (`2.06.22 am`, `[2025-10-09]`)
+- Technical specs (`320kbps`, `44.1khz`, `128bpm`)
+- Common mix identifiers (`clean`, `full mix`, `radio edit`, `demo`, `wip`, `mastered`, `final`)
+
+For example, these filenames all normalize to the same song name:
+
+- `Midnight City v11 - CLEAN.wav`
+- `Midnight City - Full Mix.mp3`
+- `Midnight City Radio Edit.wav`
+
+All three get grouped under **Midnight City**.
+
+### Edge Cases
+
+The normalizer is smart enough not to strip words that are actually part of your song title. If you have a song called "Clean Slate," it stays as "clean slate" — it won't incorrectly become just "slate."
+
+Hyphen-separated suffixes are also handled correctly. `My Song - Clean` and `My Song - Full Mix` both group together properly.
+
+---
+
+## How Files Get Matched to Existing Songs
+
+If you've already imported files for a song, new files matching that song should automatically attach to the existing group rather than creating duplicates.
+
+### Database Matching (Phase 1)
+
+First, every incoming file is checked against songs already in your database. The system looks for cases where the new filename contains an existing song name — so if you have "Ancient Dusk" in your library and import `Ancient Dusk clean.wav`, it matches instantly.
+
+### Smart Clustering (Phase 2)
+
+Files that don't match an existing song are compared against each other using a similarity algorithm. Files with very similar names get grouped into new track groups automatically.
+
+For example, if you import three files that are all variations of the same song — `New Idea v1.wav`, `New Idea v2.wav`, and `New Idea v3.wav` — the system recognizes they're likely the same song and creates a single group called "New Idea."
+
+---
+
+## The Organized Folder Structure
+
+After import, your files live in a clean, hierarchical folder structure:
+
+```
+tracks/
+├── Ancient Dusk/
+│   ├── bounces/
+│   │   └── Ancient Dusk - Clean.wav
+│   ├── stems/
+│   │   ├── Ancient Dusk Drums.wav
+│   │   └── Ancient Dusk Bass.wav
+│   └── projects/
+│       └── Ancient Dusk Project.als
+└── Midnight City/
+    ├── bounces/
+    └── stems/
+```
+
+Your original inbox folders (`bounces/`, `stems/`, `projects/`) are kept clean — any files that already exist in the organized hierarchy get removed from the inbox during import.
+
+---
+
+## Tips
+
+- **Keep your inbox folders organized** — dump your latest bounces, stems, and projects into the correct inbox folder before triggering an import. The system does the rest.
+
+- **Use consistent naming** — if you name your files `Song Name - Mix Type.wav`, the normalizer handles the "Mix Type" suffix automatically. Consistent naming helps the system group files correctly on the first import.
+
+- **Import before editing metadata** — if you plan to edit track details (artwork, collaborators, stage), let the import complete first. This ensures the track group is fully set up before you start adding metadata.
+
+- **Watch for duplicate groups** — if you see two groups for the same song, check if there's a filename variation the normalizer didn't catch. You can manually merge groups from the track detail view.
+
+---
+
+## Related
+
+- [Connecting Dropbox](/settings/connecting-dropbox) — sync files across devices
+- [Managing Dropbox Connection](/settings/managing-dropbox-connection) — troubleshoot sync issues
+- [Profile & Avatar](/settings/profile-and-avatar) — personalize your workspace
+- [Notifications](/settings/notifications) — stay updated on import completions

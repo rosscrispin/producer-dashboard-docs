@@ -1,0 +1,101 @@
+---
+title: Todos Widget
+description: Keep your production checklist organized with the Todos widget — add, track, and complete tasks directly from the activity panel.
+---
+
+The Todos widget gives you a built-in checklist for each track in your project. Instead of juggling sticky notes or switching between apps, you can jot down reminders, track progress on revisions, and mark items complete — all from the activity panel on the right side of your screen.
+
+This widget connects to your track's todo list, which lives alongside your track's other details. Whether you're waiting on a mix revision, need to remember to add metadata, or want to flag something for a collaborator, todos keep you organized without leaving the Producer Dashboard.
+
+---
+
+## Adding a Todo
+
+When you have a single track selected, the Todos widget displays an **Add Todo** button at the top of the panel. Click it to open the add todo modal where you can enter your task details.
+
+The Add Todo button only appears when exactly one track is selected. This ensures your todos stay organized and attached to the correct track — adding todos to multiple tracks at once could create confusion about which track each task belongs to.
+
+If you've selected multiple tracks and want to add a todo, you'll see a yellow warning message instead:
+
+> ⚠️ Select a single track to add todos
+
+This tells you to narrow your selection down to one track before you can create a new task.
+
+---
+
+## Viewing Your Todos
+
+The Todos widget displays your tasks in a scrollable list below the Add Todo button. Each todo appears as a separate item, showing its content and current status.
+
+When you open the activity panel, the widget automatically loads the todos for the selected track and renders them in the list. The list has a maximum height of 400 pixels before it becomes scrollable, so even tracks with many todos stay organized and easy to navigate.
+
+Your todos persist with your track, so they remain available whenever you select that track again — no need to re-enter them each session.
+
+---
+
+## Managing Todos
+
+The Todos widget integrates with TodoManager to handle all your task operations. From the widget, you can:
+
+- **Add new todos** — create tasks with the Add Todo button
+- **Mark todos complete** — check off items as you finish them
+- **Edit existing todos** — update task text or details
+- **Delete todos** — remove tasks you no longer need
+
+All changes save automatically, keeping your checklist in sync across your workspace.
+
+---
+
+## Understanding the Widget States
+
+The Todos widget behaves differently depending on your current selection:
+
+### No Track Selected
+When nothing is selected in the track grid, the activity panel may show an empty state or a message prompting you to select a track. Todos are tied to specific tracks, so they only appear when a track is active.
+
+### Single Track Selected
+With one track highlighted, you see the full Todos interface — the Add Todo button and your complete task list for that track. This is the primary working mode for managing your production checklist.
+
+### Multiple Tracks Selected
+When two or more tracks are selected, the Add Todo button disappears and the warning message appears instead. The widget still shows existing todos, but you can't add new ones until you select a single track.
+
+---
+
+## How It Fits Into Your Workflow
+
+The Todos widget works alongside other widgets in the activity panel to give you a complete picture of your track's status. While the Overview widget shows you the high-level snapshot, todos let you drill into specific action items.
+
+For example, while editing a track, you might:
+
+1. Check the **Overview** to confirm the track's current stage and deadline
+2. Review your **Comments** for collaborator feedback
+3. Add a todo to track "Send to mixer by Friday"
+4. Mark previous todos complete as you work through them
+
+This integration keeps your entire track management in one place, reducing context-switching and helping you stay focused on production.
+
+---
+
+## Tips
+
+:::tip[Batch Selection Reminder]
+If you're working with multiple tracks and need to add todos, hold **Shift** or **Cmd/Ctrl** to deselect tracks until only one remains. The Add Todo button will reappear once you've narrowed your selection.
+:::
+
+:::tip[Todo as a Progress Tracker]
+Use todos to track revision rounds. Create items like "Mix revision 1 — bass too loud" and "Mix revision 2 — vocals need reverb boost." When all todos are complete, your track might be ready for the next stage.
+:::
+
+:::tip[Collapse When Not Needed]
+If you don't need to see your todos right now, click the collapse arrow on the widget header. The list stays loaded in the background, so it renders instantly the next time you expand it.
+:::
+
+---
+
+## Related
+
+- [Activity Panel Overview](/activity-panel)
+- [Overview Widget](/activity-panel/overview-widget)
+- [Comments Widget](/activity-panel/comments-widget)
+- [Stage & Workflow Widget](/activity-panel/stage-workflow-widget)
+- [Collaborators Widget](/activity-panel/collaborators-widget)
