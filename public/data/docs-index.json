@@ -1,0 +1,734 @@
+[
+  {
+    "slug": "activity-and-notifications/daily-workflow",
+    "title": "Daily Workflow",
+    "section": "activity-and-notifications",
+    "summary": "Central workflow panel combining activity feed, notifications, and project updates for music producers."
+  },
+  {
+    "slug": "activity-and-notifications/how-notifications-appear",
+    "title": "How Notifications Appear",
+    "section": "activity-and-notifications",
+    "summary": "Explains the bell icon, notification badge, and what each notification type means in Producer Dashboard."
+  },
+  {
+    "slug": "activity-and-notifications/notification-settings",
+    "title": "Notification Settings",
+    "section": "activity-and-notifications",
+    "summary": "Control which updates Producer Dashboard sends, how often, and through which channels."
+  },
+  {
+    "slug": "activity-and-notifications/smart-notifications",
+    "title": "Smart Notifications",
+    "section": "activity-and-notifications",
+    "summary": "Intelligent notification system that surfaces timely, relevant alerts for collaborations, deadlines, and workflow changes."
+  },
+  {
+    "slug": "activity-and-notifications/the-activity-feed",
+    "title": "The Activity Feed",
+    "section": "activity-and-notifications",
+    "summary": "Chronological feed of all project activity including collaboration invites, deadline reminders, and comments."
+  },
+  {
+    "slug": "activity-panel/artwork-widget",
+    "title": "Artwork Widget",
+    "section": "activity-panel",
+    "summary": "Upload or AI-generate album artwork for single or multiple tracks directly from the activity panel."
+  },
+  {
+    "slug": "activity-panel/bucket-widget",
+    "title": "Bucket Widget",
+    "section": "activity-panel",
+    "summary": "Assign tracks to organizational buckets or playlists to group music by project, client, or category."
+  },
+  {
+    "slug": "activity-panel/collaborators-widget",
+    "title": "Collaborators Widget",
+    "section": "activity-panel",
+    "summary": "Manage collaborators and adjust master/publishing ownership splits for single or multiple tracks."
+  },
+  {
+    "slug": "activity-panel/comments-widget",
+    "title": "Comments Widget",
+    "section": "activity-panel",
+    "summary": "Add timestamped, bounce-specific comments and track collaborator feedback threads within the activity panel."
+  },
+  {
+    "slug": "activity-panel/due-date-widget",
+    "title": "Due Date Widget",
+    "section": "activity-panel",
+    "summary": "Set and track track deadlines with a visual calendar and color-coded urgency indicators in the activity panel."
+  },
+  {
+    "slug": "activity-panel/export-widget",
+    "title": "Export Widget",
+    "section": "activity-panel",
+    "summary": "Generate split sheets and onboarding documents from track metadata in CSV, Excel, or PDF format."
+  },
+  {
+    "slug": "activity-panel/files-widget",
+    "title": "Files Widget",
+    "section": "activity-panel",
+    "summary": "View and manage Dropbox audio files, share public links, and verify stems without leaving the activity panel."
+  },
+  {
+    "slug": "activity-panel",
+    "title": "Activity Panel Overview",
+    "section": "activity-panel",
+    "summary": "Central right-side panel with stacked widgets for managing all track details, metadata, and collaborator tools."
+  },
+  {
+    "slug": "activity-panel/lyrics-widget",
+    "title": "Lyrics Widget",
+    "section": "activity-panel",
+    "summary": "Write and edit song lyrics directly within the activity panel alongside other track metadata."
+  },
+  {
+    "slug": "activity-panel/marketing-widget",
+    "title": "Marketing Widget",
+    "section": "activity-panel",
+    "summary": "Enable licensing, set prices, and choose buyer contact methods to sell tracks from your catalog."
+  },
+  {
+    "slug": "activity-panel/musical-attributes-widget",
+    "title": "Musical Attributes Widget",
+    "section": "activity-panel",
+    "summary": "View and edit key, BPM, genre, mood, and registration codes as a track's musical ID card."
+  },
+  {
+    "slug": "activity-panel/overview-widget",
+    "title": "Overview Widget",
+    "section": "activity-panel",
+    "summary": "At-a-glance card showing artwork, stage badge, collaborators, due date, and key track details at the top of the panel."
+  },
+  {
+    "slug": "activity-panel/sharing-widget",
+    "title": "Sharing Widget",
+    "section": "activity-panel",
+    "summary": "Share track Dropbox folders with collaborators individually or in bulk, with owner and collaborator role-based controls."
+  },
+  {
+    "slug": "activity-panel/stage-workflow-widget",
+    "title": "Stage & Workflow Widget",
+    "section": "activity-panel",
+    "summary": "Move tracks through production pipeline stages with one click to track and manage project progress."
+  },
+  {
+    "slug": "activity-panel/tags-widget",
+    "title": "Tags Widget",
+    "section": "activity-panel",
+    "summary": "Search, create, and apply custom tags to single or multiple tracks to categorize and organize your catalog."
+  },
+  {
+    "slug": "activity-panel/todos-widget",
+    "title": "Todos Widget",
+    "section": "activity-panel",
+    "summary": "Add, track, and complete production tasks from the activity panel's built-in checklist widget."
+  },
+  {
+    "slug": "activity-panel/track-warnings-widget",
+    "title": "Track Warnings Widget",
+    "section": "activity-panel",
+    "summary": "Surfaces version consistency issues like missing audio or outdated stems so you can resolve them quickly."
+  },
+  {
+    "slug": "ai-assistant/example-queries",
+    "title": "Example Queries",
+    "section": "ai-assistant",
+    "summary": "Concrete natural language query examples for managing tracks, tags, buckets, and production stats via the AI Assistant."
+  },
+  {
+    "slug": "ai-assistant/using-the-assistant",
+    "title": "Using the Assistant",
+    "section": "ai-assistant",
+    "summary": "Explains how to open and interact with the AI Assistant in the Activity Panel to manage your catalog conversationally."
+  },
+  {
+    "slug": "ai-assistant/what-you-can-ask",
+    "title": "What You Can Ask",
+    "section": "ai-assistant",
+    "summary": "Comprehensive overview of all natural language commands the AI Assistant supports for catalog and track management."
+  },
+  {
+    "slug": "audio-player/playback-controls",
+    "title": "Playback Controls",
+    "section": "audio-player",
+    "summary": "Covers the floating player bar's transport buttons, progress bar, and volume controls for in-workflow audio playback."
+  },
+  {
+    "slug": "audio-player/playback-modes",
+    "title": "Playback Modes",
+    "section": "audio-player",
+    "summary": "Controls whether selecting a track in the grid auto-plays it as a single or queues multiple selections."
+  },
+  {
+    "slug": "audio-player/player-contexts",
+    "title": "Player Contexts",
+    "section": "audio-player",
+    "summary": "Lets you switch between preset listening environments optimised for stem review, client preview, or other workflows."
+  },
+  {
+    "slug": "audio-player/supported-formats",
+    "title": "Supported Formats",
+    "section": "audio-player",
+    "summary": "Lists all audio and project file formats supported for playback, analysis, and import in Producer Dashboard."
+  },
+  {
+    "slug": "audio-player/the-waveform-player",
+    "title": "The Waveform Player",
+    "section": "audio-player",
+    "summary": "The floating audio control bar that appears at screen bottom, providing playback, scrubbing, and volume controls for any track."
+  },
+  {
+    "slug": "audio-player/versions-and-stems",
+    "title": "Versions & Stems",
+    "section": "audio-player",
+    "summary": "Browse, compare, and load different audio bounces and isolated stem files from the player without leaving the app."
+  },
+  {
+    "slug": "audio-player/waveform-interactions",
+    "title": "Waveform Interactions",
+    "section": "audio-player",
+    "summary": "Use the interactive waveform to navigate, zoom, and select audio regions for precise track review."
+  },
+  {
+    "slug": "collaboration/adding-collaborators",
+    "title": "Adding Collaborators",
+    "section": "collaboration",
+    "summary": "Add collaborators to tracks from the activity panel, assign ownership splits, and credit all contributors."
+  },
+  {
+    "slug": "collaboration/default-project-collaborators",
+    "title": "Default Project Collaborators",
+    "section": "collaboration",
+    "summary": "Pre-assign collaborators to a project so they appear automatically on every new track you create."
+  },
+  {
+    "slug": "collaboration/invitations",
+    "title": "Invitations",
+    "section": "collaboration",
+    "summary": "View, manage, and accept collaboration invites sent to you by other producers in Producer Dashboard."
+  },
+  {
+    "slug": "collaboration/permissions",
+    "title": "Permissions",
+    "section": "collaboration",
+    "summary": "Defines owner vs. collaborator roles, access levels, and how they interact with split allocations across a project."
+  },
+  {
+    "slug": "collaboration/sharing-with-collaborators",
+    "title": "Sharing with Collaborators",
+    "section": "collaboration",
+    "summary": "Invite producers, vocalists, and engineers to your tracks, control their access, and manage credit splits."
+  },
+  {
+    "slug": "collaboration/splits-and-rights",
+    "title": "Splits & Rights",
+    "section": "collaboration",
+    "summary": "Define and manage master and publishing split percentages across all collaborators on a track."
+  },
+  {
+    "slug": "collaboration/unsharing-and-leaving",
+    "title": "Unsharing & Leaving",
+    "section": "collaboration",
+    "summary": "Remove collaborators from your tracks, revoke shared access, or leave a collaboration you've joined."
+  },
+  {
+    "slug": "comments-and-todos/adding-comments",
+    "title": "Adding Comments",
+    "section": "comments-and-todos",
+    "summary": "Leave bounce-specific feedback comments on your tracks to annotate sessions, flag issues, or communicate with collaborators."
+  },
+  {
+    "slug": "comments-and-todos/comments-on-shared-tracks",
+    "title": "Comments on Shared Tracks",
+    "section": "comments-and-todos",
+    "summary": "How to leave and manage feedback comments when collaborating on shared tracks."
+  },
+  {
+    "slug": "comments-and-todos/creating-todos",
+    "title": "Creating Todos",
+    "section": "comments-and-todos",
+    "summary": "How to instantly capture production tasks as todos from within your track's activity panel."
+  },
+  {
+    "slug": "comments-and-todos/editing-and-deleting-comments",
+    "title": "Editing & Deleting Comments",
+    "section": "comments-and-todos",
+    "summary": "How to update or remove comments you've posted on tracks and bounces."
+  },
+  {
+    "slug": "comments-and-todos/managing-todos",
+    "title": "Managing Todos",
+    "section": "comments-and-todos",
+    "summary": "How to create, assign, and track production tasks using the Todos widget in the activity panel."
+  },
+  {
+    "slug": "comments-and-todos/pinning-comments",
+    "title": "Pinning Comments",
+    "section": "comments-and-todos",
+    "summary": "How to keep critical feedback anchored at the top of a bounce's comment list."
+  },
+  {
+    "slug": "comments-and-todos/timestamped-comments",
+    "title": "Timestamped Comments",
+    "section": "comments-and-todos",
+    "summary": "How to attach timecoded feedback to specific moments in a bounce for precise production notes."
+  },
+  {
+    "slug": "comments-and-todos/todo-properties",
+    "title": "Todo Properties",
+    "section": "comments-and-todos",
+    "summary": "A breakdown of every property on a todo — content, assignee, due date, and workflow stage."
+  },
+  {
+    "slug": "comments-and-todos/todos-in-your-workflow",
+    "title": "Todos in Your Workflow",
+    "section": "comments-and-todos",
+    "summary": "How to use todos as actionable checklist items that move through your production pipeline stages."
+  },
+  {
+    "slug": "dashboard/abandoned-tracks",
+    "title": "Abandoned Tracks",
+    "section": "dashboard",
+    "summary": "How the dashboard surfaces tracks with no recent activity so you can decide whether to revive them."
+  },
+  {
+    "slug": "dashboard/dashboard-vs-tracks",
+    "title": "Dashboard vs Tracks",
+    "section": "dashboard",
+    "summary": "Explains the difference between the Dashboard overview and the Tracks grid to help you navigate efficiently."
+  },
+  {
+    "slug": "dashboard/featured-projects",
+    "title": "Featured Projects",
+    "section": "dashboard",
+    "summary": "How to pin priority projects to the top of your dashboard for quick access and progress tracking."
+  },
+  {
+    "slug": "dashboard",
+    "title": "Dashboard Overview",
+    "section": "dashboard",
+    "summary": "Your home screen overview showing project status, deadlines, and recent activity across your music workflow."
+  },
+  {
+    "slug": "dashboard/mini-kanban",
+    "title": "Mini Kanban",
+    "section": "dashboard",
+    "summary": "A compact board on the dashboard that shows all your tracks organized by workflow stage at a glance."
+  },
+  {
+    "slug": "dashboard/upcoming-deadlines",
+    "title": "Upcoming Deadlines",
+    "section": "dashboard",
+    "summary": "A dashboard calendar widget that shows all upcoming production, mix, and delivery deadlines in one place."
+  },
+  {
+    "slug": "export/split-sheets",
+    "title": "Split Sheets",
+    "section": "export",
+    "summary": "How to export industry-standard split sheets for publishers, PROs, and music platforms from your track data."
+  },
+  {
+    "slug": "export/track-metadata",
+    "title": "Track Metadata Export",
+    "section": "export",
+    "summary": "How to export a full CSV snapshot of all your tracks including collaborators, splits, BPM, and workflow stage."
+  },
+  {
+    "slug": "export/writer-roles-and-ipi",
+    "title": "Writer Roles & IPI",
+    "section": "export",
+    "summary": "How to assign writer roles and IPI numbers to collaborators for accurate PRO registration and split sheet exports."
+  },
+  {
+    "slug": "getting-started/creating-your-account",
+    "title": "Creating Your Account",
+    "section": "getting-started",
+    "summary": "How to sign up for Producer Dashboard via email or Google OAuth and accept the license agreement."
+  },
+  {
+    "slug": "getting-started/download-and-install",
+    "title": "Download & Install",
+    "section": "getting-started",
+    "summary": "How to download, install, and meet system requirements for Producer Dashboard on Windows or macOS."
+  },
+  {
+    "slug": "getting-started",
+    "title": "Getting Started",
+    "section": "getting-started",
+    "summary": "An introduction to Producer Dashboard covering core features, setup steps, and how to get up and running quickly."
+  },
+  {
+    "slug": "getting-started/quick-start",
+    "title": "Quick Start",
+    "section": "getting-started",
+    "summary": "Walks new users through the initial setup wizard to configure their workspace in about 5 minutes."
+  },
+  {
+    "slug": "getting-started/quick-tour",
+    "title": "Quick Tour",
+    "section": "getting-started",
+    "summary": "Guided walkthrough of Producer Dashboard's main interface zones, panels, and core features."
+  },
+  {
+    "slug": "getting-started/your-first-import",
+    "title": "Your First Import",
+    "section": "getting-started",
+    "summary": "Step-by-step guide to importing bounces, stems, and project files into Producer Dashboard for the first time."
+  },
+  {
+    "slug": "getting-started/your-first-project",
+    "title": "Your First Project",
+    "section": "getting-started",
+    "summary": "How to create and configure your first project to group related tracks and organise your production workflow."
+  },
+  {
+    "slug": "index",
+    "title": "Producer Dashboard Help",
+    "section": "index",
+    "summary": "Top-level help hub linking to all major sections of Producer Dashboard documentation."
+  },
+  {
+    "slug": "licensing/creating-license-types",
+    "title": "Creating License Types",
+    "section": "licensing",
+    "summary": "How to define reusable license packages with pricing, file deliverables, and usage terms for selling beats."
+  },
+  {
+    "slug": "licensing/managing-sales",
+    "title": "Managing Sales",
+    "section": "licensing",
+    "summary": "Overview of selling beat licenses through Producer Dashboard using Stripe Connect for payment processing."
+  },
+  {
+    "slug": "licensing/pricing-your-beats",
+    "title": "Pricing Your Beats",
+    "section": "licensing",
+    "summary": "How to configure license types, set prices, and enable individual tracks for sale through Producer Dashboard."
+  },
+  {
+    "slug": "licensing/purchase-flow",
+    "title": "Purchase Flow",
+    "section": "licensing",
+    "summary": "Buyer-side walkthrough of selecting a beat license, completing payment, and downloading files."
+  },
+  {
+    "slug": "licensing/setting-up",
+    "title": "Setting Up Licensing",
+    "section": "licensing",
+    "summary": "End-to-end guide to connecting Stripe and Dropbox and configuring license types to start selling beats."
+  },
+  {
+    "slug": "managing-your-music/bulk-editing",
+    "title": "Bulk Editing",
+    "section": "managing-your-music",
+    "summary": "Apply changes to multiple tracks simultaneously with targeted control over which tracks are updated and how."
+  },
+  {
+    "slug": "managing-your-music/column-management",
+    "title": "Column Management",
+    "section": "managing-your-music",
+    "summary": "Resize, reorder, hide, and reset columns in the tracks grid to customise your workspace layout."
+  },
+  {
+    "slug": "managing-your-music/editing-track-details",
+    "title": "Editing Track Details",
+    "section": "managing-your-music",
+    "summary": "Use the track detail modal to update a single track's name, stage, tags, collaborators, and other metadata."
+  },
+  {
+    "slug": "managing-your-music/importing-tracks",
+    "title": "Importing Tracks",
+    "section": "managing-your-music",
+    "summary": "Full reference guide for importing audio and project files, including how the app scans, groups, and organises them."
+  },
+  {
+    "slug": "managing-your-music/playing-and-previewing",
+    "title": "Playing & Previewing",
+    "section": "managing-your-music",
+    "summary": "How to use the floating audio player to play and preview tracks from anywhere in the app."
+  },
+  {
+    "slug": "managing-your-music/saved-searches",
+    "title": "Saved Searches",
+    "section": "managing-your-music",
+    "summary": "Save and reuse filter and search combinations for instant one-click access to specific track subsets."
+  },
+  {
+    "slug": "managing-your-music/searching-and-filtering",
+    "title": "Searching & Filtering",
+    "section": "managing-your-music",
+    "summary": "Use real-time search and multi-faceted filters to find specific tracks across a large music library."
+  },
+  {
+    "slug": "managing-your-music/songs-and-track-groups",
+    "title": "Songs & Track Groups",
+    "section": "managing-your-music",
+    "summary": "Central catalog view where every song and its associated files are organised into track groups for full library management."
+  },
+  {
+    "slug": "managing-your-music/the-tracks-grid",
+    "title": "The Tracks Grid",
+    "section": "managing-your-music",
+    "summary": "Bird's-eye tabular view of your entire library with sorting, filtering, multi-select, and customisable columns."
+  },
+  {
+    "slug": "projects/assigning-songs",
+    "title": "Assigning Songs",
+    "section": "projects",
+    "summary": "How to assign tracks to projects (buckets) to group music by album, client, or any organisational need."
+  },
+  {
+    "slug": "projects/creating-projects",
+    "title": "Creating Projects",
+    "section": "projects",
+    "summary": "How to create and organize projects in Producer Dashboard to group and manage your tracks."
+  },
+  {
+    "slug": "projects/multi-project-selection",
+    "title": "Multi-Project Selection",
+    "section": "projects",
+    "summary": "Select multiple projects simultaneously to view and act on tracks across combined buckets."
+  },
+  {
+    "slug": "projects/project-due-dates",
+    "title": "Project Due Dates",
+    "section": "projects",
+    "summary": "Set and cascade deadlines at the project or track level to keep your release pipeline on schedule."
+  },
+  {
+    "slug": "projects/project-hierarchy",
+    "title": "Project Hierarchy",
+    "section": "projects",
+    "summary": "Organize tracks in nested parent/child projects and assign songs to multiple projects at once."
+  },
+  {
+    "slug": "reference/keyboard-shortcuts",
+    "title": "Keyboard Shortcuts",
+    "section": "reference",
+    "summary": "Keyboard shortcuts for playback, navigation, and track actions to speed up your workflow."
+  },
+  {
+    "slug": "reference/plan-limits",
+    "title": "Plan Limits",
+    "section": "reference",
+    "summary": "Subscription tier boundaries for tracks, collaborators, and storage, and how to manage them."
+  },
+  {
+    "slug": "reference/realtime-sync",
+    "title": "Realtime Sync",
+    "section": "reference",
+    "summary": "Dashboard updates automatically when collaborators make changes, with no manual refresh needed."
+  },
+  {
+    "slug": "reference/supported-file-formats",
+    "title": "Supported File Formats",
+    "section": "reference",
+    "summary": "Audio and project file formats supported for importing, organizing, and analyzing music in the app."
+  },
+  {
+    "slug": "reference/undo-redo",
+    "title": "Undo & Redo",
+    "section": "reference",
+    "summary": "Reverse or reapply up to 50 recent track and group changes using the undo/redo history system."
+  },
+  {
+    "slug": "settings/account-management",
+    "title": "Account Management",
+    "section": "settings",
+    "summary": "View and manage account details, security settings, email verification, and account data controls."
+  },
+  {
+    "slug": "settings/background-and-theme",
+    "title": "Background & Theme",
+    "section": "settings",
+    "summary": "Upload a header image and adjust blur and opacity to customize how your public profile looks."
+  },
+  {
+    "slug": "settings/billing-and-subscription",
+    "title": "Billing & Subscription",
+    "section": "settings",
+    "summary": "Manage your plan, view resource usage, update payment methods, and access billing history."
+  },
+  {
+    "slug": "settings/connected-accounts",
+    "title": "Connected Accounts",
+    "section": "settings",
+    "summary": "Link external services like Google, Dropbox, and Stripe to streamline login and workflow integrations."
+  },
+  {
+    "slug": "settings/connecting-dropbox",
+    "title": "Connecting Dropbox",
+    "section": "settings",
+    "summary": "Link your Dropbox account to enable share links, ZIP downloads, and collaborator file access."
+  },
+  {
+    "slug": "settings/dropbox-for-teams",
+    "title": "Dropbox for Teams",
+    "section": "settings",
+    "summary": "How Dropbox integration powers file sharing, folder structure, and team collaboration in Producer Dashboard."
+  },
+  {
+    "slug": "settings/how-files-are-organized",
+    "title": "How Files Are Organized",
+    "section": "settings",
+    "summary": "How inbox folders work, what happens during file import, and how the app auto-groups tracks."
+  },
+  {
+    "slug": "settings/managing-dropbox-connection",
+    "title": "Managing Dropbox Connection",
+    "section": "settings",
+    "summary": "How to connect, maintain, and troubleshoot your Dropbox link to keep file sharing and collaboration working."
+  },
+  {
+    "slug": "settings/notifications",
+    "title": "Notifications",
+    "section": "settings",
+    "summary": "Configure alerts for track activity, collaborator feedback, due dates, and other workflow events."
+  },
+  {
+    "slug": "settings/pro-ipi-info",
+    "title": "PRO & IPI Info",
+    "section": "settings",
+    "summary": "Store your PRO membership, IPI/CAE number, and publisher details to ensure correct royalty collection."
+  },
+  {
+    "slug": "settings/profile-and-avatar",
+    "title": "Profile & Avatar",
+    "section": "settings",
+    "summary": "Customize your public profile display name, bio, and profile picture visible to collaborators and labels."
+  },
+  {
+    "slug": "settings/social-media-links",
+    "title": "Social Media Links",
+    "section": "settings",
+    "summary": "Connect social media profiles to display on your public artist page so fans can find you across platforms."
+  },
+  {
+    "slug": "sharing/creating-share-links",
+    "title": "Creating Share Links",
+    "section": "sharing",
+    "summary": "Generate shareable Dropbox-backed URLs to send specific tracks to collaborators or listeners with controlled access."
+  },
+  {
+    "slug": "sharing",
+    "title": "Sharing Overview",
+    "section": "sharing",
+    "summary": "Overview of all sharing methods in Producer Dashboard — links, playlists, permissions, and engagement tracking."
+  },
+  {
+    "slug": "sharing/managing-share-links",
+    "title": "Managing Share Links",
+    "section": "sharing",
+    "summary": "Create, control access, and monitor performance of share links for tracks and playlists via Dropbox integration."
+  },
+  {
+    "slug": "sharing/playlist-sharing",
+    "title": "Playlist Sharing",
+    "section": "sharing",
+    "summary": "Bundle multiple tracks into one shareable link with streaming, download controls, expiration dates, and engagement tracking."
+  },
+  {
+    "slug": "sharing/public-page/adding-content",
+    "title": "Adding Content",
+    "section": "sharing",
+    "summary": "Select buckets, tracks, and collaborators to populate your public portfolio page with synced catalog content."
+  },
+  {
+    "slug": "sharing/public-page",
+    "title": "Public Page",
+    "section": "sharing",
+    "summary": "Create a permanent portfolio page at a fixed URL where clients can discover, preview, and license your music."
+  },
+  {
+    "slug": "sharing/public-page/preview-and-publish",
+    "title": "Preview & Publish",
+    "section": "sharing",
+    "summary": "Live-preview your public page exactly as visitors see it, then publish it to make your portfolio publicly accessible."
+  },
+  {
+    "slug": "sharing/public-page/setting-up",
+    "title": "Setting Up Your Public Page",
+    "section": "sharing",
+    "summary": "Configure your permanent public portfolio page with branding, bio, and Dropbox connection so clients can find and contact you."
+  },
+  {
+    "slug": "sharing/public-page/visitor-experience",
+    "title": "Visitor Experience",
+    "section": "sharing",
+    "summary": "Describes what clients and fans see on your public portfolio — browsing, previewing tracks, and contacting you for licensing."
+  },
+  {
+    "slug": "sharing/share-settings",
+    "title": "Share Settings",
+    "section": "sharing",
+    "summary": "Control which files are included in a share, whether downloads are enabled, and when a share link expires."
+  },
+  {
+    "slug": "sharing/the-share-page",
+    "title": "The Share Page",
+    "section": "sharing",
+    "summary": "Explains what recipients see on a share page — track listing, artist branding, previews, and download access."
+  },
+  {
+    "slug": "sharing/tracking-engagement",
+    "title": "Tracking Engagement",
+    "section": "sharing",
+    "summary": "Monitor views, downloads, and interaction history for shared tracks and playlists to refine your sharing strategy."
+  },
+  {
+    "slug": "sharing/when-to-use-what",
+    "title": "When to Use What",
+    "section": "sharing",
+    "summary": "Practical decision guide for choosing between share links, playlist sharing, collaborator access, and public page."
+  },
+  {
+    "slug": "tags-and-metadata/audio-analysis",
+    "title": "Audio Analysis",
+    "section": "tags-and-metadata",
+    "summary": "Automatically detect BPM and musical key from audio bounces to generate searchable metadata without manual entry."
+  },
+  {
+    "slug": "tags-and-metadata/managing-tags-and-categories",
+    "title": "Managing Tags & Categories",
+    "section": "tags-and-metadata",
+    "summary": "Create, edit, and organise custom tags and categories to keep your growing music library structured and searchable."
+  },
+  {
+    "slug": "tags-and-metadata/musical-attributes",
+    "title": "Musical Attributes",
+    "section": "tags-and-metadata",
+    "summary": "View and edit BPM, key signature, genre, mood, and ISRC for a selected track via the activity panel widget."
+  },
+  {
+    "slug": "tags-and-metadata/using-tags",
+    "title": "Using Tags",
+    "section": "tags-and-metadata",
+    "summary": "Apply tags to tracks to categorize, filter, and manage your library by genre, workflow status, or any custom label."
+  },
+  {
+    "slug": "workflow-and-stages/custom-workflows",
+    "title": "Custom Workflows",
+    "section": "workflow-and-stages",
+    "summary": "Define and assign custom workflow statuses to tracks to track production, review, and approval processes."
+  },
+  {
+    "slug": "workflow-and-stages/due-dates-and-deadlines",
+    "title": "Due Dates & Deadlines",
+    "section": "workflow-and-stages",
+    "summary": "Set bucket-level and track-level deadlines to keep production schedules on track across your projects."
+  },
+  {
+    "slug": "workflow-and-stages/tracking-progress",
+    "title": "Tracking Progress",
+    "section": "workflow-and-stages",
+    "summary": "Monitor tracks through production stages using stage indicators, excitement levels, and due dates."
+  },
+  {
+    "slug": "workflow-and-stages/understanding-stages",
+    "title": "Understanding Stages",
+    "section": "workflow-and-stages",
+    "summary": "Stages act as lifecycle milestones that show where each track stands from idea to finished song."
+  }
+]

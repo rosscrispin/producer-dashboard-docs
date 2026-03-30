@@ -17,8 +17,6 @@ When you import bounces, stems, or other audio exports, Producer Dashboard suppo
 |--------|-----------|------------|
 | MP3 | `.mp3` | General exports, demo sharing |
 | AAC/M4A | `.m4a` | High-quality Apple exports |
-| OGG | `.ogg` | Open-source alternative |
-
 Compressed formats use lossy compression, which reduces file size at the expense of some audio quality. These work perfectly for imports and BPM/key analysis, though if you have the option, exporting in a lossless format ensures the cleanest possible audio for analysis.
 
 ### Lossless Formats
@@ -83,16 +81,11 @@ Files are classified by which folder they come from, not by their extension. Thi
 
 ### Automatic Grouping
 
-Files are automatically grouped into track groups based on their normalized song names. Common suffixes like "clean," "full mix," "radio edit," "master," "demo," and "wip" are stripped during normalization so variations of the same song end up in the same group.
+Files are grouped into track groups based on their normalized song names. The system compares filenames to find likely matches for the same song.
 
-For example, these files would be grouped together:
-
-- `My Song - Clean.wav`
-- `My Song - Full Mix.wav`
-- `My Song Radio Edit.mp3`
-- `My Song.wav`
-
-They would all be recognized as versions of "My Song" and grouped under a single track group in your dashboard.
+:::note
+Suffix stripping (removing words like "clean," "full mix," "demo," "wip" from filenames before grouping) is a planned feature and is not yet implemented. If you have files with these suffixes, they may appear as separate track groups rather than being merged automatically.
+:::
 
 ---
 
@@ -100,7 +93,7 @@ They would all be recognized as versions of "My Song" and grouped under a single
 
 When you trigger BPM or key detection on a track, the analysis engine works with any of the supported audio formats. The process typically takes 1–3 seconds per file, and the results (BPM and musical key) are stored with your track metadata.
 
-The analysis happens locally on your machine when using the desktop app, which means your audio never leaves your device during analysis. Supported formats for analysis include WAV, MP3, FLAC, AIFF, M4A, and OGG.
+The analysis happens locally on your machine when using the desktop app, which means your audio never leaves your device during analysis. Supported formats for analysis include WAV, MP3, FLAC, AIFF, M4A, and OGG. (OGG is supported for analysis but is not scanned during file import.)
 
 ---
 
@@ -108,7 +101,7 @@ The analysis happens locally on your machine when using the desktop app, which m
 
 If you connect a Dropbox account, the app can also sync files from your cloud storage. In this case, the same audio formats are supported, and the analysis happens in the cloud if you're using the web version.
 
-When importing from Dropbox, make sure your audio files are in a folder labeled "Audio Bounces," "audio-bounces," or "Audio_Bounces." The app looks for supported file extensions (`.wav`, `.mp3`, `.aiff`, `.aif`, `.flac`, `.m4a`, `.ogg`) within these folders during sync.
+When importing from Dropbox, make sure your audio files are in a folder labeled "Audio Bounces," "audio-bounces," or "Audio_Bounces." The app looks for supported file extensions (`.wav`, `.mp3`, `.aiff`, `.aif`, `.flac`, `.m4a`) within these folders during sync.
 
 ---
 

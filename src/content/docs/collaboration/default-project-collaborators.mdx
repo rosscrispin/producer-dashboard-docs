@@ -3,21 +3,13 @@ title: Default Project Collaborators
 description: Set default collaborators for new tracks in your projects and manage split allocations automatically.
 ---
 
-When you work with the same bandmates, co-producers, or writers on multiple tracks, setting default collaborators saves you from adding the same people over and over. This page explains how default project collaborators work, how splits are calculated, and how to keep your allocations balanced.
+:::note
+The automatic default collaborator feature (pre-assigning collaborators to all new tracks in a project) may not be available in all versions of the app. If you don't see a "Default Collaborators" option in your project settings, use the Collaborators widget to add collaborators to tracks individually.
 
----
+The split allocation guidance on this page applies to all collaborator management.
+:::
 
-## What Are Default Collaborators?
-
-Default collaborators are people you pre-assign to a project so they automatically appear on any new tracks you create within that project. Instead of manually adding your co-producer Joshua or your bandmate Sarah every time you start a new song, they're already there.
-
-This feature is especially useful when you:
-
-- Work consistently with the same small team
-- Want to establish ownership splits upfront for every new recording
-- Need certain collaborators to have access to all tracks in a project from day one
-
-When you create a new track in a project with default collaborators, those people are automatically added with the split percentages you configured. You can always adjust their splits or remove them from individual tracks later.
+When you work with the same bandmates, co-producers, or writers on multiple tracks, managing collaborators and split allocations consistently is important. This page explains how collaborator splits are calculated and how to keep your allocations balanced.
 
 ---
 
@@ -38,8 +30,7 @@ You can also access collaborator settings from the **Overview Widget** when you 
 In the Collaborators panel, click **Add Collaborator**. A form appears where you can:
 
 - **Search for a user** by name or email address
-- **Set their role** (Owner, Co-Owner, or Contributor)
-- **Configure their splits** for master rights and publishing rights
+- **Configure their splits** for master, publishing, and writer rights
 
 The split fields accept percentages between 0 and 100. These percentages represent how ownership or publishing rights are divided among collaborators.
 
@@ -51,12 +42,13 @@ Before adding a collaborator, check your current total allocation. If you're alr
 
 ## Understanding Splits
 
-Every collaborator on a track has two types of splits:
+Every collaborator on a track has three types of splits:
 
 - **Master Split** — ownership of the recorded audio and master rights
 - **Publishing Split** — ownership of the songwriting and publishing rights
+- **Writer Split** — attribution specifically for songwriting contributions
 
-These can be the same or different. For example, a producer might own 50% of the master but 0% of publishing if they didn't write any of the lyrics or melody.
+These can be the same or different. For example, a producer might own 50% of the master but 0% of publishing or writer splits if they didn't write any of the lyrics or melody.
 
 The Collaborators panel displays the total allocation for both split types. You'll see a running total that updates as you add or adjust collaborators:
 
@@ -73,15 +65,15 @@ Click **Auto-allocate** in the Collaborators panel toolbar. The system divides o
 
 ```
 Before Auto-allocate:
-  You (Owner):    Master 100%, Publishing 100%
-  Joshua:         Master 50%, Publishing 50%
-  Sarah:          Master 25%, Publishing 25%
+  You (Owner):    Master 100%, Publishing 100%, Writer 100%
+  Joshua:         Master 50%, Publishing 50%, Writer 50%
+  Sarah:          Master 25%, Publishing 25%, Writer 25%
   Total: 175% ⚠️
 
 After Auto-allocate:
-  You (Owner):    Master 33.33%, Publishing 33.33%
-  Joshua:         Master 33.33%, Publishing 33.33%
-  Sarah:          Master 33.34%, Publishing 33.34%
+  You (Owner):    Master 33.33%, Publishing 33.33%, Writer 33.33%
+  Joshua:         Master 33.33%, Publishing 33.33%, Writer 33.33%
+  Sarah:          Master 33.34%, Publishing 33.34%, Writer 33.34%
   Total: 100% ✓
 ```
 
@@ -98,14 +90,14 @@ When you add a new collaborator to an existing track, the system suggests a spli
 For example, if you have:
 
 ```
-You (Owner): Master 100%, Publishing 100%
+You (Owner): Master 100%, Publishing 100%, Writer 100%
 ```
 
 And you add Joshua, the system suggests:
 
 ```
-You (Owner): Master 50%, Publishing 50%
-Joshua:      Master 50%, Publishing 50%
+You (Owner): Master 50%, Publishing 50%, Writer 50%
+Joshua:      Master 50%, Publishing 50%, Writer 50%
 ```
 
 The suggested split for the new collaborator is calculated based on the remaining allocation after accounting for existing collaborators. You can override this suggestion and enter your own value if needed.
@@ -141,7 +133,7 @@ To change a collaborator's splits:
 3. The total updates automatically
 4. Click **Save** to confirm
 
-You can edit master split and publishing split independently. For example, you might increase a songwriter's publishing split while keeping their master split unchanged.
+You can edit master, publishing, and writer splits independently. For example, you might increase a songwriter's publishing split while keeping their master split unchanged.
 
 Changes take effect immediately and sync across all views — the Collaborators panel, the Overview Widget, and the Tracks grid all reflect the updated values.
 

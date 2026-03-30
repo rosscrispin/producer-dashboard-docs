@@ -12,7 +12,7 @@ Connected accounts let you tie your existing external services directly into Pro
 When you connect an external service, Producer Dashboard creates a secure link between your account and that service. This means you can:
 
 - **Sign in faster** with Google authentication
-- **Access your stems and samples** stored in Dropbox without leaving the app
+- **Serve audio files** through share links from your Dropbox storage
 - **Manage payments and payouts** through your linked Stripe account
 
 All connections are managed through OAuth, the industry-standard protocol for secure authorization. Your credentials are never stored on our servers — only the secure tokens that allow the apps to communicate.
@@ -23,17 +23,15 @@ All connections are managed through OAuth, the industry-standard protocol for se
 
 ### Google
 
-Linking your Google account serves two purposes. First, it gives you a quick sign-in option using your existing Google credentials. Second, it enables Google Calendar integration, so you can sync your production deadlines and release dates with your other schedules.
-
-When you link Google, Producer Dashboard can read your calendar events and display them within the app. This helps you see at a glance when mastering sessions, artist meetings, or release deadlines are coming up.
+Linking your Google account lets you sign in using your existing Google credentials instead of a separate email and password. This is a convenience feature for authentication only.
 
 ### Dropbox
 
-Connecting Dropbox is essential if you want Producer Dashboard to manage your audio files. When linked, the app can browse your Dropbox folders, import stems and samples, and organize your exported mixes into the right project folders.
+Connecting Dropbox lets Producer Dashboard serve your audio files through share links. When you create a share link for a playlist, the files are streamed and downloaded directly from your Dropbox storage — you never have to upload files to a separate server.
 
-This connection works seamlessly with the **Files** section of Producer Dashboard. Rather than manually downloading files from Dropbox and uploading them again, you can select them directly from within the app.
+Dropbox is used for **sharing only**. Producer Dashboard does not browse your Dropbox folders or import files from Dropbox into your workspace. Your files stay in Dropbox; the connection is used to generate secure temporary links when recipients access your share pages.
 
-For teams using Dropbox for Business, the connection supports team folders and shared workspaces. Check out [Connecting Dropbox](/settings/connecting-dropbox) for detailed setup instructions.
+Check out [Connecting Dropbox](/settings/connecting-dropbox) for setup instructions.
 
 ### Stripe
 
@@ -135,8 +133,8 @@ If a connection seems unstable, try unlinking and reconnecting the account. Ensu
 
 ## Tips
 
-:::tip[Use Descriptive Dropbox Folders]
-Before connecting Dropbox, organize your audio files into clear, named folders. This makes browsing and importing files in Producer Dashboard much faster.
+:::tip[Organise Your Dropbox Folders]
+Before connecting Dropbox, organize your audio files into clear, named folders. When recipients open your share links, they see filenames from Dropbox — well-organized folders make a better impression.
 :::
 
 :::tip[One Google Account Per Login]

@@ -93,7 +93,7 @@ Before anything is compared, every filename is stripped down to just the core so
 - Version numbers: `v1`, `V3`, `version 2`
 - Timestamps: `2.06.22 am`, `[2025-10-09]`, 6-digit dates
 - Content in parentheses or square brackets: `(final)`, `[127 D#m]`
-- Mix identifiers: `clean`, `full mix`, `radio edit`, `demo`, `wip`, `master`, `mastered`, `rough`, `final`
+- Mix identifiers: `clean`, `full mix`, `radio edit`, `demo`, `wip`, `master`, `mastered`, `rough`, `final` *(planned — not yet implemented, see note below)*
 - Technical specs: `320kbps`, `44.1hz`, `128bpm`
 - Trailing punctuation and special characters
 
@@ -107,7 +107,11 @@ Examples:
 | `My Song Beat_Idea_v3_WIP.wav` | `my song beat idea` |
 | `Clean Slate.wav` | `clean slate` *("clean" only stripped as a trailing suffix, not mid-name)* |
 
-The normalizer is careful not to strip words that are part of the actual song title. `Clean Slate` stays `clean slate` because `clean` isn't in trailing position.
+:::note
+Mix identifier stripping (`clean`, `full mix`, `demo`, `wip`, etc.) is a planned feature (PRO-56) and is **not yet implemented**. Currently, these words are not stripped during normalization, which means `Ancient Dusk - Clean.wav` and `Ancient Dusk - Full Mix.wav` may not automatically group together unless the core song name matches exactly via Phase 1 or scores above 0.85 in Phase 2.
+:::
+
+When implemented, the normalizer will be careful not to strip words that are part of the actual song title — `Clean Slate` would stay `clean slate` because `clean` isn't in trailing position.
 
 ### Phase 1 — Match against existing library
 

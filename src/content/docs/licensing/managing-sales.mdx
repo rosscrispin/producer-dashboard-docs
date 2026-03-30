@@ -11,48 +11,15 @@ This guide walks you through everything you need to start accepting payments for
 
 ## What You Need Before You Start
 
-Before you can sell licenses, two things need to be in place.
-
-**Dropbox Connection**
-
-All file delivery happens through Dropbox. When someone purchases a license, Producer Dashboard generates temporary download links from your Dropbox account and sends them to the buyer. This means you must connect your Dropbox account before licensing can work.
-
-If you haven't connected Dropbox yet, you'll see a prompt in the Settings page guiding you through the OAuth connection. Keep your Dropbox linked — if it gets disconnected after you've enabled licensing, buyers won't be able to download their files.
-
-**Stripe Connect Account**
-
-Payments are processed through Stripe Connect, which lets you accept credit and debit cards directly. Producer Dashboard handles all the complexity: creating checkout sessions, processing payments, and depositing your earnings. You keep 98% of each sale — the platform takes a 2% fee.
-
-To connect Stripe, head to **Settings → Connected Accounts** and click "Connect with Stripe." You'll be guided through Stripe's onboarding process, which includes providing some business information. Once complete, you can accept payments immediately.
+Before you can sell licenses, you need a **Dropbox connection** (for file delivery) and a **Stripe Connect account** (for payments — you keep 98% of each sale). See [Setting Up Licensing](/licensing/setting-up) for the full setup walkthrough.
 
 ---
 
 ## Creating Your License Types
 
-License types define what buyers get when they purchase. Think of them as different packages — a basic lease might include MP3 and WAV files, while a premium lease adds stems and project files.
+License types define what buyers get when they purchase — different packages at different price points. Most producers offer 3-4 options (basic lease, premium lease, exclusive rights). See [Creating License Types](/licensing/creating-license-types) for detailed setup instructions and template usage.
 
-### How to Create a License Type
-
-1. Go to **Settings → Licensing**
-2. Click **Add License Type**
-3. Fill in the details:
-   - **Name** — something like "Non-Exclusive Lease" or "Premium Package"
-   - **Description** — a short summary buyers will see ("MP3 + WAV, up to 10k streams")
-   - **Price** — your desired price in dollars
-   - **Deliverables** — check the file types you include (MP3, WAV, Stems, Project Files)
-   - **Exclusive?** — toggle on if this grants exclusive rights
-   - **Terms** — your license agreement text (you can use templates)
-
-You can create as many license types as you like. Most producers offer 3-4 options: a basic lease, a premium lease, and an exclusive rights purchase. Use the **template library** if you need a starting point for your terms — these are pre-written agreements that cover common scenarios like streaming limits and credit requirements.
-
-### Managing Your Licenses
-
-From the Licensing settings page, you can:
-
-- **Reorder** licenses by dragging them — this controls the display order on your public page
-- **Edit** any license type by clicking on it
-- **Disable** a license type without deleting it — existing purchases stay valid, but it won't appear for new buyers
-- **Delete** only if no purchases have been made using that license
+From the Licensing settings page, you can reorder, edit, disable, or delete your license types. Disabled licenses won't appear for new buyers but existing purchases remain valid.
 
 ---
 
@@ -68,7 +35,7 @@ Each track in your library can have its own licensing configuration. Open a trac
 - **Choose which license types** to offer
 - **Set custom prices** for individual license types (overriding the default price)
 
-For example, maybe your热门 beat deserves a higher price than your older work. You can set the Non-Exclusive Lease to $39.99 for your latest track while keeping it at $29.99 elsewhere.
+For example, maybe your hottest beat deserves a higher price than your older work. You can set the Non-Exclusive Lease to $39.99 for your latest track while keeping it at $29.99 elsewhere.
 
 ### Bulk Editing
 
@@ -78,26 +45,7 @@ Have a batch of beats you want to put up for sale at once? Use the bulk edit fea
 
 ## How Buyers Purchase
 
-When you share a track using the public link, buyers see a **License** button alongside the regular play button. Clicking it opens a panel showing all available license options for that track.
-
-Each license card displays:
-
-- The license name and description
-- What's included (file formats)
-- The price
-- A **Buy Now** button
-
-When a buyer clicks Buy Now, they enter their email and name, then proceed to a Stripe-hosted checkout page. After payment, they're shown a success page with download links. Those links remain active for 30 days, giving buyers plenty of time to grab their files.
-
-### Contact Settings
-
-You control how buyers reach you. In **Settings → Licensing → Contact**, choose your default method:
-
-- **Email** — buyers see a contact button that opens their email app
-- **Custom URL** — point to a contact form or Calendly link
-- **Stripe Checkout** — buyers purchase directly through Stripe (this is the default and recommended option)
-
-You can also override this per-track if you have special arrangements for certain beats.
+When you share a track using the public link, buyers see a **License** button that opens a panel with your available license options. After selecting a license and completing Stripe checkout, they receive download links active for 30 days. See [Purchase Flow](/licensing/purchase-flow) for the full buyer experience.
 
 ---
 

@@ -13,7 +13,7 @@ Whether you're looking at a single track or filtering through hundreds of songs,
 
 A track group is essentially a folder for your song. When you import a project file or create a new track, Producer Dashboard bundles everything together — your project file, audio bounces, stems, and any metadata you add — into a single, organized unit.
 
-The track name you see in the grid comes from your actual file names. If you rename a track manually, that name stays yours even after syncing. The app pulls the display name from your most recent bounce or project file, whichever was modified last, and applies clean title case formatting.
+The track name you see in the grid comes from your actual file names. If you rename a track manually, that name stays yours even after syncing. The app derives the display name by stripping the file extension and version suffixes (like `_v3`, `_final`, `_master`) from the filename. When multiple files are grouped together during import, the shortest cleaned-up name in the cluster becomes the group name.
 
 ---
 

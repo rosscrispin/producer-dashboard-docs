@@ -1,104 +1,23 @@
 ---
 title: Player Contexts
-description: Switch between different listening environments to match your workflow — from detailed stem review to quick client previews.
+description: How the audio player adapts depending on where you're listening — from the tracks grid to a public share page.
 ---
 
-Player contexts let you adjust what the audio player shows and does based on what you're trying to accomplish. Whether you're diving deep into individual stems or sending a quick preview to a collaborator, switching contexts puts the right tools front and center.
-
----
-
-## What Are Player Contexts?
-
-Think of player contexts as presets for your listening session. Each context changes how the waveform displays, what information appears, and which controls are available. Instead of manually adjusting settings every time you switch tasks, you pick a context and everything adapts instantly.
-
-For example, when reviewing stems, you need to see multiple tracks and solo/mute controls. When preparing a client preview, you want quick access to export options and perhaps a simplified view without technical details. Player contexts handle this automatically.
+The audio player in Producer Dashboard is a single consistent interface that appears across different parts of the app. While it doesn't have named modes or a context switcher, its behavior adapts slightly based on where you're using it.
 
 ---
 
-## Available Contexts
+## Tracks Page
 
-### Default Context
-
-The default context is your all-purpose workspace. It shows the full waveform, standard playback controls, and complete track information. This is where you'll spend most of your time during regular production work.
-
-When you're editing, mixing, or just listening to a track in progress, the default context gives you everything you need without extra clutter.
-
-### Stem Review Context
-
-Switch to stem review when you need to analyze individual elements of a track. This context:
-
-- Displays all available stems in a stacked or side-by-side view
-- Adds solo and mute buttons for each stem
-- Highlights stem-specific details like volume and panning
-- Provides quick A/B comparison between stem combinations
-
-Stem review is particularly useful when you're diagnosing mix issues or fine-tuning how elements sit together.
-
-### Client Preview Context
-
-When you're preparing to share work with collaborators or clients, switch to this context. It presents a cleaner, simpler view that focuses on the listening experience rather than technical controls.
-
-Key features include:
-
-- Minimalist waveform display
-- Hiding of internal technical metadata
-- Easy access to export and share functions
-- Option to add timestamped comments directly from playback
-
-This context helps ensure clients see your work in the best light without getting distracted by production details they don't need to see.
-
-### Mix Comparison Context
-
-Use this context when you're comparing different versions or variations of a track. You can quickly switch between mixes, A/B them against each other, and compare their waveforms visually.
-
-The mix comparison context:
-
-- Supports rapid switching between saved versions
-- Overlays waveforms for visual comparison
-- Shows version metadata like date and changes
-- Maintains your place in each version for easy back-and-forth
-
-This is invaluable when deciding between different mix decisions or reviewing how a track has evolved.
+When you select a track in the main grid, the player loads in the activity panel. You can play, pause, seek, and navigate between tracks using the standard playback controls. The waveform, timecode display, and transport buttons are all available here.
 
 ---
 
-## Switching Between Contexts
+## Share Pages
 
-You can switch contexts using the dropdown menu in the player header. The current context name appears in the menu, and selecting a different one immediately updates the entire player interface.
+When recipients open one of your share links, they see the same player interface. The waveform loads, playback works the same way, and any timecoded comments you or collaborators have left appear on the waveform as markers.
 
-Context changes take effect instantly. Your playback position and settings are preserved when switching, so you don't lose your place when moving between different workflows.
-
----
-
-## Context Persistence
-
-The app remembers your context choice for each track. If you prefer working in stem review for certain projects, that preference saves automatically. This means when you return to a track later, you pick up right where you left off.
-
-You can reset to the default context anytime by selecting it from the menu, even if you've customized your view in another context.
-
----
-
-## Tips
-
-:::tip
-If you find yourself constantly switching to the same context for a particular workflow, consider assigning a keyboard shortcut. On macOS, check System Preferences → Keyboard → Shortcuts → App Shortcuts to add a custom hotkey for your most-used context.
-:::
-
-:::tip
-When using client preview context, use the timestamp feature to mark specific moments for feedback. These timestamps sync with collaborators so everyone knows exactly which part of the track you're referring to.
-:::
-
-:::tip
-The stem review context works best with headphones when analyzing individual elements. You'll catch details in stems like bleed, phase issues, or timing artifacts that might not be obvious through studio monitors.
-:::
-
----
-
-## Contexts and Playback Modes
-
-Remember that contexts work alongside playback modes, not instead of them. You can have loop mode enabled while in stem review, or repeat mode active while comparing mixes. Contexts control what you see; playback modes control how audio plays.
-
-This separation gives you maximum flexibility. You're not locked into a single workflow just because you need a specific playback behavior.
+Recipients can click waveform markers to jump directly to that timestamp — useful when you've left feedback on a specific section of the track.
 
 ---
 
@@ -107,6 +26,6 @@ This separation gives you maximum flexibility. You're not locked into a single w
 - [The Waveform Player](/audio-player/the-waveform-player) — Understanding the visual display
 - [Playback Controls](/audio-player/playback-controls) — Transport and audio controls
 - [Playback Modes](/audio-player/playback-modes) — Loop, repeat, and other playback options
-- [Waveform Interactions](/audio-player/waveform-interactions) — Clicking, scrubbing, and selecting
+- [Waveform Interactions](/audio-player/waveform-interactions) — Clicking and seeking
 - [Versions & Stems](/audio-player/versions-and-stems) — Working with track variations
 - [Supported Formats](/audio-player/supported-formats) — Audio file compatibility

@@ -1,0 +1,2886 @@
+{
+  "activity-and-notifications/daily-workflow": [
+    {
+      "slug": "activity-panel",
+      "reason": "Daily workflow panel and activity panel are complementary command centers used together"
+    },
+    {
+      "slug": "activity-and-notifications/the-activity-feed",
+      "reason": "Deep dive into the activity feed introduced in daily workflow overview"
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Tracking production milestones mentioned in daily workflow connects to stage management"
+    },
+    {
+      "slug": "activity-panel/comments-widget",
+      "reason": "Monitoring collaborator comments is a core daily workflow use case"
+    },
+    {
+      "slug": "activity-and-notifications/notification-settings",
+      "reason": "Tuning notifications complements managing a daily workflow without interruption"
+    },
+    {
+      "slug": "dashboard",
+      "reason": "The daily workflow panel and the dashboard are complementary home-base views used together each session"
+    }
+  ],
+  "activity-and-notifications/how-notifications-appear": [
+    {
+      "slug": "activity-and-notifications/notification-settings",
+      "reason": "Understanding how notifications appear pairs naturally with controlling which ones you receive"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Smart notifications extend how standard notifications surface and prioritise content"
+    },
+    {
+      "slug": "activity-panel/collaborators-widget",
+      "reason": "Collaborator join events are a key notification type linked to collaborator management"
+    },
+    {
+      "slug": "activity-panel/due-date-widget",
+      "reason": "Deadline-approach notifications tie directly to due date management in the panel"
+    }
+  ],
+  "activity-and-notifications/notification-settings": [
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Smart notifications rely on settings to determine what gets surfaced intelligently"
+    },
+    {
+      "slug": "activity-and-notifications/how-notifications-appear",
+      "reason": "Knowing how notifications appear helps users decide which settings to configure"
+    },
+    {
+      "slug": "activity-panel/due-date-widget",
+      "reason": "Deadline notifications are a common reason to adjust notification preferences"
+    },
+    {
+      "slug": "activity-panel/collaborators-widget",
+      "reason": "Collaborator activity is a frequent notification source users may want to fine-tune"
+    },
+    {
+      "slug": "settings/notifications",
+      "reason": "Both pages cover notification configuration — settings is the location, notification-settings is the feature guide"
+    }
+  ],
+  "activity-and-notifications/smart-notifications": [
+    {
+      "slug": "activity-and-notifications/notification-settings",
+      "reason": "Smart notifications work within the rules and channels configured in notification settings"
+    },
+    {
+      "slug": "activity-and-notifications/the-activity-feed",
+      "reason": "Smart notifications populate the activity feed, making the two features tightly linked"
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Workflow state changes are a primary trigger for smart notifications"
+    },
+    {
+      "slug": "activity-panel/sharing-widget",
+      "reason": "Track sharing events generate smart notifications for collaborators"
+    },
+    {
+      "slug": "dashboard/abandoned-tracks",
+      "reason": "Smart notifications can surface abandoned track alerts that also appear in the dashboard section"
+    },
+    {
+      "slug": "workflow-and-stages/tracking-progress",
+      "reason": "Smart notifications are triggered by stage changes and deadline proximity tracked in tracking-progress"
+    },
+    {
+      "slug": "workflow-and-stages/due-dates-and-deadlines",
+      "reason": "Approaching deadlines are a primary trigger for smart notification alerts"
+    },
+    {
+      "slug": "collaboration/invitations",
+      "reason": "Collaboration invites are a key smart notification trigger surfaced alongside other intelligent alerts"
+    }
+  ],
+  "activity-and-notifications/the-activity-feed": [
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Smart notifications determine what content appears in the activity feed"
+    },
+    {
+      "slug": "activity-and-notifications/daily-workflow",
+      "reason": "Activity feed is a core component of the daily workflow experience"
+    },
+    {
+      "slug": "activity-panel/comments-widget",
+      "reason": "Comment events surfaced in the feed originate from the comments widget"
+    },
+    {
+      "slug": "activity-panel/collaborators-widget",
+      "reason": "Collaboration invites shown in the feed connect to collaborator management"
+    },
+    {
+      "slug": "collaboration/invitations",
+      "reason": "Incoming collaboration invitations surface in the activity feed alongside other project events"
+    },
+    {
+      "slug": "reference/realtime-sync",
+      "reason": "The activity feed relies on real-time sync to show collaborator changes as they happen"
+    }
+  ],
+  "activity-panel/artwork-widget": [
+    {
+      "slug": "activity-panel/overview-widget",
+      "reason": "Overview widget displays artwork as its visual backdrop, making these tightly coupled"
+    },
+    {
+      "slug": "activity-panel/marketing-widget",
+      "reason": "Artwork is a key asset for licensing and storefront presentation"
+    },
+    {
+      "slug": "activity-panel/bucket-widget",
+      "reason": "Bulk artwork operations align with bulk bucket assignments for album-level workflows"
+    },
+    {
+      "slug": "activity-panel/musical-attributes-widget",
+      "reason": "Both widgets contribute to a track's complete metadata and catalog identity"
+    },
+    {
+      "slug": "sharing/public-page/adding-content",
+      "reason": "Artwork set per track appears on the public portfolio page when tracks are added as content"
+    }
+  ],
+  "activity-panel/bucket-widget": [
+    {
+      "slug": "activity-panel/tags-widget",
+      "reason": "Tags and buckets are complementary organization systems often used together"
+    },
+    {
+      "slug": "activity-panel/marketing-widget",
+      "reason": "Grouping tracks into buckets often precedes configuring licensing for a release"
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Bucket assignments and stage tracking both help manage project-level organization"
+    },
+    {
+      "slug": "activity-and-notifications/daily-workflow",
+      "reason": "Bucket management is a core organizational task within the daily workflow"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "The bucket widget is the activity panel mechanism for the song-to-project assignment workflow"
+    }
+  ],
+  "activity-panel/collaborators-widget": [
+    {
+      "slug": "activity-panel/export-widget",
+      "reason": "Collaborator split data is directly exported as split sheets via the export widget"
+    },
+    {
+      "slug": "activity-panel/sharing-widget",
+      "reason": "Sharing tracks with collaborators in Dropbox complements defining their ownership splits"
+    },
+    {
+      "slug": "activity-panel/comments-widget",
+      "reason": "Collaborators who own splits are the same people leaving feedback in comments"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Collaborator updates trigger smart notifications, linking ownership management to alerts"
+    },
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "The collaborators widget is the UI entry point for managing the split percentages defined in splits-and-rights"
+    },
+    {
+      "slug": "export/writer-roles-and-ipi",
+      "reason": "Collaborator credits and ownership set in the widget feed directly into writer role and IPI assignments needed for export"
+    }
+  ],
+  "activity-panel/comments-widget": [
+    {
+      "slug": "activity-panel/files-widget",
+      "reason": "Comments are tied to bounces whose audio files are managed in the files widget"
+    },
+    {
+      "slug": "activity-panel/collaborators-widget",
+      "reason": "Collaborators listed in the widget are the same people participating in comment threads"
+    },
+    {
+      "slug": "activity-and-notifications/the-activity-feed",
+      "reason": "New comments surface as activity feed events, connecting discussion to notifications"
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Comments often accompany stage transitions as collaborators give feedback on progress"
+    },
+    {
+      "slug": "comments-and-todos/timestamped-comments",
+      "reason": "The widget supports timestamped comments whose mechanics are detailed in timestamped-comments"
+    },
+    {
+      "slug": "audio-player/waveform-interactions",
+      "reason": "Timestamped comments placed in the widget correspond to positions navigable via waveform interactions"
+    }
+  ],
+  "activity-panel/due-date-widget": [
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Due dates and production stages together define a track's complete timeline"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Approaching deadlines are a primary trigger for smart deadline notifications"
+    },
+    {
+      "slug": "activity-panel/overview-widget",
+      "reason": "Overview widget displays due date as part of the at-a-glance track summary"
+    },
+    {
+      "slug": "activity-and-notifications/notification-settings",
+      "reason": "Users can configure how and when deadline notifications are delivered"
+    },
+    {
+      "slug": "workflow-and-stages/due-dates-and-deadlines",
+      "reason": "The widget surfaces the track-level deadline UI described conceptually in due-dates-and-deadlines"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Deadlines set via the widget aggregate into the upcoming deadlines dashboard view"
+    }
+  ],
+  "activity-panel/export-widget": [
+    {
+      "slug": "activity-panel/collaborators-widget",
+      "reason": "Collaborator ownership splits are the primary data source for exported split sheets"
+    },
+    {
+      "slug": "activity-panel/musical-attributes-widget",
+      "reason": "Musical attributes like ISRC codes and genre are packaged into export documents"
+    },
+    {
+      "slug": "activity-panel/marketing-widget",
+      "reason": "Exporting split sheets often precedes or follows setting up licensing for distribution"
+    },
+    {
+      "slug": "activity-panel/sharing-widget",
+      "reason": "Exported documents may be shared with the same collaborators managed in the sharing widget"
+    },
+    {
+      "slug": "export/split-sheets",
+      "reason": "The export widget is the in-panel trigger for generating the split sheets documented in the export section"
+    },
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Accurate split sheet exports depend on splits being correctly configured across collaborators"
+    }
+  ],
+  "activity-panel/files-widget": [
+    {
+      "slug": "activity-panel/sharing-widget",
+      "reason": "Files widget provides file-level share links while sharing widget handles folder-level Dropbox sharing"
+    },
+    {
+      "slug": "activity-panel/comments-widget",
+      "reason": "Comments reference specific bounces that are the same files visible in the files widget"
+    },
+    {
+      "slug": "activity-panel/export-widget",
+      "reason": "Stems and bounces managed here support the metadata exported via the export widget"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "File uploads and collaborator stem deliveries can trigger smart notifications"
+    },
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "File viewing and sharing in the widget requires an active Dropbox connection configured in settings"
+    },
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "Files widget surfaces bounces and stems that are then loaded and compared in the audio player"
+    }
+  ],
+  "activity-panel": [
+    {
+      "slug": "activity-panel/overview-widget",
+      "reason": "Overview widget is the first thing seen in the panel and orients users to all other widgets"
+    },
+    {
+      "slug": "activity-and-notifications/daily-workflow",
+      "reason": "Activity panel is the primary tool for executing the daily workflow described in that section"
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Stage widget is a key panel feature for tracking production pipeline progress"
+    },
+    {
+      "slug": "activity-and-notifications/the-activity-feed",
+      "reason": "Activity feed and activity panel are both command centers that work in tandem"
+    },
+    {
+      "slug": "ai-assistant/using-the-assistant",
+      "reason": "The AI assistant is accessed from within the activity panel, making panel navigation prerequisite knowledge"
+    },
+    {
+      "slug": "getting-started/quick-tour",
+      "reason": "The quick tour introduces the activity panel as a core interface zone, making the panel overview essential follow-up reading"
+    }
+  ],
+  "activity-panel/lyrics-widget": [
+    {
+      "slug": "activity-panel/musical-attributes-widget",
+      "reason": "Lyrics and musical attributes together form the creative and technical metadata of a track"
+    },
+    {
+      "slug": "activity-panel/comments-widget",
+      "reason": "Collaborators reviewing lyrics may leave feedback in the comments widget on the same track"
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Lyrics completion often marks a key stage transition in the production workflow"
+    },
+    {
+      "slug": "activity-panel/overview-widget",
+      "reason": "Overview gives context on the track being lyrically edited, including stage and collaborators"
+    }
+  ],
+  "activity-panel/marketing-widget": [
+    {
+      "slug": "activity-panel/export-widget",
+      "reason": "Exporting split sheets for PROs and distributors is a natural next step after configuring licensing"
+    },
+    {
+      "slug": "activity-panel/artwork-widget",
+      "reason": "Professional artwork strengthens a track's storefront presentation configured in marketing"
+    },
+    {
+      "slug": "activity-panel/musical-attributes-widget",
+      "reason": "Genre, mood, and BPM metadata set here directly supports buyer discovery and licensing decisions"
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Tracks typically reach marketing configuration only after completing production stages"
+    },
+    {
+      "slug": "licensing/pricing-your-beats",
+      "reason": "The marketing widget is the per-track UI for enabling licensing and setting prices defined in pricing-your-beats"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "The widget requires Stripe and Dropbox to be configured first as described in licensing/setting-up"
+    }
+  ],
+  "activity-panel/musical-attributes-widget": [
+    {
+      "slug": "activity-panel/export-widget",
+      "reason": "ISRC and other registration codes in this widget feed directly into export documents"
+    },
+    {
+      "slug": "activity-panel/marketing-widget",
+      "reason": "Genre and mood attributes configured here influence licensing and buyer discovery"
+    },
+    {
+      "slug": "activity-panel/tags-widget",
+      "reason": "Musical attributes and tags are complementary cataloging tools often used together"
+    },
+    {
+      "slug": "activity-panel/overview-widget",
+      "reason": "Overview widget surfaces key musical details alongside other at-a-glance track info"
+    },
+    {
+      "slug": "tags-and-metadata/musical-attributes",
+      "reason": "The widget and the metadata page both cover the same BPM, key, genre, and mood fields from different angles"
+    },
+    {
+      "slug": "tags-and-metadata/audio-analysis",
+      "reason": "BPM and key values shown in the widget can be auto-populated via audio analysis"
+    }
+  ],
+  "activity-panel/overview-widget": [
+    {
+      "slug": "activity-panel/artwork-widget",
+      "reason": "Artwork displayed in the overview background is managed directly in the artwork widget"
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Stage badge shown in overview links to the full stage management widget below"
+    },
+    {
+      "slug": "activity-panel/due-date-widget",
+      "reason": "Due date shown in overview connects to the dedicated due date management widget"
+    },
+    {
+      "slug": "activity-panel/collaborators-widget",
+      "reason": "Collaborator avatars previewed in overview are fully managed in the collaborators widget"
+    },
+    {
+      "slug": "workflow-and-stages/tracking-progress",
+      "reason": "The overview widget displays the stage badge and key indicators used to track progress at a glance"
+    }
+  ],
+  "activity-panel/sharing-widget": [
+    {
+      "slug": "activity-panel/files-widget",
+      "reason": "Files widget manages individual file links while sharing widget handles folder-level Dropbox access"
+    },
+    {
+      "slug": "activity-panel/collaborators-widget",
+      "reason": "People shared with via Dropbox often overlap with the collaborators managing ownership splits"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "New share events generate smart notifications for the recipients"
+    },
+    {
+      "slug": "activity-panel/export-widget",
+      "reason": "Shared collaborators may need exported split sheets alongside file access"
+    },
+    {
+      "slug": "settings/dropbox-for-teams",
+      "reason": "Folder sharing in the widget is powered by the Dropbox integration described in dropbox-for-teams"
+    },
+    {
+      "slug": "collaboration/permissions",
+      "reason": "Role-based controls in the sharing widget enforce the owner vs. collaborator permission model"
+    }
+  ],
+  "activity-panel/stage-workflow-widget": [
+    {
+      "slug": "activity-panel/due-date-widget",
+      "reason": "Stages and due dates together define a complete production timeline for each track"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Stage transitions trigger smart notifications for collaborators following the track"
+    },
+    {
+      "slug": "activity-panel/overview-widget",
+      "reason": "Overview widget displays the current stage badge derived from this widget's state"
+    },
+    {
+      "slug": "activity-and-notifications/daily-workflow",
+      "reason": "Advancing tracks through stages is a primary daily workflow activity"
+    },
+    {
+      "slug": "workflow-and-stages/understanding-stages",
+      "reason": "The widget is the primary UI for moving tracks through the stages whose meaning is explained in understanding-stages"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Todos can be tied to workflow stages, so stage transitions in the widget affect which todos are relevant"
+    }
+  ],
+  "activity-panel/tags-widget": [
+    {
+      "slug": "activity-panel/bucket-widget",
+      "reason": "Tags and buckets are complementary organization tools that work together for catalog management"
+    },
+    {
+      "slug": "activity-panel/musical-attributes-widget",
+      "reason": "Tags extend musical attribute categorization with custom, freeform labels"
+    },
+    {
+      "slug": "activity-and-notifications/daily-workflow",
+      "reason": "Tagging tracks is a routine catalog maintenance task within the daily workflow"
+    },
+    {
+      "slug": "activity-panel/marketing-widget",
+      "reason": "Tags like 'Radio Ready' or 'For Sale' can signal licensing readiness complementing marketing setup"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "The tags widget is the in-panel UI implementation of the tagging workflow described in using-tags"
+    },
+    {
+      "slug": "managing-your-music/searching-and-filtering",
+      "reason": "Tags applied via the widget become filterable facets in the tracks grid search"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Bulk tag application uses the same tags widget logic applied simultaneously across multiple tracks"
+    }
+  ],
+  "activity-panel/todos-widget": [
+    {
+      "slug": "comments-and-todos/adding-comments",
+      "reason": "Todos and comments are complementary feedback tools; users often use both to annotate tracks"
+    },
+    {
+      "slug": "activity-panel/track-warnings-widget",
+      "reason": "Both widgets live in the activity panel and together form the primary track-monitoring sidebar"
+    },
+    {
+      "slug": "collaboration/sharing-with-collaborators",
+      "reason": "Todos are often created to flag work for collaborators, making sharing context directly relevant"
+    },
+    {
+      "slug": "ai-assistant/what-you-can-ask",
+      "reason": "The AI Assistant can manage tasks and track properties, offering an alternative to manual todo entry"
+    },
+    {
+      "slug": "comments-and-todos/managing-todos",
+      "reason": "The todos widget is the activity panel implementation of the broader todo management workflow"
+    },
+    {
+      "slug": "comments-and-todos/todo-properties",
+      "reason": "Understanding all todo properties is needed to fully use the widget's fields"
+    }
+  ],
+  "activity-panel/track-warnings-widget": [
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "Warnings often relate to stem or version mismatches; users need to understand version structure to fix them"
+    },
+    {
+      "slug": "activity-panel/todos-widget",
+      "reason": "Warnings may prompt users to create todos as follow-up actions within the same panel"
+    },
+    {
+      "slug": "audio-player/supported-formats",
+      "reason": "Missing or incompatible audio files can trigger warnings, making format knowledge relevant"
+    },
+    {
+      "slug": "ai-assistant/what-you-can-ask",
+      "reason": "The assistant can help bulk-update track properties to resolve warning conditions across multiple tracks"
+    }
+  ],
+  "ai-assistant/example-queries": [
+    {
+      "slug": "ai-assistant/what-you-can-ask",
+      "reason": "The canonical capability reference that explains the full scope behind the examples shown here"
+    },
+    {
+      "slug": "ai-assistant/using-the-assistant",
+      "reason": "Users need to know how to open and interact with the assistant before applying these example queries"
+    },
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Split management is a common bulk task the assistant can handle, making this a non-obvious but useful pairing"
+    },
+    {
+      "slug": "audio-player/playback-modes",
+      "reason": "Users may ask the assistant to queue or filter tracks for playback, connecting catalog management to listening workflow"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Example queries include assigning tracks to buckets, directly overlapping with the assigning-songs workflow"
+    }
+  ],
+  "ai-assistant/using-the-assistant": [
+    {
+      "slug": "ai-assistant/what-you-can-ask",
+      "reason": "Natural next step after learning how to use the assistant — discover its full capability scope"
+    },
+    {
+      "slug": "ai-assistant/example-queries",
+      "reason": "Hands-on examples help users immediately apply what they learn about the interface"
+    },
+    {
+      "slug": "activity-panel/todos-widget",
+      "reason": "The assistant shares the Activity Panel with Todos; users may want to understand the full panel layout"
+    },
+    {
+      "slug": "collaboration/adding-collaborators",
+      "reason": "The assistant can manage collaborator-related tasks, making this a non-obvious but powerful cross-section link"
+    },
+    {
+      "slug": "activity-panel",
+      "reason": "The AI assistant is accessed from within the activity panel, making panel navigation prerequisite knowledge"
+    }
+  ],
+  "ai-assistant/what-you-can-ask": [
+    {
+      "slug": "ai-assistant/example-queries",
+      "reason": "Provides concrete phrasing examples to pair with the capability overview on this page"
+    },
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Split allocation is a manageable task via the assistant; users benefit from understanding splits before delegating them"
+    },
+    {
+      "slug": "activity-panel/todos-widget",
+      "reason": "The assistant can interact with todos, linking catalog commands to task management"
+    },
+    {
+      "slug": "audio-player/playback-modes",
+      "reason": "Assistant-driven track filtering can feed directly into playback queues, connecting command capability to listening"
+    },
+    {
+      "slug": "managing-your-music/searching-and-filtering",
+      "reason": "The AI assistant can perform searches and filtering that overlap with the manual search and filter workflow"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Many AI queries involve applying or searching by tags, requiring understanding of the tagging system"
+    }
+  ],
+  "audio-player/playback-controls": [
+    {
+      "slug": "audio-player/the-waveform-player",
+      "reason": "The waveform player is the visual counterpart to the playback controls covered here"
+    },
+    {
+      "slug": "audio-player/playback-modes",
+      "reason": "Playback modes determine when controls activate automatically, directly extending this page's scope"
+    },
+    {
+      "slug": "audio-player/waveform-interactions",
+      "reason": "Waveform scrubbing is an alternative seek method that complements the progress bar described here"
+    },
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "Users controlling playback often need to switch between versions, making stem navigation a natural next step"
+    },
+    {
+      "slug": "reference/keyboard-shortcuts",
+      "reason": "Many keyboard shortcuts control playback functions documented in playback-controls"
+    }
+  ],
+  "audio-player/playback-modes": [
+    {
+      "slug": "audio-player/playback-controls",
+      "reason": "Playback modes govern when controls engage automatically; understanding controls is prerequisite context"
+    },
+    {
+      "slug": "audio-player/player-contexts",
+      "reason": "Player contexts adjust what's shown during playback, working alongside mode settings for a tailored session"
+    },
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "Queuing multiple tracks often involves comparing versions, making stem navigation directly relevant"
+    },
+    {
+      "slug": "ai-assistant/what-you-can-ask",
+      "reason": "Users can use the assistant to filter and select tracks, which then feed into auto-play queues"
+    }
+  ],
+  "audio-player/player-contexts": [
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "Stem review is a named context; understanding versions and stems gives meaning to that context's controls"
+    },
+    {
+      "slug": "audio-player/waveform-interactions",
+      "reason": "Contexts change what the waveform displays, so interaction capabilities vary by context"
+    },
+    {
+      "slug": "collaboration/sharing-with-collaborators",
+      "reason": "Client preview contexts are designed for sharing; linking to collaboration explains the audience"
+    },
+    {
+      "slug": "audio-player/playback-modes",
+      "reason": "Mode and context settings combine to define the full listening session experience"
+    },
+    {
+      "slug": "sharing/the-share-page",
+      "reason": "Client preview context in the player mirrors what recipients experience on a share page"
+    }
+  ],
+  "audio-player/supported-formats": [
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "Stems and bounces are the primary files uploaded; format support directly affects what can be reviewed"
+    },
+    {
+      "slug": "activity-panel/track-warnings-widget",
+      "reason": "Unsupported or missing formats can trigger track warnings, creating a direct cause-and-effect link"
+    },
+    {
+      "slug": "collaboration/sharing-with-collaborators",
+      "reason": "Collaborators receive files; knowing supported formats helps producers share compatible audio"
+    },
+    {
+      "slug": "audio-player/the-waveform-player",
+      "reason": "The waveform player renders these formats, so format support defines what the player can display"
+    },
+    {
+      "slug": "tags-and-metadata/audio-analysis",
+      "reason": "Audio analysis only runs on formats the player supports, making format compatibility prerequisite knowledge"
+    },
+    {
+      "slug": "managing-your-music/importing-tracks",
+      "reason": "Import will only succeed for formats listed as supported in the audio player and reference pages"
+    }
+  ],
+  "audio-player/the-waveform-player": [
+    {
+      "slug": "audio-player/waveform-interactions",
+      "reason": "Directly extends this page by detailing how to navigate and zoom within the waveform display"
+    },
+    {
+      "slug": "audio-player/playback-controls",
+      "reason": "Covers the same player bar from a controls-focused perspective, offering complementary detail"
+    },
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "The waveform player loads version and stem files; users will want to know how to switch between them"
+    },
+    {
+      "slug": "audio-player/player-contexts",
+      "reason": "Contexts change the waveform player's appearance and controls, making them tightly coupled"
+    },
+    {
+      "slug": "managing-your-music/playing-and-previewing",
+      "reason": "Playing and previewing tracks launches the waveform player described in detail in that section"
+    }
+  ],
+  "audio-player/versions-and-stems": [
+    {
+      "slug": "audio-player/waveform-interactions",
+      "reason": "After loading a stem, users navigate it visually; waveform interaction is the primary mode of review"
+    },
+    {
+      "slug": "audio-player/player-contexts",
+      "reason": "Stem review context is purpose-built for this workflow, making contexts a direct feature pairing"
+    },
+    {
+      "slug": "activity-panel/track-warnings-widget",
+      "reason": "Outdated stems and version mismatches are the primary source of track warnings"
+    },
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Stems often map to contributor parts; reviewing stems alongside splits reinforces contributor attribution"
+    },
+    {
+      "slug": "activity-panel/files-widget",
+      "reason": "Files widget surfaces bounces and stems that are then loaded and compared in the audio player"
+    }
+  ],
+  "audio-player/waveform-interactions": [
+    {
+      "slug": "audio-player/the-waveform-player",
+      "reason": "The waveform display lives inside the waveform player; this page extends its foundational description"
+    },
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "Precise waveform navigation is most useful when comparing versions or isolating stems"
+    },
+    {
+      "slug": "audio-player/player-contexts",
+      "reason": "Different contexts alter what the waveform shows, affecting which interactions are available"
+    },
+    {
+      "slug": "comments-and-todos/adding-comments",
+      "reason": "Users often add time-specific comments after identifying regions of interest via waveform navigation"
+    },
+    {
+      "slug": "activity-panel/comments-widget",
+      "reason": "Timestamped comments placed in the widget correspond to positions navigable via waveform interactions"
+    },
+    {
+      "slug": "comments-and-todos/timestamped-comments",
+      "reason": "Timestamp values in comments map directly to waveform positions, enabling click-to-seek from comments"
+    }
+  ],
+  "collaboration/adding-collaborators": [
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Adding collaborators requires setting splits; these pages cover sequential steps in the same workflow"
+    },
+    {
+      "slug": "collaboration/permissions",
+      "reason": "Every collaborator added receives a role and permissions; this page is essential follow-up reading"
+    },
+    {
+      "slug": "collaboration/default-project-collaborators",
+      "reason": "Users who frequently add the same people will benefit from automating it with project defaults"
+    },
+    {
+      "slug": "activity-panel/todos-widget",
+      "reason": "After adding a collaborator, users often create todos to assign them tasks in the same panel"
+    },
+    {
+      "slug": "settings/pro-ipi-info",
+      "reason": "Collaborator IPI numbers stored in settings are applied when crediting contributors on tracks"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Bulk editing can assign collaborators to multiple tracks at once, intersecting with collaboration workflows"
+    },
+    {
+      "slug": "reference/plan-limits",
+      "reason": "Plan limits cap the number of collaborators allowed, directly affecting how many can be added"
+    }
+  ],
+  "collaboration/default-project-collaborators": [
+    {
+      "slug": "collaboration/adding-collaborators",
+      "reason": "Defaults automate the manual process described here; reading both clarifies when to use each approach"
+    },
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Default collaborators carry default split values; understanding splits is needed to configure defaults correctly"
+    },
+    {
+      "slug": "collaboration/permissions",
+      "reason": "Default collaborators inherit permissions; users need to understand the permissions model to set safe defaults"
+    },
+    {
+      "slug": "ai-assistant/what-you-can-ask",
+      "reason": "The assistant can bulk-update collaborator assignments, complementing the defaults feature for large catalogs"
+    },
+    {
+      "slug": "projects/creating-projects",
+      "reason": "Default collaborators are configured at project creation time, making these pages tightly coupled"
+    },
+    {
+      "slug": "getting-started/your-first-project",
+      "reason": "Setting up a first project is the natural moment to configure default collaborators"
+    }
+  ],
+  "collaboration/invitations": [
+    {
+      "slug": "collaboration/sharing-with-collaborators",
+      "reason": "Invitations are generated by the sharing flow; understanding sharing gives context to the invite experience"
+    },
+    {
+      "slug": "collaboration/permissions",
+      "reason": "An accepted invitation grants specific permissions; users should understand what access they're agreeing to"
+    },
+    {
+      "slug": "collaboration/unsharing-and-leaving",
+      "reason": "If an invitation is accepted and the collaboration ends, leaving is the natural next step"
+    },
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "After accepting an invite, collaborators typically access shared files; knowing how to navigate them is valuable"
+    },
+    {
+      "slug": "activity-and-notifications/the-activity-feed",
+      "reason": "Incoming collaboration invitations surface in the activity feed alongside other project events"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Collaboration invites are a key smart notification trigger surfaced alongside other intelligent alerts"
+    }
+  ],
+  "collaboration/permissions": [
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Permissions and splits are closely linked — access roles often reflect ownership percentages"
+    },
+    {
+      "slug": "collaboration/adding-collaborators",
+      "reason": "Permissions are set when adding collaborators; these pages document two parts of the same action"
+    },
+    {
+      "slug": "collaboration/unsharing-and-leaving",
+      "reason": "Understanding permissions clarifies what changes when a collaborator is removed or leaves"
+    },
+    {
+      "slug": "audio-player/player-contexts",
+      "reason": "Certain player contexts like client preview are permission-dependent, connecting access control to playback"
+    },
+    {
+      "slug": "activity-panel/sharing-widget",
+      "reason": "Role-based controls in the sharing widget enforce the owner vs. collaborator permission model"
+    },
+    {
+      "slug": "sharing/share-settings",
+      "reason": "Understanding collaborator vs. owner roles is essential for correctly configuring share access controls"
+    },
+    {
+      "slug": "comments-and-todos/comments-on-shared-tracks",
+      "reason": "Who can post and see comments on shared tracks is governed by collaborator permission levels"
+    }
+  ],
+  "collaboration/sharing-with-collaborators": [
+    {
+      "slug": "collaboration/permissions",
+      "reason": "Sharing decisions map directly to permission levels; this is essential companion reading"
+    },
+    {
+      "slug": "collaboration/invitations",
+      "reason": "Sharing triggers an invitation on the recipient's side; understanding both sides completes the picture"
+    },
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Sharing always involves allocating splits; these topics are inseparable in practice"
+    },
+    {
+      "slug": "audio-player/player-contexts",
+      "reason": "Client preview context is purpose-built for sharing audio with external collaborators"
+    },
+    {
+      "slug": "reference/realtime-sync",
+      "reason": "Collaborators see each other's changes in real time, making sync behaviour essential context for shared tracks"
+    },
+    {
+      "slug": "settings/dropbox-for-teams",
+      "reason": "Dropbox team folder structure underpins how collaborator file access is granted and organized"
+    },
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Deciding between sharing methods requires understanding the difference between collaborator access and public sharing"
+    }
+  ],
+  "collaboration/splits-and-rights": [
+    {
+      "slug": "collaboration/adding-collaborators",
+      "reason": "Splits are configured when adding collaborators; these pages cover consecutive steps in one workflow"
+    },
+    {
+      "slug": "collaboration/permissions",
+      "reason": "Split ownership and access permissions are both part of a collaborator's role definition"
+    },
+    {
+      "slug": "collaboration/default-project-collaborators",
+      "reason": "Default collaborators carry pre-set splits; configuring defaults requires understanding split mechanics first"
+    },
+    {
+      "slug": "ai-assistant/what-you-can-ask",
+      "reason": "The assistant can auto-distribute splits across collaborators, making AI commands a powerful shortcut here"
+    },
+    {
+      "slug": "activity-panel/collaborators-widget",
+      "reason": "The collaborators widget is the UI entry point for managing the split percentages defined in splits-and-rights"
+    },
+    {
+      "slug": "activity-panel/export-widget",
+      "reason": "Accurate split sheet exports depend on splits being correctly configured across collaborators"
+    },
+    {
+      "slug": "export/split-sheets",
+      "reason": "Split percentages defined here are the source data for exported split sheet documents"
+    }
+  ],
+  "collaboration/unsharing-and-leaving": [
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Removing a collaborator affects split allocations; users need to understand what happens to percentages"
+    },
+    {
+      "slug": "collaboration/permissions",
+      "reason": "Unsharing removes permissions; understanding the permission model clarifies what access is being revoked"
+    },
+    {
+      "slug": "collaboration/invitations",
+      "reason": "Leaving is the recipient-side counterpart to unsharing; both pages together cover the full lifecycle"
+    },
+    {
+      "slug": "activity-panel/track-warnings-widget",
+      "reason": "Removing a collaborator may trigger warnings about unresolved stems or missing contributor files"
+    }
+  ],
+  "comments-and-todos/adding-comments": [
+    {
+      "slug": "activity-panel/todos-widget",
+      "reason": "Comments and todos are complementary annotation tools; users often create todos as follow-ups to comments"
+    },
+    {
+      "slug": "audio-player/waveform-interactions",
+      "reason": "Users identify moments to comment on while navigating the waveform, making these workflows tightly linked"
+    },
+    {
+      "slug": "audio-player/versions-and-stems",
+      "reason": "Comments are tied to specific bounces; understanding how versions work clarifies comment scoping"
+    },
+    {
+      "slug": "collaboration/sharing-with-collaborators",
+      "reason": "Comments are most valuable in collaborative contexts; shared tracks make comment workflows essential"
+    }
+  ],
+  "comments-and-todos/comments-on-shared-tracks": [
+    {
+      "slug": "comments-and-todos/timestamped-comments",
+      "reason": "Timestamped comments are a key feedback tool on shared tracks"
+    },
+    {
+      "slug": "comments-and-todos/pinning-comments",
+      "reason": "Pinning keeps critical collaborative feedback visible to all parties"
+    },
+    {
+      "slug": "comments-and-todos/managing-todos",
+      "reason": "Feedback on shared tracks often generates actionable tasks for collaborators"
+    },
+    {
+      "slug": "export/split-sheets",
+      "reason": "Collaborators on shared tracks also need split sheet documentation"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Shared track feedback is often tied to revision deadlines"
+    },
+    {
+      "slug": "collaboration/permissions",
+      "reason": "Who can post and see comments on shared tracks is governed by collaborator permission levels"
+    },
+    {
+      "slug": "reference/realtime-sync",
+      "reason": "Comments on shared tracks appear in real time for all collaborators, making sync behaviour important context"
+    }
+  ],
+  "comments-and-todos/creating-todos": [
+    {
+      "slug": "comments-and-todos/todo-properties",
+      "reason": "Understanding todo properties is the natural next step after creating one"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Shows how created todos fit into broader production pipeline stages"
+    },
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Kanban view reflects workflow stages that todos help you move tracks through"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Todos with due dates connect directly to deadline tracking on the dashboard"
+    },
+    {
+      "slug": "comments-and-todos/timestamped-comments",
+      "reason": "Timestamped comments often trigger the need to create a follow-up todo"
+    }
+  ],
+  "comments-and-todos/editing-and-deleting-comments": [
+    {
+      "slug": "comments-and-todos/pinning-comments",
+      "reason": "Pinned comments may need editing or unpinning as feedback evolves"
+    },
+    {
+      "slug": "comments-and-todos/timestamped-comments",
+      "reason": "Timestamped comments are the most common type users need to edit or delete"
+    },
+    {
+      "slug": "comments-and-todos/comments-on-shared-tracks",
+      "reason": "Permissions for editing differ in shared vs. owned track contexts"
+    },
+    {
+      "slug": "comments-and-todos/managing-todos",
+      "reason": "Users cleaning up comments often also want to update related todos"
+    }
+  ],
+  "comments-and-todos/managing-todos": [
+    {
+      "slug": "comments-and-todos/todo-properties",
+      "reason": "Properties like assignee and due date are core to managing todos effectively"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Explains how todo stages map to the broader production workflow"
+    },
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Kanban board reflects the same workflow stages todos move tracks through"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Todo due dates feed into the dashboard's deadline tracking"
+    },
+    {
+      "slug": "comments-and-todos/comments-on-shared-tracks",
+      "reason": "Collaborator todos often arise from shared track comment threads"
+    },
+    {
+      "slug": "activity-panel/todos-widget",
+      "reason": "The todos widget is the activity panel implementation of the broader todo management workflow"
+    }
+  ],
+  "comments-and-todos/pinning-comments": [
+    {
+      "slug": "comments-and-todos/timestamped-comments",
+      "reason": "Timestamped comments are the most valuable candidates for pinning"
+    },
+    {
+      "slug": "comments-and-todos/comments-on-shared-tracks",
+      "reason": "Pinning is especially useful in multi-collaborator shared track contexts"
+    },
+    {
+      "slug": "comments-and-todos/creating-todos",
+      "reason": "Pinned action items are often better tracked as todos for assignment and deadlines"
+    },
+    {
+      "slug": "comments-and-todos/editing-and-deleting-comments",
+      "reason": "Users managing pinned comments also need to know how to edit or remove them"
+    }
+  ],
+  "comments-and-todos/timestamped-comments": [
+    {
+      "slug": "comments-and-todos/pinning-comments",
+      "reason": "Critical timestamped notes can be pinned so collaborators don't miss them"
+    },
+    {
+      "slug": "comments-and-todos/comments-on-shared-tracks",
+      "reason": "Timestamped comments are the primary feedback tool on shared bounce reviews"
+    },
+    {
+      "slug": "comments-and-todos/creating-todos",
+      "reason": "A timestamped issue often warrants creating a todo for follow-up action"
+    },
+    {
+      "slug": "export/track-metadata",
+      "reason": "Bounce-level feedback context is useful when exporting track data for review"
+    },
+    {
+      "slug": "activity-panel/comments-widget",
+      "reason": "The widget supports timestamped comments whose mechanics are detailed in timestamped-comments"
+    },
+    {
+      "slug": "audio-player/waveform-interactions",
+      "reason": "Timestamp values in comments map directly to waveform positions, enabling click-to-seek from comments"
+    }
+  ],
+  "comments-and-todos/todo-properties": [
+    {
+      "slug": "comments-and-todos/managing-todos",
+      "reason": "Managing todos requires understanding what each property controls"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Workflow stage is a key property that connects todos to production pipeline"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Due date property on todos feeds directly into dashboard deadline tracking"
+    },
+    {
+      "slug": "export/writer-roles-and-ipi",
+      "reason": "Assignee roles on todos relate to how collaborator roles are defined more broadly"
+    },
+    {
+      "slug": "activity-panel/todos-widget",
+      "reason": "Understanding all todo properties is needed to fully use the widget's fields"
+    },
+    {
+      "slug": "workflow-and-stages/understanding-stages",
+      "reason": "Todo stage assignment property references the same production stages defined in understanding-stages"
+    }
+  ],
+  "comments-and-todos/todos-in-your-workflow": [
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Mini Kanban visualizes the same workflow stages todos are assigned to"
+    },
+    {
+      "slug": "comments-and-todos/creating-todos",
+      "reason": "Creating todos is the entry point to the workflow system described here"
+    },
+    {
+      "slug": "comments-and-todos/todo-properties",
+      "reason": "Workflow stage is one of the core properties that drives todo progression"
+    },
+    {
+      "slug": "dashboard/abandoned-tracks",
+      "reason": "Tracks with no active todos are prime candidates for the abandoned tracks list"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Workflow todos with due dates appear in the dashboard deadlines widget"
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "Todos can be tied to workflow stages, so stage transitions in the widget affect which todos are relevant"
+    },
+    {
+      "slug": "workflow-and-stages/custom-workflows",
+      "reason": "Todos can be aligned to custom workflow stages, so the two systems must be understood together"
+    }
+  ],
+  "dashboard/abandoned-tracks": [
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Kanban view helps identify where abandoned tracks stalled in the workflow"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Adding todos to an abandoned track is a practical way to restart momentum"
+    },
+    {
+      "slug": "dashboard/featured-projects",
+      "reason": "Revived abandoned tracks can be pinned as featured projects for focus"
+    },
+    {
+      "slug": "dashboard/dashboard-vs-tracks",
+      "reason": "Understanding when to use the Tracks grid vs dashboard helps locate abandoned work"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Smart notifications can surface abandoned track alerts that also appear in the dashboard section"
+    }
+  ],
+  "dashboard/dashboard-vs-tracks": [
+    {
+      "slug": "dashboard",
+      "reason": "Dashboard overview page gives full context for what the dashboard surface contains"
+    },
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Mini Kanban is a key dashboard widget that differs from the full Tracks grid view"
+    },
+    {
+      "slug": "dashboard/featured-projects",
+      "reason": "Featured Projects is a dashboard-exclusive feature not available in Tracks view"
+    },
+    {
+      "slug": "dashboard/abandoned-tracks",
+      "reason": "Abandoned Tracks is a dashboard widget with no equivalent in the Tracks grid"
+    }
+  ],
+  "dashboard/featured-projects": [
+    {
+      "slug": "dashboard",
+      "reason": "Featured Projects is one of the primary widgets on the main dashboard"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Featured projects often have active deadlines visible in the deadlines widget"
+    },
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Kanban view complements featured projects by showing workflow stage across all tracks"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Featured projects typically have active todos driving them forward"
+    },
+    {
+      "slug": "dashboard/abandoned-tracks",
+      "reason": "Featured projects are the counterpart to abandoned ones — both prioritize your attention"
+    },
+    {
+      "slug": "projects/project-hierarchy",
+      "reason": "Understanding parent/child project structure helps decide which projects to feature on the dashboard"
+    }
+  ],
+  "dashboard": [
+    {
+      "slug": "dashboard/dashboard-vs-tracks",
+      "reason": "Clarifies how the dashboard differs from the Tracks grid for new users"
+    },
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Mini Kanban is one of the most actionable widgets on the dashboard"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Deadlines widget is a core dashboard component for workflow management"
+    },
+    {
+      "slug": "getting-started",
+      "reason": "New users land on the dashboard and need the getting started guide for context"
+    },
+    {
+      "slug": "dashboard/featured-projects",
+      "reason": "Featured Projects sits at the top of the dashboard and is key to understanding its layout"
+    },
+    {
+      "slug": "activity-and-notifications/daily-workflow",
+      "reason": "The daily workflow panel and the dashboard are complementary home-base views used together each session"
+    }
+  ],
+  "dashboard/mini-kanban": [
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Todos drive stage progression that the Kanban board visually reflects"
+    },
+    {
+      "slug": "dashboard/abandoned-tracks",
+      "reason": "Tracks stuck in early Kanban columns may appear in the abandoned tracks widget"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Tracks visible in the Kanban often have associated deadlines in the widget"
+    },
+    {
+      "slug": "dashboard/dashboard-vs-tracks",
+      "reason": "Explains why Mini Kanban on the dashboard differs from the full Tracks grid"
+    },
+    {
+      "slug": "export/track-metadata",
+      "reason": "Exporting metadata captures workflow stage data visible in the Kanban"
+    },
+    {
+      "slug": "workflow-and-stages/understanding-stages",
+      "reason": "The kanban columns map to production stages, so stage definitions are prerequisite knowledge"
+    },
+    {
+      "slug": "workflow-and-stages/custom-workflows",
+      "reason": "Custom workflow stages appear as kanban columns, making these features directly coupled"
+    }
+  ],
+  "dashboard/upcoming-deadlines": [
+    {
+      "slug": "comments-and-todos/todo-properties",
+      "reason": "Due dates set on todos are a primary source of entries in the deadlines widget"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Workflow todos with dates feed directly into deadline tracking"
+    },
+    {
+      "slug": "dashboard/featured-projects",
+      "reason": "Featured projects with active deadlines are most visible here"
+    },
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Kanban stage and deadline proximity together signal which tracks need attention"
+    },
+    {
+      "slug": "export/split-sheets",
+      "reason": "PRO submission and publisher deadlines often drive entries in this widget"
+    },
+    {
+      "slug": "activity-panel/due-date-widget",
+      "reason": "Deadlines set via the widget aggregate into the upcoming deadlines dashboard view"
+    },
+    {
+      "slug": "projects/project-due-dates",
+      "reason": "Project-level deadlines set in projects feed the upcoming deadlines dashboard widget"
+    }
+  ],
+  "export/split-sheets": [
+    {
+      "slug": "export/writer-roles-and-ipi",
+      "reason": "Writer roles and IPI numbers must be set correctly before split sheets are accurate"
+    },
+    {
+      "slug": "export/track-metadata",
+      "reason": "Split sheet export is one component of the broader track metadata export system"
+    },
+    {
+      "slug": "comments-and-todos/comments-on-shared-tracks",
+      "reason": "Collaborators who comment on shared tracks also need to appear on split sheets"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "PRO registration deadlines often appear in the deadlines widget"
+    },
+    {
+      "slug": "activity-panel/export-widget",
+      "reason": "The export widget is the in-panel trigger for generating the split sheets documented in the export section"
+    },
+    {
+      "slug": "collaboration/splits-and-rights",
+      "reason": "Split percentages defined here are the source data for exported split sheet documents"
+    }
+  ],
+  "export/track-metadata": [
+    {
+      "slug": "export/split-sheets",
+      "reason": "Split sheet export is a focused subset of the broader metadata export"
+    },
+    {
+      "slug": "export/writer-roles-and-ipi",
+      "reason": "IPI and writer role data is included in the metadata export CSV"
+    },
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Workflow stage data shown in the Kanban is captured in the metadata export"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Track completion status informed by todos is reflected in exported metadata"
+    }
+  ],
+  "export/writer-roles-and-ipi": [
+    {
+      "slug": "export/split-sheets",
+      "reason": "Writer roles and IPI numbers are required fields for valid split sheet exports"
+    },
+    {
+      "slug": "export/track-metadata",
+      "reason": "IPI and role data is included when exporting full track metadata"
+    },
+    {
+      "slug": "comments-and-todos/comments-on-shared-tracks",
+      "reason": "Collaborators leaving feedback on shared tracks also need roles assigned for export"
+    },
+    {
+      "slug": "comments-and-todos/managing-todos",
+      "reason": "Todos can be assigned to collaborators whose roles should also be defined for PRO purposes"
+    },
+    {
+      "slug": "activity-panel/collaborators-widget",
+      "reason": "Collaborator credits and ownership set in the widget feed directly into writer role and IPI assignments needed for export"
+    },
+    {
+      "slug": "settings/pro-ipi-info",
+      "reason": "Your own IPI number stored in settings pre-populates writer role exports for your tracks"
+    }
+  ],
+  "getting-started/creating-your-account": [
+    {
+      "slug": "getting-started/download-and-install",
+      "reason": "Account creation and app installation are sequential first-time setup steps"
+    },
+    {
+      "slug": "getting-started",
+      "reason": "The overview guide provides context for what to do after your account is created"
+    },
+    {
+      "slug": "dashboard",
+      "reason": "The dashboard is the first screen users see after signing in for the first time"
+    },
+    {
+      "slug": "export/writer-roles-and-ipi",
+      "reason": "Setting up IPI details is an important early account configuration step for PRO members"
+    }
+  ],
+  "getting-started/download-and-install": [
+    {
+      "slug": "getting-started/creating-your-account",
+      "reason": "Installation is immediately followed by account creation as the next setup step"
+    },
+    {
+      "slug": "getting-started",
+      "reason": "The overview guide covers what to do with the app once it's installed"
+    },
+    {
+      "slug": "dashboard",
+      "reason": "The dashboard is the first screen users encounter after installing and signing in"
+    }
+  ],
+  "getting-started": [
+    {
+      "slug": "getting-started/download-and-install",
+      "reason": "First practical step after reading the overview is downloading the app"
+    },
+    {
+      "slug": "getting-started/creating-your-account",
+      "reason": "Account creation is the second required setup step covered in the overview"
+    },
+    {
+      "slug": "dashboard",
+      "reason": "The dashboard is the home screen new users need to understand first"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Todos are a core workflow feature new users should discover early"
+    },
+    {
+      "slug": "export/split-sheets",
+      "reason": "Split sheet export is a key professional feature to highlight for new producers"
+    }
+  ],
+  "getting-started/quick-start": [
+    {
+      "slug": "getting-started/your-first-import",
+      "reason": "Natural next step after account setup is bringing in your first music files"
+    },
+    {
+      "slug": "managing-your-music/the-tracks-grid",
+      "reason": "After setup, users land in the tracks grid — knowing how it works is immediately useful"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "Setting up licensing is a key early configuration step often done alongside account setup"
+    },
+    {
+      "slug": "getting-started/quick-tour",
+      "reason": "Complements quick start by orienting users to the interface they just configured"
+    }
+  ],
+  "getting-started/quick-tour": [
+    {
+      "slug": "managing-your-music/the-tracks-grid",
+      "reason": "The track grid is the central UI element introduced in the tour — deeper detail helps users explore it"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Projects are a key organisational concept shown in the tour that users will want to act on immediately"
+    },
+    {
+      "slug": "managing-your-music/playing-and-previewing",
+      "reason": "The audio player is a visible UI element in the tour; users will want to know how to use it"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "Licensing storefront is a major feature area users glimpse in the tour and will want to configure"
+    },
+    {
+      "slug": "activity-panel",
+      "reason": "The quick tour introduces the activity panel as a core interface zone, making the panel overview essential follow-up reading"
+    }
+  ],
+  "getting-started/your-first-import": [
+    {
+      "slug": "managing-your-music/importing-tracks",
+      "reason": "Full reference for the import system with deeper detail beyond the beginner walkthrough"
+    },
+    {
+      "slug": "managing-your-music/songs-and-track-groups",
+      "reason": "Explains the track group structure that import automatically creates"
+    },
+    {
+      "slug": "managing-your-music/editing-track-details",
+      "reason": "After importing, users typically want to enrich track metadata right away"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Newly imported tracks often need to be assigned to a project as an immediate next step"
+    },
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "First import workflows typically require Dropbox to be connected for file storage and organisation"
+    }
+  ],
+  "getting-started/your-first-project": [
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Directly extends this page — after creating a project, assigning songs to it is the logical next action"
+    },
+    {
+      "slug": "managing-your-music/songs-and-track-groups",
+      "reason": "Understanding track groups clarifies how songs relate to projects"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Bulk editing lets users quickly assign many tracks to a new project at once"
+    },
+    {
+      "slug": "licensing/pricing-your-beats",
+      "reason": "Projects are often created per release or client, making licensing a related monetisation step"
+    },
+    {
+      "slug": "collaboration/default-project-collaborators",
+      "reason": "Setting up a first project is the natural moment to configure default collaborators"
+    }
+  ],
+  "index": [
+    {
+      "slug": "getting-started/quick-start",
+      "reason": "Primary entry point for new users arriving at the help centre"
+    },
+    {
+      "slug": "managing-your-music/the-tracks-grid",
+      "reason": "The tracks grid is the core daily-use feature most users need help with first"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "Licensing setup is a high-intent task users often seek docs for from the home page"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Projects are a key workflow concept highlighted in the hub's navigation"
+    }
+  ],
+  "licensing/creating-license-types": [
+    {
+      "slug": "licensing/pricing-your-beats",
+      "reason": "Pricing strategy and license type configuration are tightly coupled decisions"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "License types can only be used after Stripe and Dropbox are connected — prerequisite context"
+    },
+    {
+      "slug": "managing-your-music/editing-track-details",
+      "reason": "Enabling specific license types on individual tracks is done via the track detail modal"
+    },
+    {
+      "slug": "licensing/purchase-flow",
+      "reason": "Understanding how buyers experience license tiers informs how producers design them"
+    }
+  ],
+  "licensing/managing-sales": [
+    {
+      "slug": "licensing/setting-up",
+      "reason": "Stripe Connect setup is a prerequisite covered here that must be done before managing sales"
+    },
+    {
+      "slug": "licensing/purchase-flow",
+      "reason": "Understanding the buyer's experience helps producers manage and troubleshoot sales"
+    },
+    {
+      "slug": "licensing/creating-license-types",
+      "reason": "Sales are driven by license types — producers need both configured to sell"
+    },
+    {
+      "slug": "managing-your-music/editing-track-details",
+      "reason": "Enabling tracks for sale is done through track details, connecting library management to sales"
+    },
+    {
+      "slug": "settings/billing-and-subscription",
+      "reason": "Stripe payouts from sales and plan-level licensing features are both managed through billing settings"
+    }
+  ],
+  "licensing/pricing-your-beats": [
+    {
+      "slug": "licensing/creating-license-types",
+      "reason": "Detailed reference for building the license type structures that pricing depends on"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "Payment and file delivery infrastructure must be in place before pricing can go live"
+    },
+    {
+      "slug": "managing-your-music/editing-track-details",
+      "reason": "Enabling pricing on specific tracks is done through the track detail modal"
+    },
+    {
+      "slug": "licensing/purchase-flow",
+      "reason": "Seeing the buyer's perspective helps producers price and present licenses effectively"
+    },
+    {
+      "slug": "activity-panel/marketing-widget",
+      "reason": "The marketing widget is the per-track UI for enabling licensing and setting prices defined in pricing-your-beats"
+    }
+  ],
+  "licensing/purchase-flow": [
+    {
+      "slug": "licensing/creating-license-types",
+      "reason": "The license options buyers see are defined by the producer's license type configuration"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "Dropbox file delivery and Stripe payment — both configured in setup — power the purchase flow"
+    },
+    {
+      "slug": "licensing/managing-sales",
+      "reason": "Producers need to understand the buyer flow to effectively manage and support their sales"
+    },
+    {
+      "slug": "managing-your-music/playing-and-previewing",
+      "reason": "Beat previewing on the public page is part of the purchase journey — connects player to storefront"
+    },
+    {
+      "slug": "sharing/public-page/visitor-experience",
+      "reason": "Buyers discover and initiate license purchases from the public page, leading into the purchase flow"
+    },
+    {
+      "slug": "sharing/public-page",
+      "reason": "The public page is where buyers discover beats and initiate the licensing purchase flow"
+    }
+  ],
+  "licensing/setting-up": [
+    {
+      "slug": "licensing/creating-license-types",
+      "reason": "Creating license types is the immediate next step once payment and delivery accounts are connected"
+    },
+    {
+      "slug": "licensing/managing-sales",
+      "reason": "After setup, managing incoming sales is the ongoing operational task users need to learn"
+    },
+    {
+      "slug": "managing-your-music/editing-track-details",
+      "reason": "Enabling licensing on individual tracks via track details completes the setup-to-sale journey"
+    },
+    {
+      "slug": "getting-started/quick-start",
+      "reason": "Setup tasks like connecting Stripe are often first encountered during the quick start wizard"
+    },
+    {
+      "slug": "activity-panel/marketing-widget",
+      "reason": "The widget requires Stripe and Dropbox to be configured first as described in licensing/setting-up"
+    },
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "Dropbox must be connected before licensing can deliver files to buyers"
+    },
+    {
+      "slug": "settings/connected-accounts",
+      "reason": "Stripe Connect linkage required for licensing is managed through connected accounts settings"
+    }
+  ],
+  "managing-your-music/bulk-editing": [
+    {
+      "slug": "managing-your-music/the-tracks-grid",
+      "reason": "Bulk editing starts with multi-select in the tracks grid — the two features are used together"
+    },
+    {
+      "slug": "managing-your-music/searching-and-filtering",
+      "reason": "Filtering to the right subset of tracks before bulk editing is the typical workflow"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Bulk editing is a fast way to assign many tracks to a project bucket at once"
+    },
+    {
+      "slug": "managing-your-music/editing-track-details",
+      "reason": "Contrasts with single-track editing — users benefit from knowing when to use each approach"
+    },
+    {
+      "slug": "activity-panel/tags-widget",
+      "reason": "Bulk tag application uses the same tags widget logic applied simultaneously across multiple tracks"
+    },
+    {
+      "slug": "collaboration/adding-collaborators",
+      "reason": "Bulk editing can assign collaborators to multiple tracks at once, intersecting with collaboration workflows"
+    },
+    {
+      "slug": "projects/multi-project-selection",
+      "reason": "Selecting tracks across multiple projects enables the same bulk edit actions available in the tracks grid"
+    },
+    {
+      "slug": "reference/undo-redo",
+      "reason": "Bulk edits affecting many tracks at once make undo/redo especially important to understand"
+    }
+  ],
+  "managing-your-music/column-management": [
+    {
+      "slug": "managing-your-music/the-tracks-grid",
+      "reason": "Column management is a direct extension of working in the tracks grid"
+    },
+    {
+      "slug": "managing-your-music/searching-and-filtering",
+      "reason": "Showing the right columns complements filtering to surface the most relevant track data"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "A well-configured column layout makes it easier to identify tracks for bulk edits"
+    },
+    {
+      "slug": "managing-your-music/saved-searches",
+      "reason": "Custom column layouts pair naturally with saved searches for repeatable focused workflows"
+    }
+  ],
+  "managing-your-music/editing-track-details": [
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Bulk editing is the counterpart for updating many tracks — users should know when to use each"
+    },
+    {
+      "slug": "licensing/pricing-your-beats",
+      "reason": "Enabling licensing on a track is done through the track detail modal, linking library and sales"
+    },
+    {
+      "slug": "managing-your-music/songs-and-track-groups",
+      "reason": "Understanding how track groups are structured gives context to the detail modal's fields"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Project assignment can be done from the track detail modal as part of the editing workflow"
+    }
+  ],
+  "managing-your-music/importing-tracks": [
+    {
+      "slug": "getting-started/your-first-import",
+      "reason": "Beginner-friendly companion to this reference — users may need both levels of detail"
+    },
+    {
+      "slug": "managing-your-music/songs-and-track-groups",
+      "reason": "Import creates track groups — understanding that structure is essential after importing"
+    },
+    {
+      "slug": "managing-your-music/editing-track-details",
+      "reason": "Post-import metadata cleanup is a common immediate follow-up task"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "Dropbox integration used for file delivery is related to how imported files are stored and accessed"
+    },
+    {
+      "slug": "settings/how-files-are-organized",
+      "reason": "Import behaviour is governed by inbox folder logic and auto-grouping rules explained in how-files-are-organized"
+    },
+    {
+      "slug": "reference/supported-file-formats",
+      "reason": "Knowing which formats are supported is prerequisite for successful import"
+    },
+    {
+      "slug": "audio-player/supported-formats",
+      "reason": "Import will only succeed for formats listed as supported in the audio player and reference pages"
+    }
+  ],
+  "managing-your-music/playing-and-previewing": [
+    {
+      "slug": "managing-your-music/the-tracks-grid",
+      "reason": "Playback is typically initiated from the tracks grid — the two are used together constantly"
+    },
+    {
+      "slug": "managing-your-music/searching-and-filtering",
+      "reason": "Finding tracks to preview often involves searching and filtering first"
+    },
+    {
+      "slug": "licensing/purchase-flow",
+      "reason": "Beat preview is a key part of the buyer's purchase journey on the public track page"
+    },
+    {
+      "slug": "managing-your-music/songs-and-track-groups",
+      "reason": "Understanding which file in a track group plays helps users choose the right version to preview"
+    },
+    {
+      "slug": "audio-player/the-waveform-player",
+      "reason": "Playing and previewing tracks launches the waveform player described in detail in that section"
+    }
+  ],
+  "managing-your-music/saved-searches": [
+    {
+      "slug": "managing-your-music/searching-and-filtering",
+      "reason": "Saved searches are built from search and filter combinations — prerequisite knowledge"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Saved searches quickly surface target track sets that can then be bulk edited"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "A saved search scoped to a project's tracks is a powerful way to manage project libraries"
+    },
+    {
+      "slug": "managing-your-music/column-management",
+      "reason": "Pairing saved searches with custom column layouts creates repeatable focused workflows"
+    },
+    {
+      "slug": "tags-and-metadata/managing-tags-and-categories",
+      "reason": "Well-organised tag categories make saved searches more powerful and maintainable"
+    }
+  ],
+  "managing-your-music/searching-and-filtering": [
+    {
+      "slug": "managing-your-music/saved-searches",
+      "reason": "Searches and filters can be saved for reuse — a direct and valuable extension of this feature"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Filtering to the right tracks is typically the first step before performing a bulk edit"
+    },
+    {
+      "slug": "managing-your-music/the-tracks-grid",
+      "reason": "Search and filter results are displayed in the tracks grid — the two work in tandem"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Filtering by project is a common search pattern — connects search to project organisation"
+    },
+    {
+      "slug": "activity-panel/tags-widget",
+      "reason": "Tags applied via the widget become filterable facets in the tracks grid search"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Tags are primary filter facets, so the tagging system directly determines search and filter capability"
+    },
+    {
+      "slug": "ai-assistant/what-you-can-ask",
+      "reason": "The AI assistant can perform searches and filtering that overlap with the manual search and filter workflow"
+    }
+  ],
+  "managing-your-music/songs-and-track-groups": [
+    {
+      "slug": "managing-your-music/importing-tracks",
+      "reason": "Import is what creates track groups — understanding both together gives the full picture"
+    },
+    {
+      "slug": "managing-your-music/the-tracks-grid",
+      "reason": "The tracks grid is the primary interface for viewing and interacting with track groups"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Track groups are assigned to projects — the two concepts are core to organisation"
+    },
+    {
+      "slug": "licensing/pricing-your-beats",
+      "reason": "Licensing is enabled per track/song, making catalog management directly linked to sales setup"
+    },
+    {
+      "slug": "settings/how-files-are-organized",
+      "reason": "Track groups in the catalog view are formed by the same auto-grouping logic explained in how-files-are-organized"
+    }
+  ],
+  "managing-your-music/the-tracks-grid": [
+    {
+      "slug": "managing-your-music/column-management",
+      "reason": "Column customisation is done directly within the tracks grid and shapes how it displays"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Multi-select in the grid is the entry point for all bulk editing operations"
+    },
+    {
+      "slug": "managing-your-music/searching-and-filtering",
+      "reason": "Search and filter results are rendered in the grid — they are functionally inseparable"
+    },
+    {
+      "slug": "managing-your-music/playing-and-previewing",
+      "reason": "Playback is launched directly from track rows in the grid"
+    }
+  ],
+  "projects/assigning-songs": [
+    {
+      "slug": "getting-started/your-first-project",
+      "reason": "Creating a project is the prerequisite step before songs can be assigned to it"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Bulk editing is the most efficient way to assign large numbers of tracks to a project"
+    },
+    {
+      "slug": "managing-your-music/searching-and-filtering",
+      "reason": "Filtering by project is a common workflow — helps users find tracks already assigned"
+    },
+    {
+      "slug": "licensing/pricing-your-beats",
+      "reason": "Projects often map to releases or client deliveries where licensing tracks becomes the next step"
+    },
+    {
+      "slug": "activity-panel/bucket-widget",
+      "reason": "The bucket widget is the activity panel mechanism for the song-to-project assignment workflow"
+    },
+    {
+      "slug": "projects/project-hierarchy",
+      "reason": "Assigning songs to nested parent/child projects requires understanding the hierarchy model first"
+    },
+    {
+      "slug": "sharing/public-page/adding-content",
+      "reason": "Tracks added to the public page come from buckets/projects, requiring understanding of song assignment"
+    },
+    {
+      "slug": "ai-assistant/example-queries",
+      "reason": "Example queries include assigning tracks to buckets, directly overlapping with the assigning-songs workflow"
+    }
+  ],
+  "projects/creating-projects": [
+    {
+      "slug": "projects/project-hierarchy",
+      "reason": "Projects can be nested; understanding hierarchy is a natural next step after creation"
+    },
+    {
+      "slug": "projects/project-due-dates",
+      "reason": "Setting deadlines is a core part of managing a newly created project"
+    },
+    {
+      "slug": "reference/plan-limits",
+      "reason": "Plan limits cap how many projects and tracks you can create"
+    },
+    {
+      "slug": "settings/how-files-are-organized",
+      "reason": "File import and inbox folders tie directly into how projects receive tracks"
+    },
+    {
+      "slug": "reference/realtime-sync",
+      "reason": "Collaborators will see project changes instantly, relevant when setting up shared projects"
+    },
+    {
+      "slug": "collaboration/default-project-collaborators",
+      "reason": "Default collaborators are configured at project creation time, making these pages tightly coupled"
+    }
+  ],
+  "projects/multi-project-selection": [
+    {
+      "slug": "projects/project-hierarchy",
+      "reason": "Hierarchy defines parent/child buckets that multi-selection helps you navigate across"
+    },
+    {
+      "slug": "projects/project-due-dates",
+      "reason": "Viewing tracks across projects makes due-date comparison and bulk deadline management relevant"
+    },
+    {
+      "slug": "reference/keyboard-shortcuts",
+      "reason": "Keyboard shortcuts can speed up multi-project navigation and track actions"
+    },
+    {
+      "slug": "reference/undo-redo",
+      "reason": "Bulk actions across multiple projects make undo/redo especially important"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Selecting tracks across multiple projects enables the same bulk edit actions available in the tracks grid"
+    }
+  ],
+  "projects/project-due-dates": [
+    {
+      "slug": "settings/notifications",
+      "reason": "Due-date reminders are delivered via notifications, making alert config directly relevant"
+    },
+    {
+      "slug": "projects/project-hierarchy",
+      "reason": "Cascading due dates interact with parent/child project structures"
+    },
+    {
+      "slug": "projects/multi-project-selection",
+      "reason": "Viewing deadlines across multiple projects simultaneously helps with pipeline management"
+    },
+    {
+      "slug": "reference/realtime-sync",
+      "reason": "Collaborators see due-date changes in real time, affecting shared scheduling"
+    },
+    {
+      "slug": "dashboard/upcoming-deadlines",
+      "reason": "Project-level deadlines set in projects feed the upcoming deadlines dashboard widget"
+    },
+    {
+      "slug": "workflow-and-stages/due-dates-and-deadlines",
+      "reason": "Project-level deadlines and track-level deadlines are part of the same unified deadline system"
+    }
+  ],
+  "projects/project-hierarchy": [
+    {
+      "slug": "projects/multi-project-selection",
+      "reason": "Multi-selection is the primary way to view tracks across hierarchical buckets together"
+    },
+    {
+      "slug": "projects/project-due-dates",
+      "reason": "Due date cascading is shaped by the parent/child hierarchy"
+    },
+    {
+      "slug": "reference/plan-limits",
+      "reason": "Plan limits may restrict how many nested projects or tracks you can maintain"
+    },
+    {
+      "slug": "settings/how-files-are-organized",
+      "reason": "File organization on disk mirrors the project hierarchy inside the app"
+    },
+    {
+      "slug": "dashboard/featured-projects",
+      "reason": "Understanding parent/child project structure helps decide which projects to feature on the dashboard"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Assigning songs to nested parent/child projects requires understanding the hierarchy model first"
+    }
+  ],
+  "reference/keyboard-shortcuts": [
+    {
+      "slug": "reference/undo-redo",
+      "reason": "Undo/redo is primarily triggered via keyboard shortcuts, making them tightly linked"
+    },
+    {
+      "slug": "projects/multi-project-selection",
+      "reason": "Shortcuts accelerate multi-project navigation and bulk track operations"
+    },
+    {
+      "slug": "reference/realtime-sync",
+      "reason": "Fast keyboard-driven edits pair with real-time sync when collaborating simultaneously"
+    },
+    {
+      "slug": "settings/notifications",
+      "reason": "Power users relying on shortcuts also benefit from configuring timely alerts"
+    },
+    {
+      "slug": "audio-player/playback-controls",
+      "reason": "Many keyboard shortcuts control playback functions documented in playback-controls"
+    }
+  ],
+  "reference/plan-limits": [
+    {
+      "slug": "settings/billing-and-subscription",
+      "reason": "Upgrading to raise limits is done directly in billing settings"
+    },
+    {
+      "slug": "projects/creating-projects",
+      "reason": "Project and track creation is gated by plan limits"
+    },
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "Storage limits interact with how much you can sync and share via Dropbox"
+    },
+    {
+      "slug": "settings/connected-accounts",
+      "reason": "Some connected services and collaborator features are plan-tier dependent"
+    },
+    {
+      "slug": "collaboration/adding-collaborators",
+      "reason": "Plan limits cap the number of collaborators allowed, directly affecting how many can be added"
+    }
+  ],
+  "reference/realtime-sync": [
+    {
+      "slug": "settings/connected-accounts",
+      "reason": "Connected accounts like Google enable the collaboration that realtime sync supports"
+    },
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "Dropbox file sharing and realtime sync together power the collaboration workflow"
+    },
+    {
+      "slug": "reference/undo-redo",
+      "reason": "Real-time changes from collaborators may need to be undone quickly"
+    },
+    {
+      "slug": "projects/project-due-dates",
+      "reason": "Due date updates from teammates appear instantly via realtime sync"
+    },
+    {
+      "slug": "collaboration/sharing-with-collaborators",
+      "reason": "Collaborators see each other's changes in real time, making sync behaviour essential context for shared tracks"
+    },
+    {
+      "slug": "activity-and-notifications/the-activity-feed",
+      "reason": "The activity feed relies on real-time sync to show collaborator changes as they happen"
+    },
+    {
+      "slug": "comments-and-todos/comments-on-shared-tracks",
+      "reason": "Comments on shared tracks appear in real time for all collaborators, making sync behaviour important context"
+    }
+  ],
+  "reference/supported-file-formats": [
+    {
+      "slug": "settings/how-files-are-organized",
+      "reason": "The import algorithm that processes files depends on the formats covered here"
+    },
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "Supported formats determine what can be packaged and shared via Dropbox links"
+    },
+    {
+      "slug": "reference/plan-limits",
+      "reason": "Storage limits are directly affected by file format sizes and quantities"
+    },
+    {
+      "slug": "projects/creating-projects",
+      "reason": "Knowing which formats are accepted is essential before importing tracks into projects"
+    },
+    {
+      "slug": "managing-your-music/importing-tracks",
+      "reason": "Knowing which formats are supported is prerequisite for successful import"
+    }
+  ],
+  "reference/undo-redo": [
+    {
+      "slug": "reference/keyboard-shortcuts",
+      "reason": "Undo/redo is invoked via keyboard shortcuts and shares the same reference context"
+    },
+    {
+      "slug": "reference/realtime-sync",
+      "reason": "Undoing an action in a shared session has implications for collaborators seeing changes live"
+    },
+    {
+      "slug": "projects/multi-project-selection",
+      "reason": "Bulk actions across multiple projects are prime candidates for needing undo"
+    },
+    {
+      "slug": "projects/project-due-dates",
+      "reason": "Accidental bulk due-date changes are a common undo use case"
+    },
+    {
+      "slug": "managing-your-music/bulk-editing",
+      "reason": "Bulk edits affecting many tracks at once make undo/redo especially important to understand"
+    }
+  ],
+  "settings/account-management": [
+    {
+      "slug": "settings/billing-and-subscription",
+      "reason": "Billing is closely tied to account status and plan management"
+    },
+    {
+      "slug": "settings/profile-and-avatar",
+      "reason": "Profile customization is a natural companion to core account management"
+    },
+    {
+      "slug": "settings/connected-accounts",
+      "reason": "External logins and linked services are part of overall account control"
+    },
+    {
+      "slug": "settings/pro-ipi-info",
+      "reason": "PRO/IPI details are account-level identity information relevant to royalty verification"
+    }
+  ],
+  "settings/background-and-theme": [
+    {
+      "slug": "settings/profile-and-avatar",
+      "reason": "Profile photo and bio complement the background image for a complete public profile"
+    },
+    {
+      "slug": "settings/pro-ipi-info",
+      "reason": "PRO info appears on the public profile alongside the visual branding set here"
+    },
+    {
+      "slug": "settings/account-management",
+      "reason": "Account verification status affects what your public profile displays"
+    },
+    {
+      "slug": "settings/connected-accounts",
+      "reason": "Connected accounts like Google may populate profile visuals used alongside the theme"
+    },
+    {
+      "slug": "sharing/public-page/setting-up",
+      "reason": "Header image and theme configured in settings apply directly to the public portfolio page appearance"
+    },
+    {
+      "slug": "sharing/the-share-page",
+      "reason": "Artist branding displayed on the share page comes from the background and theme settings"
+    }
+  ],
+  "settings/billing-and-subscription": [
+    {
+      "slug": "reference/plan-limits",
+      "reason": "Billing directly controls which plan limits apply to your workspace"
+    },
+    {
+      "slug": "settings/account-management",
+      "reason": "Account status and verification affect billing eligibility and plan access"
+    },
+    {
+      "slug": "settings/connected-accounts",
+      "reason": "Stripe is connected here and managed under connected accounts"
+    },
+    {
+      "slug": "settings/pro-ipi-info",
+      "reason": "Pro plan unlocks PRO/IPI features, linking subscription tier to royalty management"
+    },
+    {
+      "slug": "licensing/managing-sales",
+      "reason": "Stripe payouts from sales and plan-level licensing features are both managed through billing settings"
+    }
+  ],
+  "settings/connected-accounts": [
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "Dropbox connection setup is a detailed subset of what connected accounts enables"
+    },
+    {
+      "slug": "settings/managing-dropbox-connection",
+      "reason": "Ongoing Dropbox management is a direct follow-on after initial account connection"
+    },
+    {
+      "slug": "settings/billing-and-subscription",
+      "reason": "Stripe connection managed here ties into payment and subscription billing"
+    },
+    {
+      "slug": "reference/realtime-sync",
+      "reason": "Connected collaborator accounts are what realtime sync updates are shared across"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "Stripe Connect linkage required for licensing is managed through connected accounts settings"
+    }
+  ],
+  "settings/connecting-dropbox": [
+    {
+      "slug": "settings/managing-dropbox-connection",
+      "reason": "Managing and maintaining the Dropbox link is the direct next step after connecting"
+    },
+    {
+      "slug": "settings/dropbox-for-teams",
+      "reason": "Team-level Dropbox usage builds on the individual connection covered here"
+    },
+    {
+      "slug": "settings/how-files-are-organized",
+      "reason": "Understanding the Dropbox folder structure depends on how files are organized locally"
+    },
+    {
+      "slug": "reference/plan-limits",
+      "reason": "Storage and collaborator limits affect how much you can share via Dropbox"
+    },
+    {
+      "slug": "activity-panel/files-widget",
+      "reason": "File viewing and sharing in the widget requires an active Dropbox connection configured in settings"
+    },
+    {
+      "slug": "licensing/setting-up",
+      "reason": "Dropbox must be connected before licensing can deliver files to buyers"
+    },
+    {
+      "slug": "sharing/creating-share-links",
+      "reason": "Share links are Dropbox-backed URLs that cannot be created without an active Dropbox connection"
+    },
+    {
+      "slug": "getting-started/your-first-import",
+      "reason": "First import workflows typically require Dropbox to be connected for file storage and organisation"
+    }
+  ],
+  "settings/dropbox-for-teams": [
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "Individual Dropbox connection is the prerequisite for team-level usage"
+    },
+    {
+      "slug": "settings/managing-dropbox-connection",
+      "reason": "Ongoing connection management is essential for keeping team sharing functional"
+    },
+    {
+      "slug": "settings/how-files-are-organized",
+      "reason": "Team Dropbox folders follow the same organizational logic as local inbox folders"
+    },
+    {
+      "slug": "reference/plan-limits",
+      "reason": "Collaborator and storage limits directly shape what teams can do via Dropbox"
+    },
+    {
+      "slug": "activity-panel/sharing-widget",
+      "reason": "Folder sharing in the widget is powered by the Dropbox integration described in dropbox-for-teams"
+    },
+    {
+      "slug": "collaboration/sharing-with-collaborators",
+      "reason": "Dropbox team folder structure underpins how collaborator file access is granted and organized"
+    }
+  ],
+  "settings/how-files-are-organized": [
+    {
+      "slug": "reference/supported-file-formats",
+      "reason": "The import algorithm processes only supported formats, making this a direct dependency"
+    },
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "Dropbox mirrors the same folder structure used by the local inbox folders"
+    },
+    {
+      "slug": "projects/creating-projects",
+      "reason": "Files imported through inbox folders are assigned to projects created in the app"
+    },
+    {
+      "slug": "settings/dropbox-for-teams",
+      "reason": "Team Dropbox sharing relies on the same organized folder structure explained here"
+    },
+    {
+      "slug": "managing-your-music/importing-tracks",
+      "reason": "Import behaviour is governed by inbox folder logic and auto-grouping rules explained in how-files-are-organized"
+    },
+    {
+      "slug": "managing-your-music/songs-and-track-groups",
+      "reason": "Track groups in the catalog view are formed by the same auto-grouping logic explained in how-files-are-organized"
+    }
+  ],
+  "settings/managing-dropbox-connection": [
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "Initial connection steps are covered there; this page handles ongoing management"
+    },
+    {
+      "slug": "settings/dropbox-for-teams",
+      "reason": "Team sharing scenarios require a well-managed Dropbox connection"
+    },
+    {
+      "slug": "settings/connected-accounts",
+      "reason": "Dropbox appears as a connected account; both pages cover the same integration from different angles"
+    },
+    {
+      "slug": "reference/plan-limits",
+      "reason": "Storage limits affect how much you can keep synced through your Dropbox connection"
+    }
+  ],
+  "settings/notifications": [
+    {
+      "slug": "projects/project-due-dates",
+      "reason": "Due-date reminders are a primary notification type tied directly to deadline settings"
+    },
+    {
+      "slug": "reference/realtime-sync",
+      "reason": "Notifications complement realtime sync by alerting you when you're not actively watching"
+    },
+    {
+      "slug": "settings/connected-accounts",
+      "reason": "Email and external service connections determine how notifications are delivered"
+    },
+    {
+      "slug": "settings/account-management",
+      "reason": "Email verification status affects whether notification delivery works correctly"
+    },
+    {
+      "slug": "activity-and-notifications/notification-settings",
+      "reason": "Both pages cover notification configuration — settings is the location, notification-settings is the feature guide"
+    }
+  ],
+  "settings/pro-ipi-info": [
+    {
+      "slug": "settings/profile-and-avatar",
+      "reason": "PRO info appears alongside your public profile identity for collaborator verification"
+    },
+    {
+      "slug": "settings/billing-and-subscription",
+      "reason": "Access to PRO/IPI features may be gated by subscription plan tier"
+    },
+    {
+      "slug": "settings/account-management",
+      "reason": "Account verification underpins the credibility of PRO/IPI ownership claims"
+    },
+    {
+      "slug": "settings/background-and-theme",
+      "reason": "Public profile presentation pairs with PRO credentials when pitching to labels or publishers"
+    },
+    {
+      "slug": "collaboration/adding-collaborators",
+      "reason": "Collaborator IPI numbers stored in settings are applied when crediting contributors on tracks"
+    },
+    {
+      "slug": "export/writer-roles-and-ipi",
+      "reason": "Your own IPI number stored in settings pre-populates writer role exports for your tracks"
+    }
+  ],
+  "settings/profile-and-avatar": [
+    {
+      "slug": "settings/background-and-theme",
+      "reason": "Header image and theme complete the public profile that the avatar and bio start"
+    },
+    {
+      "slug": "settings/pro-ipi-info",
+      "reason": "PRO credentials appear on the same public profile, making them part of a unified identity"
+    },
+    {
+      "slug": "settings/account-management",
+      "reason": "Account details like display name and verification underpin the profile"
+    },
+    {
+      "slug": "settings/connected-accounts",
+      "reason": "Google account connection can populate profile information automatically"
+    }
+  ],
+  "settings/social-media-links": [
+    {
+      "slug": "sharing/public-page/setting-up",
+      "reason": "Social links appear on the public page; setting it up requires profile configuration"
+    },
+    {
+      "slug": "sharing/public-page/visitor-experience",
+      "reason": "Visitors see social links as part of the public page experience"
+    },
+    {
+      "slug": "sharing/the-share-page",
+      "reason": "Share pages surface artist branding including social presence"
+    },
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Understanding full sharing options helps decide when a public page vs links serves fans better"
+    }
+  ],
+  "sharing/creating-share-links": [
+    {
+      "slug": "sharing/share-settings",
+      "reason": "Share settings control file selection, downloads, and expiry for links you create"
+    },
+    {
+      "slug": "sharing/tracking-engagement",
+      "reason": "After creating links, track views and downloads to measure reach"
+    },
+    {
+      "slug": "sharing/the-share-page",
+      "reason": "Understanding what recipients see clarifies how to configure links"
+    },
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Helps decide when individual share links are the right tool vs playlists or public page"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Tags help identify and filter the right tracks before sharing"
+    },
+    {
+      "slug": "settings/connecting-dropbox",
+      "reason": "Share links are Dropbox-backed URLs that cannot be created without an active Dropbox connection"
+    }
+  ],
+  "sharing": [
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Practical guide for choosing between the sharing methods introduced here"
+    },
+    {
+      "slug": "sharing/public-page",
+      "reason": "Public page is a key sharing method not covered by temporary share links"
+    },
+    {
+      "slug": "workflow-and-stages/custom-workflows",
+      "reason": "Workflow status often determines when a track is ready to share"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Tags help identify share-ready tracks within the catalog"
+    }
+  ],
+  "sharing/managing-share-links": [
+    {
+      "slug": "sharing/tracking-engagement",
+      "reason": "Engagement data is the primary way to evaluate how managed links are performing"
+    },
+    {
+      "slug": "sharing/share-settings",
+      "reason": "Share settings define the permissions and expiry applied to each link"
+    },
+    {
+      "slug": "sharing/playlist-sharing",
+      "reason": "Managing playlist links requires the same controls covered here for single tracks"
+    },
+    {
+      "slug": "workflow-and-stages/due-dates-and-deadlines",
+      "reason": "Link expiration can align with project deadlines for time-sensitive deliveries"
+    }
+  ],
+  "sharing/playlist-sharing": [
+    {
+      "slug": "sharing/the-share-page",
+      "reason": "Describes what recipients see when they open a playlist share link"
+    },
+    {
+      "slug": "sharing/tracking-engagement",
+      "reason": "Monitor views and downloads across all tracks in a shared playlist"
+    },
+    {
+      "slug": "tags-and-metadata/managing-tags-and-categories",
+      "reason": "Categories and tags help curate and group tracks before building a playlist"
+    },
+    {
+      "slug": "sharing/public-page/adding-content",
+      "reason": "Bucket sections on the public page work similarly to playlist groupings"
+    },
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Clarifies when playlist sharing is preferable to individual links or a public page"
+    }
+  ],
+  "sharing/public-page/adding-content": [
+    {
+      "slug": "sharing/public-page/preview-and-publish",
+      "reason": "After adding content, preview and publish is the immediate next step"
+    },
+    {
+      "slug": "sharing/public-page/visitor-experience",
+      "reason": "Understanding visitor perspective helps decide which content to feature"
+    },
+    {
+      "slug": "tags-and-metadata/managing-tags-and-categories",
+      "reason": "Well-organised buckets and tags make selecting content for the page easier"
+    },
+    {
+      "slug": "workflow-and-stages/custom-workflows",
+      "reason": "Workflow status helps identify which tracks are polished enough to feature publicly"
+    },
+    {
+      "slug": "activity-panel/artwork-widget",
+      "reason": "Artwork set per track appears on the public portfolio page when tracks are added as content"
+    },
+    {
+      "slug": "projects/assigning-songs",
+      "reason": "Tracks added to the public page come from buckets/projects, requiring understanding of song assignment"
+    }
+  ],
+  "sharing/public-page": [
+    {
+      "slug": "sharing/public-page/setting-up",
+      "reason": "Direct next step for producers who want to build their public page"
+    },
+    {
+      "slug": "settings/social-media-links",
+      "reason": "Social links are displayed on the public page and must be configured in settings"
+    },
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Explains when a permanent public page is better than temporary share links"
+    },
+    {
+      "slug": "sharing/tracking-engagement",
+      "reason": "Engagement tracking applies to public page visits as well as share links"
+    },
+    {
+      "slug": "licensing/purchase-flow",
+      "reason": "The public page is where buyers discover beats and initiate the licensing purchase flow"
+    }
+  ],
+  "sharing/public-page/preview-and-publish": [
+    {
+      "slug": "sharing/public-page/visitor-experience",
+      "reason": "Preview renders the visitor experience — reading this helps interpret what you see"
+    },
+    {
+      "slug": "sharing/public-page/adding-content",
+      "reason": "Content must be added before a meaningful preview is possible"
+    },
+    {
+      "slug": "sharing/public-page/setting-up",
+      "reason": "Setup must be complete before preview and publish is the relevant step"
+    },
+    {
+      "slug": "settings/social-media-links",
+      "reason": "Social links render in the preview; misconfigured links will be caught here"
+    }
+  ],
+  "sharing/public-page/setting-up": [
+    {
+      "slug": "settings/social-media-links",
+      "reason": "Social media links configured in settings appear directly on the public page"
+    },
+    {
+      "slug": "sharing/public-page/adding-content",
+      "reason": "After setup, adding content is the natural next step to populate the page"
+    },
+    {
+      "slug": "sharing/public-page/preview-and-publish",
+      "reason": "Setup feeds directly into the preview and publish workflow"
+    },
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Helps producers understand why a permanent page complements temporary share links"
+    },
+    {
+      "slug": "settings/background-and-theme",
+      "reason": "Header image and theme configured in settings apply directly to the public portfolio page appearance"
+    }
+  ],
+  "sharing/public-page/visitor-experience": [
+    {
+      "slug": "sharing/public-page/adding-content",
+      "reason": "Content choices directly shape what visitors encounter on the page"
+    },
+    {
+      "slug": "settings/social-media-links",
+      "reason": "Social links are a visible part of the visitor experience header"
+    },
+    {
+      "slug": "sharing/the-share-page",
+      "reason": "Contrasting visitor experience on share pages vs public page helps set expectations"
+    },
+    {
+      "slug": "tags-and-metadata/musical-attributes",
+      "reason": "BPM, key, and genre metadata visible to visitors comes from musical attributes"
+    },
+    {
+      "slug": "licensing/purchase-flow",
+      "reason": "Buyers discover and initiate license purchases from the public page, leading into the purchase flow"
+    }
+  ],
+  "sharing/share-settings": [
+    {
+      "slug": "sharing/creating-share-links",
+      "reason": "Share settings are configured as part of the link creation process"
+    },
+    {
+      "slug": "sharing/managing-share-links",
+      "reason": "Settings can be adjusted when managing existing links"
+    },
+    {
+      "slug": "sharing/tracking-engagement",
+      "reason": "Download permission settings directly influence the engagement metrics recorded"
+    },
+    {
+      "slug": "workflow-and-stages/due-dates-and-deadlines",
+      "reason": "Expiration dates in share settings can mirror project deadlines"
+    },
+    {
+      "slug": "collaboration/permissions",
+      "reason": "Understanding collaborator vs. owner roles is essential for correctly configuring share access controls"
+    }
+  ],
+  "sharing/the-share-page": [
+    {
+      "slug": "sharing/share-settings",
+      "reason": "Settings determine exactly what content and permissions appear on the share page"
+    },
+    {
+      "slug": "sharing/public-page/visitor-experience",
+      "reason": "Comparing share page vs public page visitor experience clarifies each tool's purpose"
+    },
+    {
+      "slug": "tags-and-metadata/musical-attributes",
+      "reason": "Metadata like BPM and key displayed on the share page comes from musical attributes"
+    },
+    {
+      "slug": "sharing/tracking-engagement",
+      "reason": "Interactions on the share page generate the engagement data you can monitor"
+    },
+    {
+      "slug": "settings/background-and-theme",
+      "reason": "Artist branding displayed on the share page comes from the background and theme settings"
+    },
+    {
+      "slug": "audio-player/player-contexts",
+      "reason": "Client preview context in the player mirrors what recipients experience on a share page"
+    }
+  ],
+  "sharing/tracking-engagement": [
+    {
+      "slug": "sharing/managing-share-links",
+      "reason": "Engagement data is accessed through the link management interface"
+    },
+    {
+      "slug": "sharing/playlist-sharing",
+      "reason": "Playlist shares generate engagement data across multiple tracks at once"
+    },
+    {
+      "slug": "sharing/share-settings",
+      "reason": "Download permissions configured in settings determine what engagement actions are possible"
+    },
+    {
+      "slug": "workflow-and-stages/custom-workflows",
+      "reason": "Engagement results can inform workflow decisions like moving a track to next stage"
+    }
+  ],
+  "sharing/when-to-use-what": [
+    {
+      "slug": "sharing/public-page",
+      "reason": "Public page is one of the four methods compared and often underutilised"
+    },
+    {
+      "slug": "sharing/playlist-sharing",
+      "reason": "Playlist sharing is a key option explained here that warrants deeper reading"
+    },
+    {
+      "slug": "workflow-and-stages/custom-workflows",
+      "reason": "Workflow stage of a track often determines which sharing method is appropriate"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Tags can flag tracks by sharing intent, complementing this decision framework"
+    },
+    {
+      "slug": "collaboration/sharing-with-collaborators",
+      "reason": "Deciding between sharing methods requires understanding the difference between collaborator access and public sharing"
+    }
+  ],
+  "tags-and-metadata/audio-analysis": [
+    {
+      "slug": "tags-and-metadata/musical-attributes",
+      "reason": "Audio analysis populates the BPM and key fields in the musical attributes widget"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Analysed attributes complement manual tags for richer track filtering"
+    },
+    {
+      "slug": "sharing/the-share-page",
+      "reason": "BPM and key detected by analysis can be visible to recipients on the share page"
+    },
+    {
+      "slug": "sharing/public-page/visitor-experience",
+      "reason": "Clients browsing your public page may see key and tempo metadata from analysis"
+    },
+    {
+      "slug": "activity-panel/musical-attributes-widget",
+      "reason": "BPM and key values shown in the widget can be auto-populated via audio analysis"
+    },
+    {
+      "slug": "audio-player/supported-formats",
+      "reason": "Audio analysis only runs on formats the player supports, making format compatibility prerequisite knowledge"
+    }
+  ],
+  "tags-and-metadata/managing-tags-and-categories": [
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Using tags in practice depends on the categories and tags created here"
+    },
+    {
+      "slug": "workflow-and-stages/custom-workflows",
+      "reason": "Workflow-status tags and custom workflows serve overlapping organisational needs"
+    },
+    {
+      "slug": "sharing/public-page/adding-content",
+      "reason": "Well-tagged buckets make it easier to select the right content for the public page"
+    },
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Tags like 'share-ready' or 'client approved' connect organisation to sharing decisions"
+    },
+    {
+      "slug": "managing-your-music/saved-searches",
+      "reason": "Well-organised tag categories make saved searches more powerful and maintainable"
+    }
+  ],
+  "tags-and-metadata/musical-attributes": [
+    {
+      "slug": "tags-and-metadata/audio-analysis",
+      "reason": "Audio analysis auto-populates BPM and key directly into this widget"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Tags and musical attributes together form a complete metadata picture for each track"
+    },
+    {
+      "slug": "sharing/the-share-page",
+      "reason": "Attributes like genre and BPM may surface on share pages seen by recipients"
+    },
+    {
+      "slug": "sharing/public-page/visitor-experience",
+      "reason": "Clients on the public page may see musical attributes when browsing your catalog"
+    },
+    {
+      "slug": "activity-panel/musical-attributes-widget",
+      "reason": "The widget and the metadata page both cover the same BPM, key, genre, and mood fields from different angles"
+    }
+  ],
+  "tags-and-metadata/using-tags": [
+    {
+      "slug": "tags-and-metadata/managing-tags-and-categories",
+      "reason": "Tags used here must first be created and organised through managing tags and categories"
+    },
+    {
+      "slug": "workflow-and-stages/custom-workflows",
+      "reason": "Tags and workflows both track track status — understanding both avoids duplication"
+    },
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Tags like 'client-ready' or 'demo' directly inform which sharing method to use"
+    },
+    {
+      "slug": "sharing/public-page/adding-content",
+      "reason": "Tags help identify and filter which tracks belong in each public page section"
+    },
+    {
+      "slug": "activity-panel/tags-widget",
+      "reason": "The tags widget is the in-panel UI implementation of the tagging workflow described in using-tags"
+    },
+    {
+      "slug": "managing-your-music/searching-and-filtering",
+      "reason": "Tags are primary filter facets, so the tagging system directly determines search and filter capability"
+    },
+    {
+      "slug": "ai-assistant/what-you-can-ask",
+      "reason": "Many AI queries involve applying or searching by tags, requiring understanding of the tagging system"
+    }
+  ],
+  "workflow-and-stages/custom-workflows": [
+    {
+      "slug": "workflow-and-stages/due-dates-and-deadlines",
+      "reason": "Workflows and deadlines work together to track both status and timing of each track"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Tags and workflows both organise tracks — understanding the distinction prevents overlap"
+    },
+    {
+      "slug": "sharing/when-to-use-what",
+      "reason": "Workflow stage often determines readiness to share and which sharing method to use"
+    },
+    {
+      "slug": "sharing/tracking-engagement",
+      "reason": "Engagement results can trigger workflow status changes like moving to 'Approved'"
+    },
+    {
+      "slug": "comments-and-todos/todos-in-your-workflow",
+      "reason": "Todos can be aligned to custom workflow stages, so the two systems must be understood together"
+    },
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "Custom workflow stages appear as kanban columns, making these features directly coupled"
+    }
+  ],
+  "workflow-and-stages/due-dates-and-deadlines": [
+    {
+      "slug": "workflow-and-stages/custom-workflows",
+      "reason": "Deadlines and workflows are complementary tools for managing track progress"
+    },
+    {
+      "slug": "sharing/share-settings",
+      "reason": "Share link expiration dates can be aligned with the deadlines set here"
+    },
+    {
+      "slug": "tags-and-metadata/using-tags",
+      "reason": "Tags like 'Urgent' or 'Due This Week' can supplement deadline visibility in the grid"
+    },
+    {
+      "slug": "sharing/managing-share-links",
+      "reason": "Deadline awareness informs when to expire or renew share links for time-sensitive projects"
+    },
+    {
+      "slug": "activity-panel/due-date-widget",
+      "reason": "The widget surfaces the track-level deadline UI described conceptually in due-dates-and-deadlines"
+    },
+    {
+      "slug": "projects/project-due-dates",
+      "reason": "Project-level deadlines and track-level deadlines are part of the same unified deadline system"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Approaching deadlines are a primary trigger for smart notification alerts"
+    }
+  ],
+  "workflow-and-stages/tracking-progress": [
+    {
+      "slug": "workflow-and-stages/understanding-stages",
+      "reason": "Stages are central to progress tracking; understanding what each stage means is prerequisite knowledge."
+    },
+    {
+      "slug": "activity-panel/overview-widget",
+      "reason": "The overview widget displays the stage badge and key indicators used to track progress at a glance"
+    },
+    {
+      "slug": "activity-and-notifications/smart-notifications",
+      "reason": "Smart notifications are triggered by stage changes and deadline proximity tracked in tracking-progress"
+    }
+  ],
+  "workflow-and-stages/understanding-stages": [
+    {
+      "slug": "workflow-and-stages/tracking-progress",
+      "reason": "Tracking progress builds directly on stages, showing how to monitor and act on stage data day-to-day."
+    },
+    {
+      "slug": "activity-panel/stage-workflow-widget",
+      "reason": "The widget is the primary UI for moving tracks through the stages whose meaning is explained in understanding-stages"
+    },
+    {
+      "slug": "comments-and-todos/todo-properties",
+      "reason": "Todo stage assignment property references the same production stages defined in understanding-stages"
+    },
+    {
+      "slug": "dashboard/mini-kanban",
+      "reason": "The kanban columns map to production stages, so stage definitions are prerequisite knowledge"
+    }
+  ]
+}
