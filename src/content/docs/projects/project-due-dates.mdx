@@ -1,6 +1,7 @@
 ---
 title: Project Due Dates
 description: Set deadlines for entire projects or individual tracks, with automatic cascading to keep your workflow on schedule.
+ui_location: "Left sidebar > Project three-dot menu"
 ---
 
 :::note
@@ -8,8 +9,6 @@ This page covers due dates from a project management perspective. For a broader 
 :::
 
 Due dates help you stay on top of your release pipeline by giving you clear targets for when tracks and projects need to be completed. Whether you're managing a single EP or juggling multiple campaigns, deadlines keep your workflow organized and your goals visible.
-
-Producer Dashboard gives you flexible control at two levels: you can set a deadline for an entire project, or fine-tune it for individual tracks. The system is designed to save you time by automatically rolling deadlines down to all tracks in a project, while still letting you override them when needed.
 
 ---
 
@@ -35,9 +34,9 @@ A modal will appear showing:
 
 The quick-select buttons let you set deadlines without manually picking a date:
 
-- **1 Week** — sets the deadline seven days from today
-- **1 Month** — sets the deadline thirty days from today
-- **3 Months** — sets the deadline ninety days from today
+- **1 Week** -- sets the deadline seven days from today
+- **1 Month** -- sets the deadline thirty days from today
+- **3 Months** -- sets the deadline ninety days from today
 
 These are handy when you need to establish a rough target and refine it later. Click any quick-select button to populate the date picker, then adjust if needed before saving.
 
@@ -73,47 +72,17 @@ When you set an individual due date, it takes precedence over any project-level 
 
 ---
 
-## How Cascading Works
+## Cascading in Practice
 
-When you set a deadline on a project, Producer Dashboard automatically applies that deadline to all tracks within it. This happens instantly and keeps your pipeline consistent.
+Project deadlines automatically cascade to all tracks that don't have their own individual due date. For a full explanation of how cascading and priority work, see [Due Dates & Deadlines -- How Cascading Works](/workflow-and-stages/due-dates-and-deadlines#how-cascading-works).
 
-However, the cascade follows a simple rule:
-
-- Tracks **without** an individual due date inherit the project deadline
-- Tracks **with** an individual due date keep their custom date
-
-This means you can set a project deadline, have most tracks automatically follow it, and still give specific tracks their own timeline when needed. The system respects both levels of control without conflict.
-
-For example, imagine your "Summer Release" project has a deadline of July 15:
+Here's how this looks in a real project. Imagine your "Summer Release" project has a deadline of July 15:
 
 - Ten tracks with no individual dates show July 15 as their due date
 - Two tracks you manually set to June 30 keep that earlier date
 - One track you set to August 1 keeps its later date
 
-This makes it easy to manage both uniformity and exceptions within the same project.
-
----
-
-## Viewing Deadlines Across Your Projects
-
-The Projects panel displays deadline information in several ways:
-
-- **Project cards** show the deadline date if one is set
-- **Overdue indicators** highlight projects or tracks past their deadline in red
-- **Upcoming deadlines** appear in activity summaries and notifications
-
-You can sort your projects by deadline to focus on what needs attention first. Look for the sort dropdown in the Projects panel header.
-
----
-
-## Editing and Updating Deadlines
-
-Deadlines change as projects evolve. You can update a deadline at any time:
-
-- **For projects** — click the three-dot menu, select "Set Deadline," choose a new date, and save
-- **For tracks** — click the track's due date field, pick a new date, and save
-
-When you update a project deadline, the cascade automatically propagates the change to all tracks that don't have individual overrides. This keeps everything synchronized without manual effort.
+This makes it easy to manage both uniformity and exceptions within the same project. If you later push the project deadline to July 31, those ten tracks update automatically while the two June 30 and one August 1 tracks stay untouched.
 
 ---
 
@@ -121,7 +90,7 @@ When you update a project deadline, the cascade automatically propagates the cha
 
 - Use project deadlines as your primary timeline tool, then override only the tracks that genuinely need different dates
 - Set deadlines slightly ahead of your actual target to give yourself buffer room for revisions
-- Quick-select buttons are great for initial planning — don't worry about precision when first setting targets
+- Quick-select buttons are great for initial planning -- don't worry about precision when first setting targets
 - If a track's due date seems wrong, check whether it has an individual override before adjusting the project deadline
 - Sort your projects by deadline to surface urgent work during busy periods
 
@@ -129,6 +98,7 @@ When you update a project deadline, the cascade automatically propagates the cha
 
 ## Related
 
+- [Due Dates & Deadlines](/workflow-and-stages/due-dates-and-deadlines)
 - [Creating Projects](/projects/creating-projects)
 - [Project Hierarchy](/projects/project-hierarchy)
 - [Assigning Songs](/projects/assigning-songs)

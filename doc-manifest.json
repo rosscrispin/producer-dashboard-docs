@@ -46,7 +46,10 @@
       "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/AUTH_PAGE_SPEC.md"
     ],
     "spec_sections": [],
-    "code_files": [],
+    "code_files": [
+      "/Users/rosscrispin/Desktop/producer-dashboard/src/auth/email-auth.js",
+      "/Users/rosscrispin/Desktop/producer-dashboard/src/auth/jwt.js"
+    ],
     "screenshots": [
       "creating-your-account-default",
       "creating-your-account-active",
@@ -200,7 +203,9 @@
       "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/TRK_SPEC.md"
     ],
     "spec_sections": [],
-    "code_files": [],
+    "code_files": [
+      "/Users/rosscrispin/Desktop/producer-dashboard/public/track-detail-enhanced.js"
+    ],
     "screenshots": [
       "editing-track-details-default",
       "editing-track-details-active",
@@ -452,7 +457,9 @@
       "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/TRK_SPEC.md"
     ],
     "spec_sections": [],
-    "code_files": [],
+    "code_files": [
+      "/Users/rosscrispin/Desktop/producer-dashboard/public/stage-workflow-config.js"
+    ],
     "screenshots": [
       "tracking-progress-default",
       "tracking-progress-active",
@@ -779,7 +786,9 @@
       "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/SHR_SPEC.md"
     ],
     "spec_sections": [],
-    "code_files": [],
+    "code_files": [
+      "/Users/rosscrispin/Desktop/producer-dashboard/public/share-waveform-player.js"
+    ],
     "screenshots": [
       "comments-on-shared-tracks-default",
       "comments-on-shared-tracks-active",
@@ -936,7 +945,9 @@
       "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/COL_SPEC.md"
     ],
     "spec_sections": [],
-    "code_files": [],
+    "code_files": [
+      "/Users/rosscrispin/Desktop/producer-dashboard/public/widgets/collaborators-widget.js"
+    ],
     "screenshots": [
       "permissions-default",
       "permissions-active",
@@ -990,7 +1001,9 @@
       "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/COL_SPEC.md"
     ],
     "spec_sections": [],
-    "code_files": [],
+    "code_files": [
+      "/Users/rosscrispin/Desktop/producer-dashboard/src/collaborations/index.js"
+    ],
     "screenshots": [
       "unsharing-and-leaving-default",
       "unsharing-and-leaving-active",
@@ -1989,7 +2002,9 @@
       "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/DBX_SPEC.md"
     ],
     "spec_sections": [],
-    "code_files": [],
+    "code_files": [
+      "/Users/rosscrispin/Desktop/producer-dashboard/src/integrations/dropbox.js"
+    ],
     "screenshots": [
       "connecting-dropbox-default",
       "connecting-dropbox-active",
@@ -2025,7 +2040,9 @@
       "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/DBX_SPEC.md"
     ],
     "spec_sections": [],
-    "code_files": [],
+    "code_files": [
+      "/Users/rosscrispin/Desktop/producer-dashboard/src/integrations/dropbox.js"
+    ],
     "screenshots": [
       "managing-dropbox-connection-default",
       "managing-dropbox-connection-active"
@@ -2136,7 +2153,9 @@
       "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/AUTH_SPEC.md"
     ],
     "spec_sections": [],
-    "code_files": [],
+    "code_files": [
+      "/Users/rosscrispin/Desktop/producer-dashboard/src/settings/index.js"
+    ],
     "screenshots": [
       "account-management-default",
       "account-management-active"
