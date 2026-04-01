@@ -114,7 +114,7 @@ function parseFrontmatter(raw: string): { frontmatter: Record<string, unknown>; 
 
 	for (const line of match[1].split('\n')) {
 		if (collectingArray) {
-			const itemMatch = line.match(/^\s+-\s+"(.+)"$/);
+			const itemMatch = line.match(/^\s+-\s+"(.*)"$/);
 			if (itemMatch) {
 				arrayItems.push(itemMatch[1]);
 				continue;
