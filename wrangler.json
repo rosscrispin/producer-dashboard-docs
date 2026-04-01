@@ -3,7 +3,8 @@
 	"main": "src/worker/index.ts",
 	"compatibility_date": "2026-02-17",
 	"assets": {
-		"directory": "./dist"
+		"directory": "./dist",
+		"binding": "ASSETS"
 	},
 	"d1_databases": [
 		{
