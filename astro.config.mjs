@@ -152,7 +152,6 @@ export default defineConfig({
 						{ slug: 'activity-panel/musical-attributes-widget' },
 						{ slug: 'activity-panel/files-widget' },
 						{ slug: 'activity-panel/collaborators-widget' },
-						{ slug: 'activity-panel/sharing-widget' },
 						{ slug: 'activity-panel/due-date-widget' },
 						{ slug: 'activity-panel/export-widget' },
 						{ slug: 'activity-panel/bucket-widget' },

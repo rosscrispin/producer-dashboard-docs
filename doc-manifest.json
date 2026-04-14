@@ -1117,7 +1117,7 @@
     ],
     "spec_sections": [],
     "code_files": [
-      "/Users/rosscrispin/Desktop/producer-dashboard/public/widgets/sharing-widget.js"
+      "/Users/rosscrispin/Desktop/producer-dashboard/public/modules/share-manager.js"
     ],
     "screenshots": [
       "managing-share-links-default",
@@ -1550,25 +1550,6 @@
     "screenshots": [
       "collaborators-widget-default",
       "collaborators-widget-active"
-    ],
-    "screenshot_relative_path": "../../assets/screenshots"
-  },
-  {
-    "doc_id": "activity-panel/sharing-widget",
-    "output_path": "activity-panel/sharing-widget.mdx",
-    "title": "Sharing Widget",
-    "section": "Activity Panel",
-    "feature_type": "widget",
-    "spec_files": [
-      "/Users/rosscrispin/Desktop/producer-dashboard/docs/specs/WGT_SPEC.md"
-    ],
-    "spec_sections": [],
-    "code_files": [
-      "/Users/rosscrispin/Desktop/producer-dashboard/public/widgets/sharing-widget.js"
-    ],
-    "screenshots": [
-      "sharing-widget-default",
-      "sharing-widget-active"
     ],
     "screenshot_relative_path": "../../assets/screenshots"
   },

@@ -1,9 +1,10 @@
 ---
 title: Sharing with Collaborators
 description: Learn how to invite collaborators, manage split allocations, and share tracks securely with other producers.
-ui_location: "Activity Panel > Sharing widget"
+ui_location: "Activity Panel > Collaborators widget"
 depends_on:
   - "collaboration/adding-collaborators"
+  - "activity-panel/collaborators-widget"
   - "settings/connecting-dropbox"
 used_by: []
 ---
@@ -87,6 +88,43 @@ Changes save automatically when you click away from the row, or you can use the 
 ### Removing a Collaborator
 
 To remove someone from a track, click the trash icon on their row. A confirmation dialog appears. Once removed, they lose access to the track immediately. Any files they already downloaded remain on their device, but they can no longer access new files.
+
+---
+
+## Sharing Files with Collaborators
+
+Once you've added collaborators to a track, the **Collaborators widget** in the Activity Panel becomes your share control center. The bottom of the widget shows the current sharing state and the actions available for it.
+
+### Sharing a Single Track
+
+When you select one track that has collaborators but isn't shared yet, the widget shows a **Share Folder** button (or **Share Files** for older flat-folder tracks). Click it to organize your files in Dropbox and grant your collaborators access through their own Dropbox accounts.
+
+The widget walks through the share process and updates as soon as it completes — no need to refresh manually.
+
+### Sharing State at a Glance
+
+The Collaborators widget shows different states based on what's happening with the track:
+
+- **Not shared yet** — a blue **Share Folder** / **Share Files** button with a one-line hint
+- **Sharing in progress** — an amber "Sharing in progress — waiting for confirmation" panel while Dropbox finishes setting things up
+- **Fully shared** — a green "Shared with N collaborators" panel. If new collaborators have been added since the track was first shared, a **Share with remaining N** button appears so you can extend access without re-sharing the whole track. An **Unshare** action sits at the bottom of the panel
+- **Sharing error** — a red "Sharing encountered an error" panel with **Retry** and **Reset** buttons. Retry re-runs the share. Reset clears the failed state so you can start clean
+
+You can use the per-collaborator share status on each collaborator card to see exactly who has access yet and who's still waiting.
+
+### Bulk Sharing Multiple Tracks
+
+Need to share a whole batch of tracks with their collaborators in one go? Select multiple tracks in the grid and the widget switches to bulk mode. You'll see a **Share All with Collaborators** button along with the rules:
+
+- Tracks that have no collaborators are skipped automatically
+- Tracks that are already fully shared are skipped automatically
+- Each track shares with its own collaborators (no combined folder)
+
+A progress indicator shows the count while the request runs, and a toast summarises which tracks succeeded, which were skipped, and which failed when it finishes.
+
+### Leaving a Collaboration
+
+If you've been added to someone else's track as an editor or viewer, the bottom of the Collaborators widget shows a **Leave Collaboration** button instead of the share controls. Use it to remove yourself from the track when a project wraps up or you no longer need access.
 
 ---
 

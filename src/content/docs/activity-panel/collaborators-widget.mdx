@@ -111,6 +111,39 @@ The widget loads collaborator information directly from your track data, so it d
 
 ---
 
+## Sharing Files with Collaborators
+
+The bottom of the Collaborators widget is where you actually share track files with the people you've added. The controls change based on the track's current state.
+
+### Owner — Single Track
+
+When you select one track that you own:
+
+- **Not shared yet** — a blue **Share Folder** button (or **Share Files** for tracks with a flat folder structure). Clicking it organizes the files in Dropbox and grants your collaborators access through their own Dropbox accounts
+- **Sharing in progress** — an amber "Sharing in progress — waiting for confirmation" panel while Dropbox finishes setting things up
+- **Fully shared** — a green "Shared with N collaborators" panel. If new collaborators were added after the track was first shared, a **Share with remaining N** button lets you extend access without re-sharing the whole thing. An **Unshare** action sits at the bottom of the panel and revokes everyone's access
+- **Sharing error** — a red error panel with **Retry** and **Reset** buttons. Retry re-runs the share. Reset clears the failed state so you can start clean
+
+### Owner — Multiple Tracks (Bulk Share)
+
+When you select two or more tracks, the widget switches to bulk mode and shows a **Share All with Collaborators** button along with the rules:
+
+- Tracks that have no collaborators are skipped
+- Tracks that are already fully shared are skipped
+- Each track shares with its own collaborators (no combined folder)
+
+A progress indicator displays while the request runs, and a toast summarises which tracks succeeded, which were skipped, and which failed once it finishes.
+
+### Non-Owner — Leave Collaboration
+
+If you're an editor or viewer on someone else's track, the bottom of the widget shows a **Leave Collaboration** button instead of share controls. Use it to remove yourself from the track when a project wraps up.
+
+:::tip
+The per-collaborator share status on each card tells you who already has Dropbox access and who's still waiting — useful when you've added people in stages and want to confirm everyone's been included.
+:::
+
+---
+
 ## Tips for Managing Collaborators
 
 - **Set splits early** — getting ownership percentages settled at the beginning of a project prevents confusion later
@@ -125,4 +158,4 @@ The widget loads collaborator information directly from your track data, so it d
 - [Activity Panel Overview](/activity-panel) — understand the activity panel structure
 - [Overview Widget](/activity-panel/overview-widget) — see collaborator avatars in the track snapshot
 - [Tags Widget](/activity-panel/tags-widget) — manage project metadata
-- [Sharing Widget](/activity-panel/sharing-widget) — share track files with collaborators
+- [Sharing with Collaborators](/collaboration/sharing-with-collaborators) — splits, share links, and the full collaboration model
