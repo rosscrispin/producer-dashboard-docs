@@ -5,7 +5,7 @@
  */
 
 import { readdirSync, statSync, writeFileSync, mkdirSync, existsSync } from 'fs';
-import { resolve, join, basename, extname } from 'path';
+import { resolve, join, extname } from 'path';
 import { DOC_MAP, SCREENSHOT_RULES, PATHS, svgPlaceholder } from './help-doc-config.mjs';
 import { resolveCodeFile, screenshotRelativePath } from './help-doc-utils.mjs';
 
@@ -136,10 +136,12 @@ for (const entry of DOC_MAP) {
         mkdirSync(ssDir, { recursive: true });
 
         const svgPath = resolve(ssDir, ss.filename);
-        if (!existsSync(svgPath)) {
+        try {
             const svg = svgPlaceholder(ss.id, ss.description);
-            writeFileSync(svgPath, svg, 'utf-8');
+            writeFileSync(svgPath, svg, { encoding: 'utf-8', flag: 'wx' });
             totalPlaceholders++;
+        } catch (err) {
+            if (err.code !== 'EEXIST') throw err;
         }
     }
 

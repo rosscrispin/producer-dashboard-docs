@@ -62,6 +62,9 @@ async function handleApi(url: URL, request: Request, env: Env): Promise<Response
 		const articleMatch = url.pathname.match(/^\/api\/help\/article\/(.+)$/);
 		if (articleMatch) {
 			const slug = articleMatch[1];
+			if (!isSafeSlug(slug)) {
+				return json({ error: 'Article not found' }, 404);
+			}
 			const res = await env.ASSETS.fetch(assetRequest(request, `/_source/${slug}.mdx`));
 			if (res.ok) {
 				return returnArticle(slug, await res.text());
@@ -78,6 +81,9 @@ async function handleApi(url: URL, request: Request, env: Env): Promise<Response
 		const relatedMatch = url.pathname.match(/^\/api\/help\/related\/(.+)$/);
 		if (relatedMatch) {
 			const slug = relatedMatch[1];
+			if (!isSafeSlug(slug)) {
+				return json({ error: 'Article not found' }, 404);
+			}
 			const res = await env.ASSETS.fetch(assetRequest(request, '/data/docs-graph.json'));
 			if (!res.ok) return json({ error: 'Graph not found' }, 404);
 			const graph = await res.json() as Record<string, Array<{ slug: string; reason: string }>>;
@@ -86,8 +92,13 @@ async function handleApi(url: URL, request: Request, env: Env): Promise<Response
 
 		return json({ error: 'Not found' }, 404);
 	} catch (err) {
-		return json({ error: String(err) }, 500);
+		console.error('help_api_error', err instanceof Error ? err.message : String(err));
+		return json({ error: 'Internal server error' }, 500);
 	}
+}
+
+function isSafeSlug(slug: string): boolean {
+	return /^[a-z0-9][a-z0-9-/]*$/.test(slug) && !slug.includes('..') && !slug.includes('//');
 }
 
 function returnArticle(slug: string, raw: string): Response {

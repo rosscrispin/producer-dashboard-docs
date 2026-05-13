@@ -157,7 +157,12 @@ const CODE_TO_TESTS_MAP = {
   
   // Tracks system
   'public/tracks-page.js': ['tests/test-selection-all-views.js', 'tests/test-filters-comprehensive.js'],
-  'public/tracks-vanilla-table.js': ['tests/browser/test-vanilla-table.js'],
+  'public/tracks-vanilla-table.js': [
+    'tests/browser/test-vanilla-table.js',
+    'tests/e2e/grid/inline-editing.spec.js',
+    'tests/e2e/grid/bulk-operations.spec.js',
+    'tests/e2e/grid/drag-drop-mutations.spec.js',
+  ],
   'public/waveform-player.js': ['tests/test-waveform-cache.js', 'tests/test-waveform-comments.js'],
   'public/realtime-sync.js': ['tests/test-dropbox-sync.js'],
   'src/webhooks/dropbox.js': ['tests/test-dropbox-sync.js', 'tests/file-management/test-first-file-addition.js'],
@@ -177,7 +182,6 @@ const CODE_TO_TESTS_MAP = {
   'public/inline-bucket-dropdown.js': ['tests/e2e/buckets/bucket-track-groups.spec.js'],
   
   // Grid view / vanilla table
-  'public/tracks-vanilla-table.js': ['tests/e2e/grid/inline-editing.spec.js', 'tests/e2e/grid/bulk-operations.spec.js', 'tests/e2e/grid/drag-drop-mutations.spec.js'],
   'public/tracks-view-modes.js': ['tests/e2e/grid/inline-editing.spec.js', 'tests/e2e/grid/drag-drop-mutations.spec.js'],
   'public/selection-manager.js': ['tests/e2e/grid/bulk-operations.spec.js'],
   'public/inline-stage-dropdown.js': ['tests/e2e/grid/inline-editing.spec.js'],

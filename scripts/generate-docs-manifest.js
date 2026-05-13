@@ -22,6 +22,56 @@ const DOCS_DIR = join(ROOT, 'src', 'content', 'docs');
 const OUT_DIR = join(ROOT, 'public', 'data');
 const BATCH_SIZE = 20; // pages per API call — keeps output tokens well within limits
 const DRY_RUN = process.argv.includes('--dry-run');
+const OUTPUT_FILES = new Set(['docs-index.json', 'docs-graph.json']);
+
+function sanitizeText(value, maxLength = 500) {
+  return String(value ?? '')
+    .replace(/[\u0000-\u001F\u007F]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, maxLength);
+}
+
+function sanitizeRelatedList(related, knownSlugs) {
+  if (!Array.isArray(related)) return [];
+  return related
+    .map(item => ({
+      slug: sanitizeText(item?.slug, 200),
+      reason: sanitizeText(item?.reason, 500),
+    }))
+    .filter(item => knownSlugs.has(item.slug) && item.reason);
+}
+
+function sanitizeBatchResult(result, knownSlugs) {
+  if (!Array.isArray(result?.pages)) {
+    throw new Error('OpenRouter response missing pages array');
+  }
+  return result.pages
+    .map(page => ({
+      slug: sanitizeText(page?.slug, 200),
+      summary: sanitizeText(page?.summary, 160),
+      related: sanitizeRelatedList(page?.related, knownSlugs),
+    }))
+    .filter(page => knownSlugs.has(page.slug) && page.summary);
+}
+
+function sanitizeCrossConnections(result, knownSlugs) {
+  if (!Array.isArray(result?.connections)) return [];
+  return result.connections
+    .map(conn => ({
+      from: sanitizeText(conn?.from, 200),
+      to: sanitizeText(conn?.to, 200),
+      reason: sanitizeText(conn?.reason, 500),
+    }))
+    .filter(conn => knownSlugs.has(conn.from) && knownSlugs.has(conn.to) && conn.from !== conn.to && conn.reason);
+}
+
+function writeStaticJson(filename, data) {
+  if (!OUTPUT_FILES.has(filename)) {
+    throw new Error(`Refusing to write unexpected output file: ${filename}`);
+  }
+  writeFileSync(join(OUT_DIR, filename), JSON.stringify(data, null, 2));
+}
 
 // ---------------------------------------------------------------------------
 // File utilities
@@ -194,6 +244,8 @@ async function main() {
       return { slug, section, title, description, excerpt };
     })
     .filter(p => p.title); // skip pages with no frontmatter title
+  const knownSlugs = new Set(pages.map(p => p.slug));
+  const pagesBySlug = new Map(pages.map(p => [p.slug, p]));
 
   console.log(`Found ${pages.length} pages across ${new Set(pages.map(p => p.section)).size} sections.`);
 
@@ -216,7 +268,7 @@ async function main() {
   for (let i = 0; i < batches.length; i++) {
     console.log(`  Batch ${i + 1}/${batches.length} (${batches[i].length} pages)...`);
     const result = await callClaude(batches[i]);
-    allResults.push(...result.pages);
+    allResults.push(...sanitizeBatchResult(result, knownSlugs));
   }
 
   // Build initial index and graph from batch results
@@ -224,7 +276,7 @@ async function main() {
   const graph = {};
 
   for (const p of allResults) {
-    const original = pages.find(x => x.slug === p.slug);
+    const original = pagesBySlug.get(p.slug);
     indexMap[p.slug] = {
       slug: p.slug,
       title: original?.title || p.slug,
@@ -238,7 +290,7 @@ async function main() {
   console.log('  Enriching cross-section connections...');
   const crossResult = await enrichCrossConnections(pages, indexMap);
 
-  for (const conn of crossResult.connections) {
+  for (const conn of sanitizeCrossConnections(crossResult, knownSlugs)) {
     if (!graph[conn.from]) graph[conn.from] = [];
     if (!graph[conn.to]) graph[conn.to] = [];
 
@@ -256,8 +308,8 @@ async function main() {
 
   // Write output
   mkdirSync(OUT_DIR, { recursive: true });
-  writeFileSync(join(OUT_DIR, 'docs-index.json'), JSON.stringify(index, null, 2));
-  writeFileSync(join(OUT_DIR, 'docs-graph.json'), JSON.stringify(graph, null, 2));
+  writeStaticJson('docs-index.json', index);
+  writeStaticJson('docs-graph.json', graph);
 
   const totalConnections = Object.values(graph).reduce((sum, arr) => sum + arr.length, 0);
   console.log(`\n✓ public/data/docs-index.json — ${index.length} pages`);

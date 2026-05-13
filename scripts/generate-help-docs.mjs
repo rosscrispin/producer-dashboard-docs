@@ -6,13 +6,12 @@
 
 import 'dotenv/config';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
-import { resolve, dirname } from 'path';
+import { resolve, dirname, relative, isAbsolute } from 'path';
 
 import { OPENROUTER, PATHS, SYSTEM_PROMPT } from './help-doc-config.mjs';
 import {
     extractSpecSections,
     readCodeFile,
-    screenshotRelativePath,
     validateResponse,
     buildSidebarConfig,
 } from './help-doc-utils.mjs';
@@ -268,10 +267,31 @@ async function callOpenRouter(userPrompt, retryState) {
 // ---------------------------------------------------------------------------
 /** @spec HELP-GEN-007 */
 function writeDoc(entry, content) {
-    const outPath = resolve(PATHS.docs_dir, entry.output_path);
+    const outPath = assertInsideDir(PATHS.docs_dir, resolve(PATHS.docs_dir, entry.output_path));
     mkdirSync(dirname(outPath), { recursive: true });
-    writeFileSync(outPath, content, 'utf-8');
+    writeFileSync(outPath, sanitizeGeneratedMdx(content), 'utf-8');
     return outPath;
+}
+
+function assertInsideDir(baseDir, targetPath) {
+    const base = resolve(baseDir);
+    const target = resolve(targetPath);
+    const rel = relative(base, target);
+    if (rel.startsWith('..') || isAbsolute(rel)) {
+        throw new Error(`Refusing to write outside docs directory: ${targetPath}`);
+    }
+    return target;
+}
+
+function sanitizeGeneratedMdx(content) {
+    const normalized = String(content).replace(/\r\n?/g, '\n').trim();
+    if (/<script\b/i.test(normalized)) {
+        throw new Error('Generated docs must not contain script tags');
+    }
+    if (/\son[a-z]+\s*=/i.test(normalized)) {
+        throw new Error('Generated docs must not contain inline event handlers');
+    }
+    return normalized;
 }
 
 // ---------------------------------------------------------------------------
@@ -309,19 +329,19 @@ function serializeSidebar(sidebar, baseIndent) {
     for (let si = 0; si < sidebar.length; si++) {
         const section = sidebar[si];
         lines.push(`${t.repeat(baseIndent)}{`);
-        lines.push(`${t.repeat(baseIndent + 1)}label: '${escapeSingleQuote(section.label)}',`);
+        lines.push(`${t.repeat(baseIndent + 1)}label: ${quoteJsString(section.label)},`);
         lines.push(`${t.repeat(baseIndent + 1)}items: [`);
         for (let ii = 0; ii < section.items.length; ii++) {
             const item = section.items[ii];
             if (item.slug !== undefined) {
-                lines.push(`${t.repeat(baseIndent + 2)}{ slug: '${escapeSingleQuote(item.slug)}' },`);
+                lines.push(`${t.repeat(baseIndent + 2)}{ slug: ${quoteJsString(item.slug)} },`);
             } else if (item.items) {
                 // Nested group
                 lines.push(`${t.repeat(baseIndent + 2)}{`);
-                lines.push(`${t.repeat(baseIndent + 3)}label: '${escapeSingleQuote(item.label)}',`);
+                lines.push(`${t.repeat(baseIndent + 3)}label: ${quoteJsString(item.label)},`);
                 lines.push(`${t.repeat(baseIndent + 3)}items: [`);
                 for (const child of item.items) {
-                    lines.push(`${t.repeat(baseIndent + 4)}{ slug: '${escapeSingleQuote(child.slug)}' },`);
+                    lines.push(`${t.repeat(baseIndent + 4)}{ slug: ${quoteJsString(child.slug)} },`);
                 }
                 lines.push(`${t.repeat(baseIndent + 3)}],`);
                 lines.push(`${t.repeat(baseIndent + 2)}},`);
@@ -334,8 +354,8 @@ function serializeSidebar(sidebar, baseIndent) {
     return lines.join('\n');
 }
 
-function escapeSingleQuote(str) {
-    return str.replace(/'/g, "\\'");
+function quoteJsString(str) {
+    return JSON.stringify(String(str));
 }
 
 // ---------------------------------------------------------------------------
