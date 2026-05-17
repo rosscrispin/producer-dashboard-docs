@@ -126,6 +126,8 @@ async function callOpenRouter(prompt) {
   const key = process.env.OPENROUTER_API_KEY;
   if (!key) throw new Error('OPENROUTER_API_KEY environment variable is required');
 
+  // This docs manifest generator intentionally sends docs excerpts to OpenRouter.
+  // codeql[js/file-access-to-http]
   const response = await fetch(OPENROUTER_URL, {
     method: 'POST',
     headers: {

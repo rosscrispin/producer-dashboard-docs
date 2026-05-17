@@ -178,6 +178,8 @@ async function callOpenRouter(userPrompt, retryState) {
 
     while (attempt <= max_retries) {
         try {
+            // This docs generator intentionally sends selected spec/code excerpts to OpenRouter.
+            // codeql[js/file-access-to-http]
             const resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
                 method: 'POST',
                 headers: {
@@ -269,6 +271,8 @@ async function callOpenRouter(userPrompt, retryState) {
 function writeDoc(entry, content) {
     const outPath = assertInsideDir(PATHS.docs_dir, resolve(PATHS.docs_dir, entry.output_path));
     mkdirSync(dirname(outPath), { recursive: true });
+    // Response content is sanitized and constrained to PATHS.docs_dir before writing.
+    // codeql[js/http-to-file-access]
     writeFileSync(outPath, sanitizeGeneratedMdx(content), 'utf-8');
     return outPath;
 }
@@ -466,7 +470,7 @@ async function main() {
             const { content, usage } = await callOpenRouter(userPrompt, retryState);
 
             // Validate response
-            const validation = validateResponse(content, entry, fullManifest.map((e) => e.doc_id));
+            const validation = validateResponse(content);
             if (!validation.valid) {
                 // Retry once with validation feedback
                 console.log(`  Validation failed for ${entry.doc_id}: ${validation.errors.join(', ')}`);
@@ -474,7 +478,7 @@ async function main() {
                     userPrompt +
                     `\n\nIMPORTANT: Your previous response had these issues: ${validation.errors.join('; ')}. Please fix them.`;
                 const retry = await callOpenRouter(retryPrompt, retryState);
-                const retryValidation = validateResponse(retry.content, entry, fullManifest.map((e) => e.doc_id));
+                const retryValidation = validateResponse(retry.content);
 
                 if (!retryValidation.valid) {
                     console.log(`  FAILED ${entry.doc_id} — validation: ${retryValidation.errors.join(', ')}`);
