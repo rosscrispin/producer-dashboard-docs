@@ -23,7 +23,9 @@ const OUT_DIR = join(ROOT, 'public', 'data');
 const BATCH_SIZE = 20; // pages per API call — keeps output tokens well within limits
 const DRY_RUN = process.argv.includes('--dry-run');
 const OUTPUT_FILES = new Set(['docs-index.json', 'docs-graph.json']);
+const MAX_OPENROUTER_PROMPT_CHARS = 250000;
 
+/** @spec HELP-GEN-011 */
 function sanitizeText(value, maxLength = 500) {
   return String(value ?? '')
     .replace(/[\u0000-\u001F\u007F]/g, ' ')
@@ -32,6 +34,7 @@ function sanitizeText(value, maxLength = 500) {
     .slice(0, maxLength);
 }
 
+/** @spec HELP-GEN-011 */
 function sanitizeRelatedList(related, knownSlugs) {
   if (!Array.isArray(related)) return [];
   return related
@@ -42,6 +45,7 @@ function sanitizeRelatedList(related, knownSlugs) {
     .filter(item => knownSlugs.has(item.slug) && item.reason);
 }
 
+/** @spec HELP-GEN-011 */
 function sanitizeBatchResult(result, knownSlugs) {
   if (!Array.isArray(result?.pages)) {
     throw new Error('OpenRouter response missing pages array');
@@ -55,6 +59,7 @@ function sanitizeBatchResult(result, knownSlugs) {
     .filter(page => knownSlugs.has(page.slug) && page.summary);
 }
 
+/** @spec HELP-GEN-011 */
 function sanitizeCrossConnections(result, knownSlugs) {
   if (!Array.isArray(result?.connections)) return [];
   return result.connections
@@ -66,6 +71,7 @@ function sanitizeCrossConnections(result, knownSlugs) {
     .filter(conn => knownSlugs.has(conn.from) && knownSlugs.has(conn.to) && conn.from !== conn.to && conn.reason);
 }
 
+/** @spec HELP-GEN-011 */
 function writeStaticJson(filename, data) {
   if (!OUTPUT_FILES.has(filename)) {
     throw new Error(`Refusing to write unexpected output file: ${filename}`);
@@ -122,12 +128,13 @@ function parseFile(filePath) {
 const MODEL = 'anthropic/claude-sonnet-4-6';
 const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
+/** @spec HELP-GEN-006 */
 async function callOpenRouter(prompt) {
   const key = process.env.OPENROUTER_API_KEY;
   if (!key) throw new Error('OPENROUTER_API_KEY environment variable is required');
 
   // This docs manifest generator intentionally sends docs excerpts to OpenRouter.
-  // codeql[js/file-access-to-http]
+  // The prompt body is bounded and assembled only from discovered docs excerpts. lgtm[js/file-access-to-http]
   const response = await fetch(OPENROUTER_URL, {
     method: 'POST',
     headers: {
@@ -136,11 +143,8 @@ async function callOpenRouter(prompt) {
       'HTTP-Referer': 'https://docs.producerdashboard.app',
       'X-Title': 'Producer Dashboard Docs Manifest',
     },
-    body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 16000,
-      messages: [{ role: 'user', content: prompt }],
-    }),
+    body: JSON.stringify(buildOpenRouterRequestBody(prompt)),
+    signal: AbortSignal.timeout(90000),
   });
 
   if (!response.ok) {
@@ -152,6 +156,30 @@ async function callOpenRouter(prompt) {
   const text = data.choices[0].message.content.trim();
   const clean = text.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '').trim();
   return JSON.parse(clean);
+}
+
+/** @spec HELP-GEN-006 */
+function buildOpenRouterRequestBody(prompt) {
+  const content = assertOpenRouterPrompt(prompt);
+  return {
+    model: MODEL,
+    max_tokens: 16000,
+    messages: [{ role: 'user', content }],
+  };
+}
+
+/** @spec HELP-GEN-006 */
+function assertOpenRouterPrompt(prompt) {
+  if (typeof prompt !== 'string' || prompt.trim().length === 0) {
+    throw new Error('OpenRouter prompt must be a non-empty string');
+  }
+  if (prompt.length > MAX_OPENROUTER_PROMPT_CHARS) {
+    throw new Error(`OpenRouter prompt exceeds ${MAX_OPENROUTER_PROMPT_CHARS} characters`);
+  }
+  if (prompt.includes('\u0000')) {
+    throw new Error('OpenRouter prompt must not contain NUL bytes');
+  }
+  return prompt;
 }
 
 async function callClaude(pagesBatch) {

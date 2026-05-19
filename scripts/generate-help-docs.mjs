@@ -16,14 +16,9 @@ import {
     buildSidebarConfig,
 } from './help-doc-utils.mjs';
 
-// ---------------------------------------------------------------------------
-// Fail fast if API key is missing
-// ---------------------------------------------------------------------------
 const API_KEY = OPENROUTER.api_key;
-if (!API_KEY) {
-    console.error('ERROR: OPENROUTER_API_KEY is not set in environment. Add it to .env');
-    process.exit(1);
-}
+const OPENROUTER_CHAT_COMPLETIONS_URL = 'https://openrouter.ai/api/v1/chat/completions';
+const MAX_OPENROUTER_PROMPT_CHARS = 250000;
 
 // ---------------------------------------------------------------------------
 // CLI argument parsing
@@ -172,6 +167,7 @@ function buildUserPrompt(entry, manifest, exemplars) {
 // ---------------------------------------------------------------------------
 /** @spec HELP-GEN-006 */
 async function callOpenRouter(userPrompt, retryState) {
+    assertOpenRouterApiKey();
     const { initial_delay_ms, max_delay_ms, max_retries, factor } = OPENROUTER.backoff;
     let attempt = 0;
     let delay = initial_delay_ms;
@@ -179,8 +175,8 @@ async function callOpenRouter(userPrompt, retryState) {
     while (attempt <= max_retries) {
         try {
             // This docs generator intentionally sends selected spec/code excerpts to OpenRouter.
-            // codeql[js/file-access-to-http]
-            const resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+            // The prompt body is bounded and assembled only by buildUserPrompt above. lgtm[js/file-access-to-http]
+            const resp = await fetch(OPENROUTER_CHAT_COMPLETIONS_URL, {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${API_KEY}`,
@@ -188,16 +184,7 @@ async function callOpenRouter(userPrompt, retryState) {
                     'HTTP-Referer': 'https://producerdashboard.app',
                     'X-Title': 'Producer Dashboard Help Docs Generator',
                 },
-                body: JSON.stringify({
-                    model: OPENROUTER.model,
-                    provider: { order: ['minimax', 'novita', 'atlas-cloud'] },
-                    messages: [
-                        { role: 'system', content: SYSTEM_PROMPT },
-                        { role: 'user', content: userPrompt },
-                    ],
-                    temperature: OPENROUTER.temperature,
-                    max_tokens: OPENROUTER.max_tokens,
-                }),
+                body: JSON.stringify(buildOpenRouterRequestBody(userPrompt)),
                 signal: AbortSignal.timeout(90000),
             });
 
@@ -264,6 +251,42 @@ async function callOpenRouter(userPrompt, retryState) {
     throw new Error('Exhausted all retries');
 }
 
+/** @spec HELP-GEN-006 */
+function assertOpenRouterApiKey() {
+    if (!API_KEY) {
+        throw new Error('OPENROUTER_API_KEY is not set in environment. Add it to .env');
+    }
+}
+
+/** @spec HELP-GEN-006 */
+function buildOpenRouterRequestBody(userPrompt) {
+    const prompt = assertOpenRouterPrompt(userPrompt);
+    return {
+        model: OPENROUTER.model,
+        provider: { order: ['minimax', 'novita', 'atlas-cloud'] },
+        messages: [
+            { role: 'system', content: SYSTEM_PROMPT },
+            { role: 'user', content: prompt },
+        ],
+        temperature: OPENROUTER.temperature,
+        max_tokens: OPENROUTER.max_tokens,
+    };
+}
+
+/** @spec HELP-GEN-006 */
+function assertOpenRouterPrompt(userPrompt) {
+    if (typeof userPrompt !== 'string' || userPrompt.trim().length === 0) {
+        throw new Error('OpenRouter prompt must be a non-empty string');
+    }
+    if (userPrompt.length > MAX_OPENROUTER_PROMPT_CHARS) {
+        throw new Error(`OpenRouter prompt exceeds ${MAX_OPENROUTER_PROMPT_CHARS} characters`);
+    }
+    if (userPrompt.includes('\u0000')) {
+        throw new Error('OpenRouter prompt must not contain NUL bytes');
+    }
+    return userPrompt;
+}
+
 // ---------------------------------------------------------------------------
 // Write doc file
 // ---------------------------------------------------------------------------
@@ -271,9 +294,9 @@ async function callOpenRouter(userPrompt, retryState) {
 function writeDoc(entry, content) {
     const outPath = assertInsideDir(PATHS.docs_dir, resolve(PATHS.docs_dir, entry.output_path));
     mkdirSync(dirname(outPath), { recursive: true });
-    // Response content is sanitized and constrained to PATHS.docs_dir before writing.
-    // codeql[js/http-to-file-access]
-    writeFileSync(outPath, sanitizeGeneratedMdx(content), 'utf-8');
+    const sanitized = sanitizeGeneratedMdx(content);
+    // Response content is sanitized and constrained to PATHS.docs_dir before writing. lgtm[js/http-to-file-access]
+    writeFileSync(outPath, sanitized, 'utf-8');
     return outPath;
 }
 
@@ -292,8 +315,20 @@ function sanitizeGeneratedMdx(content) {
     if (/<script\b/i.test(normalized)) {
         throw new Error('Generated docs must not contain script tags');
     }
+    if (/<(?:iframe|object|embed|base|meta|link)\b/i.test(normalized)) {
+        throw new Error('Generated docs must not contain unsafe HTML tags');
+    }
     if (/\son[a-z]+\s*=/i.test(normalized)) {
         throw new Error('Generated docs must not contain inline event handlers');
+    }
+    if (/^\s*(?:import|export)\s+/im.test(normalized)) {
+        throw new Error('Generated docs must not contain MDX import or export statements');
+    }
+    if (/\]\(\s*(?:javascript:|data:text\/html|data:application\/javascript)/i.test(normalized)) {
+        throw new Error('Generated docs must not contain executable markdown links');
+    }
+    if (/(?:href|src)\s*=\s*["']\s*(?:javascript:|data:text\/html|data:application\/javascript)/i.test(normalized)) {
+        throw new Error('Generated docs must not contain executable HTML links');
     }
     return normalized;
 }
@@ -460,6 +495,8 @@ async function main() {
         console.log(`\n${jobs.length} doc(s) would be generated.`);
         return;
     }
+
+    assertOpenRouterApiKey();
 
     // Process jobs
     const results = [];

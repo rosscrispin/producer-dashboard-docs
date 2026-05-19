@@ -17,6 +17,7 @@ concurrency:
 env:
   REPORT_DIR: security-reports
   RUN_APP_SECURITY_REGRESSIONS: ${{ vars.RUN_APP_SECURITY_REGRESSIONS }}
+  UPLOAD_FULL_SECURITY_ARTIFACTS: ${{ vars.UPLOAD_FULL_SECURITY_ARTIFACTS }}
 
 jobs:
   security-report:
@@ -176,6 +177,12 @@ jobs:
           if [ ! -f "$REPORT_DIR/gitleaks.json" ]; then
             echo '[]' > "$REPORT_DIR/gitleaks.json"
           fi
+          "$gitleaks_bin" detect --source "$GITHUB_WORKSPACE" --report-format json --report-path "$REPORT_DIR/gitleaks-history.json" --redact --no-banner
+          history_status=$?
+          echo "$history_status" > "$REPORT_DIR/gitleaks-history.exit"
+          if [ ! -f "$REPORT_DIR/gitleaks-history.json" ]; then
+            echo '[]' > "$REPORT_DIR/gitleaks-history.json"
+          fi
           exit 0
 
       - name: Optional app security regression suite
@@ -295,6 +302,18 @@ jobs:
             failedScan = true;
             out.push('- Gitleaks: scan failed (exit ' + gitleaksExit + '); leaked-secret status is inconclusive');
           }
+          const gitleaksHistory = readJson('gitleaks-history.json');
+          const gitleaksHistoryExit = readExit('gitleaks-history.exit');
+          if (gitleaksInstallExit === '0') {
+            if (gitleaksHistoryExit === '0') {
+              out.push('- Gitleaks git history: ' + (Array.isArray(gitleaksHistory) ? gitleaksHistory.length : 0) + ' finding(s)');
+            } else if (gitleaksHistoryExit === '1' && Array.isArray(gitleaksHistory)) {
+              out.push('- Gitleaks git history: ' + gitleaksHistory.length + ' finding(s); see artifact');
+            } else {
+              failedScan = true;
+              out.push('- Gitleaks git history: scan failed (exit ' + gitleaksHistoryExit + '); historical leaked-secret status is inconclusive');
+            }
+          }
           if (fs.existsSync(reportDir + '/app-security-regression.exit')) {
             out.push('- App security regression suite: exit ' + readExit('app-security-regression.exit'));
           } else if (process.env.RUN_APP_SECURITY_REGRESSIONS === 'true') {
@@ -304,7 +323,7 @@ jobs:
           }
           out.push('- CodeQL: see the separate CodeQL job and GitHub code-scanning results when available');
           out.push('');
-          out.push('Artifacts in this run contain raw JSON/log output for Codex or manual triage.');
+          out.push('Artifacts in this run contain compact JSON/status output by default. Set UPLOAD_FULL_SECURITY_ARTIFACTS=true to include raw logs.');
           fs.appendFileSync(reportDir + '/summary.md', out.join('\n') + '\n');
           if (failedScan) {
             fs.writeFileSync(reportDir + '/security-report.failed', 'One or more security scanners failed or coverage gaps were detected.\n');
@@ -315,14 +334,36 @@ jobs:
             exit 1
           fi
 
+      - name: Prepare compact security report artifact
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          upload_dir="security-report-upload"
+          rm -rf "$upload_dir"
+          mkdir -p "$upload_dir"
+          if [ "${UPLOAD_FULL_SECURITY_ARTIFACTS:-}" = "true" ]; then
+            cp -R "$REPORT_DIR"/. "$upload_dir"/
+          else
+            find "$REPORT_DIR" -maxdepth 1 -type f \( \
+              -name '*.json' -o \
+              -name '*.exit' -o \
+              -name '*.status' -o \
+              -name '*.reason' -o \
+              -name '*.md' -o \
+              -name '*.failed' -o \
+              -name '*-error.txt' \
+            \) -exec cp {} "$upload_dir"/ \;
+          fi
+
       - name: Upload security report artifact
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: security-report-${{ github.event.repository.name }}-${{ github.run_id }}
-          path: security-reports/
+          path: security-report-upload/
           if-no-files-found: warn
-          retention-days: 7
+          retention-days: 2
 
   codeql:
     name: CodeQL (${{ matrix.language }})
