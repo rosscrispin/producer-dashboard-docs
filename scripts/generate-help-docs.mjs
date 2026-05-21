@@ -296,8 +296,7 @@ function writeDoc(entry, content) {
     mkdirSync(dirname(outPath), { recursive: true });
     const sanitized = sanitizeGeneratedMdx(content);
     // Response content is sanitized and constrained to PATHS.docs_dir before writing.
-    // codeql[js/http-to-file-access]
-    writeFileSync(outPath, sanitized, 'utf-8');
+    writeFileSync(outPath, sanitized, 'utf-8'); // lgtm[js/http-to-file-access]
     return outPath;
 }
 
