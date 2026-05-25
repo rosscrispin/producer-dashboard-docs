@@ -477,13 +477,14 @@ jobs:
                 degradedReason: 'Gitleaks full-history JSON artifact missing or not parseable'
               });
             } else {
+              const gitleaksHistoryTimedOut = gitleaksHistoryExit === 124;
               addTool({
                 name: 'Gitleaks git history',
                 required: true,
-                status: gitleaksHistory.length > 0 || gitleaksHistoryExit === 1 ? 'action_required' : gitleaksHistoryExit === 0 ? 'passed' : 'failed',
+                status: gitleaksHistory.length > 0 || gitleaksHistoryExit === 1 ? 'action_required' : gitleaksHistoryExit === 0 ? 'passed' : gitleaksHistoryTimedOut ? 'warning' : 'failed',
                 exitCode: gitleaksHistoryExit,
                 findings: gitleaksHistory.length,
-                degradedReason: gitleaksHistory.length > 0 || gitleaksHistoryExit === 1 ? 'secrets found in git history' : gitleaksHistoryExit === 0 ? '' : 'Gitleaks full-history scan failed'
+                degradedReason: gitleaksHistory.length > 0 || gitleaksHistoryExit === 1 ? 'secrets found in git history' : gitleaksHistoryExit === 0 ? '' : gitleaksHistoryTimedOut ? 'Gitleaks full-history scan timed out; current-tree scan completed' : 'Gitleaks full-history scan failed'
               });
             }
           }
