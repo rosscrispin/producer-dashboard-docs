@@ -31,6 +31,7 @@ jobs:
         with:
           fetch-depth: 0
 
+      # @spec SEC-JOB-001
       - name: Initialize report
         shell: bash
         run: |
@@ -53,6 +54,7 @@ jobs:
         with:
           node-version: '20'
 
+      # @spec SEC-JOB-002 SEC-JOB-003 SEC-JOB-004
       - name: Scan JavaScript dependencies
         if: ${{ hashFiles('package.json') != '' }}
         shell: bash
@@ -66,8 +68,11 @@ jobs:
             if [ "$install_status" -eq 0 ]; then
               npm audit --omit=dev --json > "$REPORT_DIR/npm-audit.json"
               echo "$?" > "$REPORT_DIR/npm-audit.exit"
+              npm audit --json > "$REPORT_DIR/npm-audit-all.json"
+              echo "$?" > "$REPORT_DIR/npm-audit-all.exit"
             else
-              echo '{"error":"npm ci failed"}' > "$REPORT_DIR/npm-audit.json"
+              printf '{"error":"npm ci failed","exitCode":%s}\n' "$install_status" > "$REPORT_DIR/npm-audit.json"
+              printf '{"error":"npm ci failed","exitCode":%s}\n' "$install_status" > "$REPORT_DIR/npm-audit-all.json"
             fi
           elif [ -f pnpm-lock.yaml ]; then
             corepack enable || true
@@ -78,18 +83,18 @@ jobs:
               pnpm audit --prod --json > "$REPORT_DIR/pnpm-audit.json"
               echo "$?" > "$REPORT_DIR/pnpm-audit.exit"
             else
-              echo '{"error":"pnpm install failed"}' > "$REPORT_DIR/pnpm-audit.json"
+              printf '{"error":"pnpm install failed","exitCode":%s}\n' "$install_status" > "$REPORT_DIR/pnpm-audit.json"
             fi
           elif [ -f yarn.lock ]; then
             corepack enable || true
-            yarn install --immutable
+            yarn install --immutable --ignore-scripts || yarn install --frozen-lockfile --ignore-scripts
             install_status=$?
             echo "$install_status" > "$REPORT_DIR/yarn-install.exit"
             if [ "$install_status" -eq 0 ]; then
-              yarn npm audit --environment production --json > "$REPORT_DIR/yarn-audit.json"
+              yarn npm audit --environment production --json > "$REPORT_DIR/yarn-audit.json" || yarn audit --groups dependencies --json > "$REPORT_DIR/yarn-audit.json"
               echo "$?" > "$REPORT_DIR/yarn-audit.exit"
             else
-              echo '{"error":"yarn install failed"}' > "$REPORT_DIR/yarn-audit.json"
+              printf '{"error":"yarn install failed","exitCode":%s}\n' "$install_status" > "$REPORT_DIR/yarn-audit.json"
             fi
           else
             echo "No supported JavaScript lockfile found; dependency audit skipped." > "$REPORT_DIR/js-audit-skipped.txt"
@@ -98,16 +103,23 @@ jobs:
 
       - name: Set up Python
         if: ${{ hashFiles('requirements.txt', 'pyproject.toml') != '' }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
+      # @spec SEC-JOB-002 SEC-JOB-003
       - name: Scan Python dependencies
         if: ${{ hashFiles('requirements.txt', 'pyproject.toml') != '' }}
         shell: bash
         run: |
           set +e
           python -m pip install --upgrade pip pip-audit
+          install_status=$?
+          echo "$install_status" > "$REPORT_DIR/pip-audit-install.exit"
+          if [ "$install_status" -ne 0 ]; then
+            printf '{"error":"pip-audit install failed","exitCode":%s}\n' "$install_status" > "$REPORT_DIR/pip-audit-install.json"
+            exit 0
+          fi
           if [ -f requirements.txt ]; then
             pip-audit -r requirements.txt -f json -o "$REPORT_DIR/pip-audit-requirements.json"
             echo "$?" > "$REPORT_DIR/pip-audit-requirements.exit"
@@ -124,23 +136,37 @@ jobs:
         with:
           go-version-file: go.mod
 
+      # @spec SEC-JOB-002 SEC-JOB-003
       - name: Scan Go vulnerabilities
         if: ${{ hashFiles('go.mod') != '' }}
         shell: bash
         run: |
           set +e
           go install golang.org/x/vuln/cmd/govulncheck@latest
-          govulncheck -json ./... > "$REPORT_DIR/govulncheck.json"
-          echo "$?" > "$REPORT_DIR/govulncheck.exit"
+          install_status=$?
+          echo "$install_status" > "$REPORT_DIR/govulncheck-install.exit"
+          if [ "$install_status" -eq 0 ]; then
+            govulncheck -json ./... > "$REPORT_DIR/govulncheck.json"
+            echo "$?" > "$REPORT_DIR/govulncheck.exit"
+          else
+            printf '{"error":"govulncheck install failed","exitCode":%s}\n' "$install_status" > "$REPORT_DIR/govulncheck.json"
+          fi
           exit 0
 
+      # @spec SEC-JOB-002 SEC-JOB-003 SEC-JOB-006
       - name: Run Semgrep security rules
         shell: bash
         run: |
           set +e
           python3 -m pip install --upgrade semgrep
-          semgrep scan --config p/ci --json --output "$REPORT_DIR/semgrep.json" .
-          echo "$?" > "$REPORT_DIR/semgrep.exit"
+          install_status=$?
+          echo "$install_status" > "$REPORT_DIR/semgrep-install.exit"
+          if [ "$install_status" -eq 0 ]; then
+            semgrep scan --config p/ci --json --output "$REPORT_DIR/semgrep.json" .
+            echo "$?" > "$REPORT_DIR/semgrep.exit"
+          else
+            printf '{"error":"semgrep install failed","exitCode":%s}\n' "$install_status" > "$REPORT_DIR/semgrep.json"
+          fi
           exit 0
 
       - name: Set up Go for Gitleaks
@@ -150,6 +176,7 @@ jobs:
           check-latest: true
           cache: false
 
+      # @spec SEC-JOB-002 SEC-JOB-003 SEC-JOB-005 SEC-JOB-014
       - name: Run Gitleaks secret scan
         shell: bash
         run: |
@@ -159,7 +186,7 @@ jobs:
           echo "$install_status" > "$REPORT_DIR/gitleaks-install.exit"
           gitleaks_bin="$(go env GOPATH)/bin/gitleaks"
           if [ "$install_status" -ne 0 ]; then
-            echo '{"error":"gitleaks install failed"}' > "$REPORT_DIR/gitleaks.json"
+            printf '{"error":"gitleaks install failed","exitCode":%s}\n' "$install_status" > "$REPORT_DIR/gitleaks.json"
             echo "not-run" > "$REPORT_DIR/gitleaks.exit"
             exit 0
           fi
@@ -169,15 +196,26 @@ jobs:
             echo "127" > "$REPORT_DIR/gitleaks.exit"
             exit 0
           fi
-          scan_dir="$(mktemp -d)"
-          git archive --format=tar HEAD | tar -x -C "$scan_dir"
-          "$gitleaks_bin" detect --no-git --source "$scan_dir" --report-format json --report-path "$REPORT_DIR/gitleaks.json" --redact --no-banner
+          tracked_source="${RUNNER_TEMP:-/tmp}/gitleaks-source"
+          rm -rf "$tracked_source"
+          mkdir -p "$tracked_source"
+          git archive --format=tar HEAD | tar -xf - -C "$tracked_source"
+          gitleaks_args=(detect --no-git --source "$tracked_source" --report-format json --report-path "$REPORT_DIR/gitleaks.json" --redact --no-banner)
+          if [ -f "$tracked_source/.gitleaks.toml" ]; then
+            gitleaks_args+=(--config "$tracked_source/.gitleaks.toml")
+          fi
+          "$gitleaks_bin" "${gitleaks_args[@]}"
           status=$?
           echo "$status" > "$REPORT_DIR/gitleaks.exit"
           if [ ! -f "$REPORT_DIR/gitleaks.json" ]; then
             echo '[]' > "$REPORT_DIR/gitleaks.json"
           fi
-          "$gitleaks_bin" detect --source "$GITHUB_WORKSPACE" --report-format json --report-path "$REPORT_DIR/gitleaks-history.json" --redact --no-banner
+
+          gitleaks_history_args=(detect --source "$GITHUB_WORKSPACE" --report-format json --report-path "$REPORT_DIR/gitleaks-history.json" --redact --no-banner)
+          if [ -f "$GITHUB_WORKSPACE/.gitleaks.toml" ]; then
+            gitleaks_history_args+=(--config "$GITHUB_WORKSPACE/.gitleaks.toml")
+          fi
+          "$gitleaks_bin" "${gitleaks_history_args[@]}"
           history_status=$?
           echo "$history_status" > "$REPORT_DIR/gitleaks-history.exit"
           if [ ! -f "$REPORT_DIR/gitleaks-history.json" ]; then
@@ -185,19 +223,37 @@ jobs:
           fi
           exit 0
 
-      - name: Optional app security regression suite
-        if: ${{ env.RUN_APP_SECURITY_REGRESSIONS == 'true' && hashFiles('package.json') != '' }}
+      # @spec SEC-JOB-008
+      - name: App security regression suite status
+        if: ${{ hashFiles('package.json') != '' }}
         shell: bash
         run: |
           set +e
+          if [ "$RUN_APP_SECURITY_REGRESSIONS" != "true" ]; then
+            echo "disabled" > "$REPORT_DIR/app-security-regression.status"
+            echo "Set repository variable RUN_APP_SECURITY_REGRESSIONS=true to enable." > "$REPORT_DIR/app-security-regression.reason"
+            exit 0
+          fi
+
           if node -e "const p=require('./package.json'); process.exit(p.scripts && p.scripts['test:sharing:security'] ? 0 : 1)"; then
-            npm run test:sharing:security > "$REPORT_DIR/app-security-regression.log" 2>&1
+            echo "enabled" > "$REPORT_DIR/app-security-regression.status"
+            npx playwright install --with-deps chromium > "$REPORT_DIR/app-security-regression-setup.log" 2>&1
+            setup_status=$?
+            echo "$setup_status" > "$REPORT_DIR/app-security-regression-setup.exit"
+            if [ "$setup_status" -ne 0 ]; then
+              echo "Playwright browser setup failed; security regression suite was not run." > "$REPORT_DIR/app-security-regression.log"
+              echo "$setup_status" > "$REPORT_DIR/app-security-regression.exit"
+              exit 0
+            fi
+            CI=true npm run test:sharing:security > "$REPORT_DIR/app-security-regression.log" 2>&1
             echo "$?" > "$REPORT_DIR/app-security-regression.exit"
           else
-            echo "No test:sharing:security script found." > "$REPORT_DIR/app-security-regression-skipped.txt"
+            echo "skipped" > "$REPORT_DIR/app-security-regression.status"
+            echo "No test:sharing:security script found." > "$REPORT_DIR/app-security-regression.reason"
           fi
           exit 0
 
+      # @spec SEC-JOB-001 SEC-JOB-002 SEC-JOB-003 SEC-JOB-006 SEC-JOB-008 SEC-JOB-009 SEC-JOB-011
       - name: Summarize report
         if: always()
         shell: bash
@@ -205,135 +261,367 @@ jobs:
           node <<'NODE'
           const fs = require('fs');
           const reportDir = process.env.REPORT_DIR || 'security-reports';
-          const out = [];
-          let failedScan = false;
-          const readJsonPath = (file) => {
-            try { return JSON.parse(fs.readFileSync(file, 'utf8')); }
+          const summaryPath = `${reportDir}/summary.md`;
+
+          const exists = (name) => fs.existsSync(`${reportDir}/${name}`);
+          const readText = (name, fallback = '') => {
+            try { return fs.readFileSync(`${reportDir}/${name}`, 'utf8').trim(); }
+            catch { return fallback; }
+          };
+          const readJson = (name) => {
+            try { return JSON.parse(fs.readFileSync(`${reportDir}/${name}`, 'utf8')); }
             catch { return null; }
           };
-          const readJson = (name) => readJsonPath(reportDir + '/' + name);
-          const readExitPath = (file) => {
-            try { return fs.readFileSync(file, 'utf8').trim(); }
-            catch { return 'not-run'; }
+          const asExit = (name) => {
+            const raw = readText(name, 'not-run');
+            const parsed = Number(raw);
+            return Number.isFinite(parsed) ? parsed : raw;
           };
-          const readExit = (name) => readExitPath(reportDir + '/' + name);
-          const summarizeJsAudit = (label, dir) => {
-            const npmAudit = readJsonPath(dir + '/npm-audit.json');
-            const pnpmAudit = readJsonPath(dir + '/pnpm-audit.json');
-            const yarnAudit = readJsonPath(dir + '/yarn-audit.json');
-            const coverageGap = fs.existsSync(dir + '/coverage-gap.txt') ? fs.readFileSync(dir + '/coverage-gap.txt', 'utf8').trim() : null;
-            if (coverageGap) {
-              failedScan = true;
-              out.push('- ' + label + ': dependency audit coverage gap: ' + coverageGap);
-              return;
-            }
-            const audit = npmAudit || pnpmAudit || yarnAudit;
-            const auditName = npmAudit ? 'npm audit' : pnpmAudit ? 'pnpm audit' : yarnAudit ? 'yarn audit' : 'JavaScript dependency audit';
-            const installExit = readExitPath(dir + '/npm-install.exit') !== 'not-run' ? readExitPath(dir + '/npm-install.exit')
-              : readExitPath(dir + '/pnpm-install.exit') !== 'not-run' ? readExitPath(dir + '/pnpm-install.exit')
-              : readExitPath(dir + '/yarn-install.exit');
-            const auditExit = readExitPath(dir + '/npm-audit.exit') !== 'not-run' ? readExitPath(dir + '/npm-audit.exit')
-              : readExitPath(dir + '/pnpm-audit.exit') !== 'not-run' ? readExitPath(dir + '/pnpm-audit.exit')
-              : readExitPath(dir + '/yarn-audit.exit');
-            if (installExit !== 'not-run' && installExit !== '0') {
-              failedScan = true;
-              out.push('- ' + label + ': ' + auditName + ' install failed with exit ' + installExit);
-              return;
-            }
-            if (audit?.metadata?.vulnerabilities) {
-              const v = audit.metadata.vulnerabilities;
-              out.push('- ' + label + ': ' + auditName + ': critical ' + (v.critical || 0) + ', high ' + (v.high || 0) + ', moderate ' + (v.moderate || 0) + ', low ' + (v.low || 0));
-              return;
-            }
-            if (audit) {
-              out.push('- ' + label + ': ' + auditName + ': see artifact (exit ' + auditExit + ')');
-              return;
-            }
-            if (fs.existsSync(dir + '/js-audit-skipped.txt')) {
-              out.push('- ' + label + ': JavaScript dependency audit skipped; no supported lockfile');
-              return;
-            }
-            out.push('- ' + label + ': JavaScript dependency audit not run');
+          const vulnCounts = (audit) => audit?.metadata?.vulnerabilities || null;
+          const totalVulns = (counts) => ['info', 'low', 'moderate', 'high', 'critical']
+            .reduce((sum, key) => sum + Number(counts?.[key] || 0), 0);
+          const severityText = (counts) => `critical ${counts.critical || 0}, high ${counts.high || 0}, moderate ${counts.moderate || 0}, low ${counts.low || 0}`;
+
+          const tools = [];
+          const addTool = (tool) => {
+            tools.push({
+              required: false,
+              status: 'unknown',
+              findings: 0,
+              exitCode: 'not-run',
+              degradedReason: '',
+              ...tool
+            });
           };
 
-          out.push('## Scan Summary');
-          const packageRoot = reportDir + '/packages';
-          if (fs.existsSync(packageRoot)) {
-            for (const entry of fs.readdirSync(packageRoot).sort()) {
-              const dir = packageRoot + '/' + entry;
-              if (!fs.statSync(dir).isDirectory()) continue;
-              const packageDir = fs.existsSync(dir + '/package-dir.txt') ? fs.readFileSync(dir + '/package-dir.txt', 'utf8').trim() : entry;
-              summarizeJsAudit(packageDir, dir);
+          const packageJsonPresent = exists('../package.json') || fs.existsSync('package.json');
+          if (packageJsonPresent) {
+            const installExit = asExit('npm-install.exit');
+            const prodAudit = readJson('npm-audit.json');
+            if (installExit !== 0) {
+              addTool({
+                name: 'npm audit production',
+                required: true,
+                status: 'failed',
+                exitCode: installExit,
+                degradedReason: 'npm ci failed'
+              });
+            } else if (prodAudit?.metadata?.vulnerabilities) {
+              const counts = vulnCounts(prodAudit);
+              const findings = totalVulns(counts);
+              const highCritical = Number(counts.high || 0) + Number(counts.critical || 0);
+              addTool({
+                name: 'npm audit production',
+                required: true,
+                status: findings > 0 ? 'action_required' : 'passed',
+                exitCode: asExit('npm-audit.exit'),
+                findings,
+                vulnerabilities: counts,
+                degradedReason: highCritical > 0 ? 'production high/critical vulnerabilities found' : findings > 0 ? 'production dependency vulnerabilities found' : ''
+              });
+            } else if (exists('npm-audit.json')) {
+              addTool({
+                name: 'npm audit production',
+                required: true,
+                status: 'failed',
+                exitCode: asExit('npm-audit.exit'),
+                degradedReason: prodAudit?.error || 'npm audit output was not parseable'
+              });
+            } else if (exists('pnpm-audit.json') || exists('yarn-audit.json')) {
+              addTool({
+                name: 'JavaScript dependency audit',
+                required: true,
+                status: 'warning',
+                exitCode: exists('pnpm-audit.exit') ? asExit('pnpm-audit.exit') : asExit('yarn-audit.exit'),
+                degradedReason: 'non-npm audit artifact; review raw package-manager output'
+              });
+            } else if (exists('js-audit-skipped.txt')) {
+              addTool({
+                name: 'JavaScript dependency audit',
+                required: false,
+                status: 'skipped',
+                degradedReason: readText('js-audit-skipped.txt')
+              });
             }
-          } else {
-            summarizeJsAudit('root', reportDir);
-          }
-          for (const name of ['pip-audit-requirements.json', 'pip-audit-pyproject.json']) {
-            const audit = readJson(name);
-            if (audit) {
-              const count = Array.isArray(audit.dependencies)
-                ? audit.dependencies.reduce((sum, dep) => sum + ((dep.vulns || []).length), 0)
-                : 'see artifact';
-              out.push('- ' + name.replace('.json', '') + ': ' + count + ' finding(s)');
+
+            const fullAudit = readJson('npm-audit-all.json');
+            if (fullAudit?.metadata?.vulnerabilities) {
+              const counts = vulnCounts(fullAudit);
+              const findings = totalVulns(counts);
+              const highCritical = Number(counts.high || 0) + Number(counts.critical || 0);
+              addTool({
+                name: 'npm audit all dependencies',
+                required: false,
+                status: findings > 0 ? 'action_required' : 'passed',
+                exitCode: asExit('npm-audit-all.exit'),
+                findings,
+                vulnerabilities: counts,
+                degradedReason: highCritical > 0 ? 'dev or transitive high/critical vulnerabilities found' : findings > 0 ? 'dev or transitive dependency vulnerabilities found' : ''
+              });
             }
           }
-          if (fs.existsSync(reportDir + '/govulncheck.json')) {
-            const content = fs.readFileSync(reportDir + '/govulncheck.json', 'utf8');
-            const findings = content.split('\n').filter(line => line.includes('"finding"') || line.includes('"osv"')).length;
-            out.push('- govulncheck: ' + findings + ' finding event(s), exit ' + readExit('govulncheck.exit'));
+
+          for (const name of ['pip-audit-requirements', 'pip-audit-pyproject']) {
+            if (!exists(`${name}.json`)) continue;
+            const audit = readJson(`${name}.json`);
+            const findings = Array.isArray(audit?.dependencies)
+              ? audit.dependencies.reduce((sum, dep) => sum + ((dep.vulns || []).length), 0)
+              : 0;
+            addTool({
+              name,
+              required: true,
+              status: audit ? findings > 0 ? 'action_required' : 'passed' : 'failed',
+              exitCode: asExit(`${name}.exit`),
+              findings,
+              degradedReason: audit ? findings > 0 ? 'Python dependency vulnerabilities found' : '' : 'pip-audit output was not parseable'
+            });
           }
+
+          if (exists('govulncheck.json')) {
+            const content = readText('govulncheck.json');
+            const installExit = asExit('govulncheck-install.exit');
+            const scanExit = asExit('govulncheck.exit');
+            const findings = content.split('\n').filter((line) => line.includes('"finding"') || line.includes('"osv"')).length;
+            addTool({
+              name: 'govulncheck',
+              required: true,
+              status: installExit !== 0 ? 'failed' : findings > 0 ? 'action_required' : scanExit === 0 ? 'passed' : 'failed',
+              exitCode: installExit !== 0 ? installExit : scanExit,
+              findings,
+              degradedReason: installExit !== 0 ? 'govulncheck install failed' : findings > 0 ? 'Go vulnerabilities found' : scanExit === 0 ? '' : 'govulncheck failed'
+            });
+          }
+
           const semgrep = readJson('semgrep.json');
-          if (semgrep?.results) {
-            out.push('- Semgrep: ' + semgrep.results.length + ' finding(s)');
+          const semgrepInstallExit = asExit('semgrep-install.exit');
+          const semgrepExit = asExit('semgrep.exit');
+          if (semgrepInstallExit !== 0) {
+            addTool({
+              name: 'Semgrep',
+              required: true,
+              status: 'failed',
+              exitCode: semgrepInstallExit,
+              degradedReason: 'Semgrep install failed'
+            });
+          } else if (semgrep?.results) {
+            const parserWarnings = (semgrep.errors || []).filter((err) => err.level === 'warn').length;
+            const parserErrors = (semgrep.errors || []).filter((err) => err.level !== 'warn').length;
+            addTool({
+              name: 'Semgrep',
+              required: true,
+              status: parserErrors > 0 ? 'failed' : semgrep.results.length > 0 ? 'action_required' : parserWarnings > 0 ? 'warning' : semgrepExit === 0 ? 'passed' : 'failed',
+              exitCode: semgrepExit,
+              findings: semgrep.results.length,
+              parserWarnings,
+              parserErrors,
+              degradedReason: parserErrors > 0 ? 'Semgrep parser errors found' : semgrep.results.length > 0 ? 'Semgrep findings found' : parserWarnings > 0 ? 'Semgrep parser warnings reduced confidence' : semgrepExit === 0 ? '' : 'Semgrep failed'
+            });
           } else {
-            out.push('- Semgrep: see artifact/logs (exit ' + readExit('semgrep.exit') + ')');
+            addTool({
+              name: 'Semgrep',
+              required: true,
+              status: 'failed',
+              exitCode: semgrepExit,
+              degradedReason: 'Semgrep output was not parseable'
+            });
           }
+
           const gitleaks = readJson('gitleaks.json');
-          const gitleaksInstallExit = readExit('gitleaks-install.exit');
-          const gitleaksExit = readExit('gitleaks.exit');
-          if (gitleaksInstallExit !== '0') {
-            failedScan = true;
-            out.push('- Gitleaks: failed to install (exit ' + gitleaksInstallExit + '); secret scan did not run');
-          } else if (gitleaksExit === '0') {
-            out.push('- Gitleaks: ' + (Array.isArray(gitleaks) ? gitleaks.length : 0) + ' finding(s)');
-          } else if (gitleaksExit === '1' && Array.isArray(gitleaks)) {
-            out.push('- Gitleaks: ' + gitleaks.length + ' finding(s); see artifact');
+          const gitleaksInstallExit = asExit('gitleaks-install.exit');
+          const gitleaksExit = asExit('gitleaks.exit');
+          if (gitleaksInstallExit !== 0) {
+            addTool({
+              name: 'Gitleaks',
+              required: true,
+              status: 'failed',
+              exitCode: gitleaksInstallExit,
+              degradedReason: 'Gitleaks install failed'
+            });
+          } else if (!exists('gitleaks.json') || !Array.isArray(gitleaks)) {
+            addTool({
+              name: 'Gitleaks',
+              required: true,
+              status: 'failed',
+              exitCode: gitleaksExit,
+              degradedReason: 'Gitleaks JSON artifact missing or not parseable'
+            });
           } else {
-            failedScan = true;
-            out.push('- Gitleaks: scan failed (exit ' + gitleaksExit + '); leaked-secret status is inconclusive');
+            addTool({
+              name: 'Gitleaks current tree',
+              required: true,
+              status: gitleaks.length > 0 || gitleaksExit === 1 ? 'action_required' : gitleaksExit === 0 ? 'passed' : 'failed',
+              exitCode: gitleaksExit,
+              findings: gitleaks.length,
+              degradedReason: gitleaks.length > 0 || gitleaksExit === 1 ? 'secrets found' : gitleaksExit === 0 ? '' : 'Gitleaks failed'
+            });
           }
+
           const gitleaksHistory = readJson('gitleaks-history.json');
-          const gitleaksHistoryExit = readExit('gitleaks-history.exit');
-          if (gitleaksInstallExit === '0') {
-            if (gitleaksHistoryExit === '0') {
-              out.push('- Gitleaks git history: ' + (Array.isArray(gitleaksHistory) ? gitleaksHistory.length : 0) + ' finding(s)');
-            } else if (gitleaksHistoryExit === '1' && Array.isArray(gitleaksHistory)) {
-              out.push('- Gitleaks git history: ' + gitleaksHistory.length + ' finding(s); see artifact');
+          const gitleaksHistoryExit = asExit('gitleaks-history.exit');
+          if (gitleaksInstallExit === 0) {
+            if (!exists('gitleaks-history.json') || !Array.isArray(gitleaksHistory)) {
+              addTool({
+                name: 'Gitleaks git history',
+                required: true,
+                status: 'failed',
+                exitCode: gitleaksHistoryExit,
+                degradedReason: 'Gitleaks full-history JSON artifact missing or not parseable'
+              });
             } else {
-              failedScan = true;
-              out.push('- Gitleaks git history: scan failed (exit ' + gitleaksHistoryExit + '); historical leaked-secret status is inconclusive');
+              addTool({
+                name: 'Gitleaks git history',
+                required: true,
+                status: gitleaksHistory.length > 0 || gitleaksHistoryExit === 1 ? 'action_required' : gitleaksHistoryExit === 0 ? 'passed' : 'failed',
+                exitCode: gitleaksHistoryExit,
+                findings: gitleaksHistory.length,
+                degradedReason: gitleaksHistory.length > 0 || gitleaksHistoryExit === 1 ? 'secrets found in git history' : gitleaksHistoryExit === 0 ? '' : 'Gitleaks full-history scan failed'
+              });
             }
           }
-          if (fs.existsSync(reportDir + '/app-security-regression.exit')) {
-            out.push('- App security regression suite: exit ' + readExit('app-security-regression.exit'));
-          } else if (process.env.RUN_APP_SECURITY_REGRESSIONS === 'true') {
-            out.push('- App security regression suite: skipped; no matching script');
-          } else {
-            out.push('- App security regression suite: disabled; set repository variable RUN_APP_SECURITY_REGRESSIONS=true to enable');
+
+          const appStatus = readText('app-security-regression.status', 'not-run');
+          if (appStatus === 'enabled') {
+            const exitCode = asExit('app-security-regression.exit');
+            addTool({
+              name: 'App security regression suite',
+              required: false,
+              status: exitCode === 0 ? 'passed' : 'action_required',
+              exitCode,
+              degradedReason: exitCode === 0 ? '' : 'test:sharing:security failed'
+            });
+          } else if (appStatus === 'disabled' || appStatus === 'skipped') {
+            addTool({
+              name: 'App security regression suite',
+              required: false,
+              status: appStatus,
+              degradedReason: readText('app-security-regression.reason', appStatus)
+            });
           }
-          out.push('- CodeQL: see the separate CodeQL job and GitHub code-scanning results when available');
+
+          const fatalTools = tools.filter((tool) => tool.status === 'failed' && tool.required);
+          const needsTask = (tool) => {
+            return tool.status !== 'passed'
+              || Number(tool.findings || 0) > 0
+              || Number(tool.parserWarnings || 0) > 0
+              || Number(tool.parserErrors || 0) > 0;
+          };
+          const taskSeverity = (tool) => {
+            if (tool.status === 'failed') return 'high';
+            if ((tool.name.startsWith('Gitleaks') && Number(tool.findings || 0) > 0) || Number(tool.vulnerabilities?.critical || 0) > 0) return 'critical';
+            if (Number(tool.vulnerabilities?.high || 0) > 0 || tool.status === 'action_required') return 'high';
+            if (tool.status === 'warning') return 'medium';
+            return 'low';
+          };
+          const taskTitle = (tool) => {
+            if (tool.status === 'failed') return `Restore ${tool.name} scanner output`;
+            if (Number(tool.findings || 0) > 0) return `Triage ${tool.name} findings`;
+            if (tool.status === 'disabled' || tool.status === 'skipped') return `Decide ${tool.name} coverage`;
+            return `Review ${tool.name} confidence warning`;
+          };
+          const taskAction = (tool) => {
+            if (tool.status === 'failed') return 'Fix scanner setup or output generation, then rerun the Daily Security Report workflow.';
+            if (tool.name.startsWith('Gitleaks')) return 'Inspect the matching gitleaks JSON, rotate any real exposed secrets, remove tracked secret material, and rerun the workflow.';
+            if (tool.name.includes('npm audit')) return 'Review the audit JSON, update or replace vulnerable packages, and rerun npm audit plus the workflow.';
+            if (tool.name.startsWith('pip-audit')) return 'Review the pip-audit JSON, update vulnerable Python dependencies, and rerun pip-audit plus the workflow.';
+            if (tool.name === 'govulncheck') return 'Review govulncheck.json, update vulnerable Go modules or code paths, and rerun govulncheck plus the workflow.';
+            if (tool.name === 'Semgrep') return 'Review semgrep.json, fix true positives or narrow intentional suppressions, and rerun Semgrep plus the workflow.';
+            if (tool.name === 'App security regression suite') return 'Enable or repair the app regression suite when credentials and test URL are available.';
+            return 'Review the raw artifact named by this task and rerun the workflow after remediation.';
+          };
+          const actionTasks = tools
+            .filter(needsTask)
+            .map((tool, index) => ({
+              id: `SEC-TASK-${String(index + 1).padStart(3, '0')}`,
+              source: tool.name,
+              severity: taskSeverity(tool),
+              status: 'open',
+              title: taskTitle(tool),
+              details: tool.degradedReason || `${tool.name} reported ${tool.status}`,
+              findings: Number(tool.findings || 0),
+              validation: taskAction(tool)
+            }));
+          const report = {
+            repository: process.env.GITHUB_REPOSITORY || '',
+            ref: process.env.GITHUB_REF || '',
+            sha: process.env.GITHUB_SHA || '',
+            runUrl: `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || ''}/actions/runs/${process.env.GITHUB_RUN_ID || ''}`,
+            generatedAt: new Date().toISOString(),
+            executionStatus: fatalTools.length > 0 ? 'failed' : 'passed',
+            status: fatalTools.length > 0 ? 'failed' : actionTasks.length > 0 ? 'action_required' : 'passed',
+            tools,
+            actionTaskCount: actionTasks.length
+          };
+
+          fs.writeFileSync(`${reportDir}/scan-status.json`, `${JSON.stringify(report, null, 2)}\n`);
+          fs.writeFileSync(`${reportDir}/security-tasks.json`, `${JSON.stringify({
+            repository: report.repository,
+            ref: report.ref,
+            sha: report.sha,
+            runUrl: report.runUrl,
+            generatedAt: report.generatedAt,
+            executionStatus: report.executionStatus,
+            status: report.status,
+            tasks: actionTasks
+          }, null, 2)}\n`);
+
+          const out = [];
+          out.push('## Scan Summary');
+          for (const tool of tools) {
+            const pieces = [`status ${tool.status}`];
+            if (tool.exitCode !== 'not-run') pieces.push(`exit ${tool.exitCode}`);
+            if (typeof tool.findings === 'number') pieces.push(`${tool.findings} finding(s)`);
+            if (tool.vulnerabilities) pieces.push(severityText(tool.vulnerabilities));
+            if (typeof tool.parserWarnings === 'number') pieces.push(`${tool.parserWarnings} parser warning(s)`);
+            if (typeof tool.parserErrors === 'number') pieces.push(`${tool.parserErrors} parser error(s)`);
+            if (tool.degradedReason) pieces.push(tool.degradedReason);
+            out.push(`- ${tool.name}: ${pieces.join(', ')}`);
+          }
+          out.push('- CodeQL: see separate CodeQL jobs and codeql-results artifacts for per-language SARIF/status output');
           out.push('');
-          out.push('Artifacts in this run contain compact JSON/status output by default. Set UPLOAD_FULL_SECURITY_ARTIFACTS=true to include raw logs.');
-          fs.appendFileSync(reportDir + '/summary.md', out.join('\n') + '\n');
-          if (failedScan) {
-            fs.writeFileSync(reportDir + '/security-report.failed', 'One or more security scanners failed or coverage gaps were detected.\n');
+          out.push(`Scanner execution status: ${report.executionStatus}`);
+          out.push(`Overall task status: ${report.status}`);
+          out.push(`Actionable task count: ${actionTasks.length}`);
+          out.push('');
+          out.push('Artifacts in this run contain compact JSON/status/task output by default. Set UPLOAD_FULL_SECURITY_ARTIFACTS=true to include raw logs.');
+          fs.appendFileSync(summaryPath, `${out.join('\n')}\n`);
+          if (process.env.GITHUB_STEP_SUMMARY) {
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${out.join('\n')}\n`);
+          }
+
+          const taskLines = ['# Security Tasks', ''];
+          taskLines.push(`- Repository: ${report.repository}`);
+          taskLines.push(`- Ref: ${report.ref}`);
+          taskLines.push(`- SHA: ${report.sha}`);
+          taskLines.push(`- Run: ${report.runUrl}`);
+          taskLines.push(`- Scanner execution status: ${report.executionStatus}`);
+          taskLines.push(`- Status: ${report.status}`);
+          taskLines.push('');
+          if (actionTasks.length === 0) {
+            taskLines.push('No actionable security tasks were reported by the dependency, secret, rule, or app regression scans.');
+          } else {
+            for (const task of actionTasks) {
+              taskLines.push(`## ${task.id}: ${task.title}`);
+              taskLines.push('');
+              taskLines.push(`- Source: ${task.source}`);
+              taskLines.push(`- Severity: ${task.severity}`);
+              taskLines.push(`- Findings: ${task.findings}`);
+              taskLines.push(`- Details: ${task.details}`);
+              taskLines.push(`- Validation: ${task.validation}`);
+              taskLines.push('');
+            }
+          }
+          fs.writeFileSync(`${reportDir}/security-tasks.md`, `${taskLines.join('\n')}\n`);
+
+          if (fatalTools.length > 0) {
+            console.error('Required security scan checks failed:');
+            for (const tool of fatalTools) {
+              console.error(`- ${tool.name}: ${tool.degradedReason || tool.status}`);
+            }
+            process.exit(1);
           }
           NODE
-          cat "$REPORT_DIR/summary.md" >> "$GITHUB_STEP_SUMMARY"
-          if [ -f "$REPORT_DIR/security-report.failed" ]; then
-            exit 1
-          fi
 
+      # @spec SEC-JOB-012 SEC-JOB-013
       - name: Prepare compact security report artifact
         if: always()
         shell: bash
@@ -362,7 +650,7 @@ jobs:
         with:
           name: security-report-${{ github.event.repository.name }}-${{ github.run_id }}
           path: security-report-upload/
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 2
 
   codeql:
@@ -385,21 +673,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      # @spec SEC-JOB-007
       - name: Detect language sources
         id: detect
         shell: bash
         run: |
           case "${{ matrix.language }}" in
             javascript-typescript)
-              if git ls-files '*.js' '*.jsx' '*.ts' '*.tsx' | grep -q .; then echo "present=true" >> "$GITHUB_OUTPUT"; else echo "present=false" >> "$GITHUB_OUTPUT"; fi
+              count="$(git ls-files '*.js' '*.jsx' '*.ts' '*.tsx' | wc -l | tr -d ' ')"
               ;;
             python)
-              if git ls-files '*.py' | grep -q .; then echo "present=true" >> "$GITHUB_OUTPUT"; else echo "present=false" >> "$GITHUB_OUTPUT"; fi
+              count="$(git ls-files '*.py' | wc -l | tr -d ' ')"
               ;;
             go)
-              if git ls-files '*.go' | grep -q .; then echo "present=true" >> "$GITHUB_OUTPUT"; else echo "present=false" >> "$GITHUB_OUTPUT"; fi
+              count="$(git ls-files '*.go' | wc -l | tr -d ' ')"
               ;;
           esac
+          echo "source_count=$count" >> "$GITHUB_OUTPUT"
+          if [ "${count:-0}" -gt 0 ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Initialize CodeQL
         if: steps.detect.outputs.present == 'true'
@@ -414,6 +709,138 @@ jobs:
         continue-on-error: true
 
       - name: Analyze
+        id: analyze
         if: steps.detect.outputs.present == 'true'
         uses: github/codeql-action/analyze@v4
-        continue-on-error: true
+        with:
+          output: codeql-results/${{ matrix.language }}
+          upload: never
+
+      # @spec SEC-JOB-010 SEC-JOB-011
+      - name: Write CodeQL artifact status
+        if: always()
+        shell: bash
+        env:
+          LANGUAGE: ${{ matrix.language }}
+          SOURCE_PRESENT: ${{ steps.detect.outputs.present }}
+          SOURCE_COUNT: ${{ steps.detect.outputs.source_count }}
+          ANALYZE_OUTCOME: ${{ steps.analyze.outcome || 'skipped' }}
+        run: |
+          mkdir -p "codeql-results/$LANGUAGE"
+          sarif_count="$(find "codeql-results/$LANGUAGE" -type f \( -name '*.sarif' -o -name '*.sarif.json' \) | wc -l | tr -d ' ')"
+          SARIF_COUNT="$sarif_count" node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const language = process.env.LANGUAGE || '';
+          const resultsDir = path.join('codeql-results', language);
+          fs.mkdirSync(resultsDir, { recursive: true });
+          const sourcePresent = process.env.SOURCE_PRESENT === 'true';
+          const sourceCount = Number(process.env.SOURCE_COUNT || 0);
+          const analyzeOutcome = process.env.ANALYZE_OUTCOME || 'skipped';
+          const sarifCount = Number(process.env.SARIF_COUNT || 0);
+          const sarifFiles = [];
+          const visit = (dir) => {
+            if (!fs.existsSync(dir)) return;
+            for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+              const next = path.join(dir, entry.name);
+              if (entry.isDirectory()) visit(next);
+              else if (entry.isFile() && (entry.name.endsWith('.sarif') || entry.name.endsWith('.sarif.json'))) sarifFiles.push(next);
+            }
+          };
+          visit(resultsDir);
+          const topRules = new Map();
+          let sarifResultCount = 0;
+          for (const sarifFile of sarifFiles) {
+            try {
+              const sarif = JSON.parse(fs.readFileSync(sarifFile, 'utf8'));
+              for (const run of sarif.runs || []) {
+                for (const result of run.results || []) {
+                  sarifResultCount += 1;
+                  const ruleId = result.ruleId || 'unknown';
+                  topRules.set(ruleId, (topRules.get(ruleId) || 0) + 1);
+                }
+              }
+            } catch {
+              // Keep malformed SARIF visible through the artifact-presence failure path.
+            }
+          }
+          const topRuleCounts = Array.from(topRules.entries())
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10)
+            .map(([ruleId, count]) => ({ ruleId, count }));
+          const failed = sourcePresent && (analyzeOutcome !== 'success' || sarifCount === 0);
+          const actionRequired = !failed && sourcePresent && sarifResultCount > 0;
+          const status = {
+            language,
+            sourcePresent,
+            sourceCount,
+            analyzeOutcome,
+            sarifCount,
+            sarifResultCount,
+            topRules: topRuleCounts,
+            status: !sourcePresent ? 'skipped' : failed ? 'failed' : actionRequired ? 'action_required' : 'passed',
+            degradedReason: !sourcePresent ? 'No tracked source files for this language.' : failed ? 'CodeQL did not produce a SARIF artifact.' : actionRequired ? 'CodeQL SARIF contains actionable results; inspect the SARIF artifact.' : ''
+          };
+          fs.writeFileSync(path.join(resultsDir, 'codeql-status.json'), `${JSON.stringify(status, null, 2)}\n`);
+          const tasks = [];
+          if (failed) {
+            tasks.push({
+              id: `SEC-CODEQL-${language.toUpperCase().replace(/[^A-Z0-9]+/g, '-')}-001`,
+              source: `CodeQL ${language}`,
+              severity: 'high',
+              status: 'open',
+              title: `Restore CodeQL ${language} SARIF output`,
+              details: status.degradedReason,
+              findings: 0,
+              validation: 'Fix CodeQL analysis or artifact generation, then rerun the Daily Security Report workflow.'
+            });
+          } else if (actionRequired) {
+            tasks.push({
+              id: `SEC-CODEQL-${language.toUpperCase().replace(/[^A-Z0-9]+/g, '-')}-001`,
+              source: `CodeQL ${language}`,
+              severity: 'medium',
+              status: 'open',
+              title: `Triage CodeQL ${language} SARIF results`,
+              details: `${sarifResultCount} CodeQL result(s). Top rules: ${topRuleCounts.map((rule) => `${rule.ruleId} (${rule.count})`).join(', ') || 'none'}.`,
+              findings: sarifResultCount,
+              validation: 'Inspect the SARIF artifact, fix true positives or document intentional findings, then rerun the workflow.'
+            });
+          }
+          fs.writeFileSync(path.join(resultsDir, 'codeql-tasks.json'), `${JSON.stringify({
+            language,
+            status: status.status,
+            tasks
+          }, null, 2)}\n`);
+          const taskLines = ['# CodeQL Security Tasks', ''];
+          taskLines.push(`- Language: ${language}`);
+          taskLines.push(`- Status: ${status.status}`);
+          taskLines.push(`- SARIF results: ${sarifResultCount}`);
+          taskLines.push('');
+          if (tasks.length === 0) {
+            taskLines.push('No actionable CodeQL tasks were reported for this language.');
+          } else {
+            for (const task of tasks) {
+              taskLines.push(`## ${task.id}: ${task.title}`);
+              taskLines.push('');
+              taskLines.push(`- Source: ${task.source}`);
+              taskLines.push(`- Severity: ${task.severity}`);
+              taskLines.push(`- Findings: ${task.findings}`);
+              taskLines.push(`- Details: ${task.details}`);
+              taskLines.push(`- Validation: ${task.validation}`);
+              taskLines.push('');
+            }
+          }
+          fs.writeFileSync(path.join(resultsDir, 'codeql-tasks.md'), `${taskLines.join('\n')}\n`);
+          NODE
+          if [ "${SOURCE_PRESENT:-false}" = "true" ] && { [ "${ANALYZE_OUTCOME:-skipped}" != "success" ] || [ "${sarif_count:-0}" -eq 0 ]; }; then
+            exit 1
+          fi
+
+      - name: Upload CodeQL result artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: codeql-results-${{ matrix.language }}-${{ github.run_id }}
+          path: codeql-results/${{ matrix.language }}/
+          if-no-files-found: error
+          retention-days: 2
