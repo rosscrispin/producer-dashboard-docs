@@ -1,9 +1,7 @@
-name: Daily Security Report
+name: Manual Security Report
 
 on:
-  schedule:
-    # 06:30 Australia/Brisbane. GitHub schedules are UTC.
-    - cron: '30 20 * * *'
+  # Manual only. Scheduled security reporting runs only in rosscrispin/producer-dashboard.
   workflow_dispatch:
 
 permissions:
@@ -37,7 +35,7 @@ jobs:
         run: |
           mkdir -p "$REPORT_DIR"
           {
-            echo "# Daily Security Report"
+            echo "# Manual Security Report"
             echo ""
             echo "- Repository: $GITHUB_REPOSITORY"
             echo "- Ref: $GITHUB_REF"
@@ -529,7 +527,7 @@ jobs:
             return `Review ${tool.name} confidence warning`;
           };
           const taskAction = (tool) => {
-            if (tool.status === 'failed') return 'Fix scanner setup or output generation, then rerun the Daily Security Report workflow.';
+            if (tool.status === 'failed') return 'Fix scanner setup or output generation, then rerun the Manual Security Report workflow.';
             if (tool.name.startsWith('Gitleaks')) return 'Inspect the matching gitleaks JSON, rotate any real exposed secrets, remove tracked secret material, and rerun the workflow.';
             if (tool.name.includes('npm audit')) return 'Review the audit JSON, update or replace vulnerable packages, and rerun npm audit plus the workflow.';
             if (tool.name.startsWith('pip-audit')) return 'Review the pip-audit JSON, update vulnerable Python dependencies, and rerun pip-audit plus the workflow.';
@@ -803,7 +801,7 @@ jobs:
               title: `Restore CodeQL ${language} SARIF output`,
               details: status.degradedReason,
               findings: 0,
-              validation: 'Fix CodeQL analysis or artifact generation, then rerun the Daily Security Report workflow.'
+              validation: 'Fix CodeQL analysis or artifact generation, then rerun the Manual Security Report workflow.'
             });
           } else if (actionRequired) {
             tasks.push({
