@@ -204,18 +204,27 @@ jobs:
           if [ -f "$tracked_source/.gitleaks.toml" ]; then
             gitleaks_args+=(--config "$tracked_source/.gitleaks.toml")
           fi
-          "$gitleaks_bin" "${gitleaks_args[@]}"
+          timeout "${GITLEAKS_CURRENT_TIMEOUT:-5m}" "$gitleaks_bin" "${gitleaks_args[@]}"
           status=$?
           echo "$status" > "$REPORT_DIR/gitleaks.exit"
           if [ ! -f "$REPORT_DIR/gitleaks.json" ]; then
             echo '[]' > "$REPORT_DIR/gitleaks.json"
           fi
 
-          gitleaks_history_args=(detect --source "$GITHUB_WORKSPACE" --report-format json --report-path "$REPORT_DIR/gitleaks-history.json" --redact --no-banner)
-          if [ -f "$GITHUB_WORKSPACE/.gitleaks.toml" ]; then
-            gitleaks_history_args+=(--config "$GITHUB_WORKSPACE/.gitleaks.toml")
+          history_source="${RUNNER_TEMP:-/tmp}/gitleaks-history-source"
+          rm -rf "$history_source"
+          git clone --no-hardlinks "$GITHUB_WORKSPACE" "$history_source" >/dev/null 2>&1
+          clone_status=$?
+          if [ "$clone_status" -ne 0 ]; then
+            printf '{"error":"gitleaks history source clone failed","exitCode":%s}\n' "$clone_status" > "$REPORT_DIR/gitleaks-history.json"
+            echo "$clone_status" > "$REPORT_DIR/gitleaks-history.exit"
+            exit 0
           fi
-          "$gitleaks_bin" "${gitleaks_history_args[@]}"
+          gitleaks_history_args=(detect --source "$history_source" --report-format json --report-path "$REPORT_DIR/gitleaks-history.json" --redact --no-banner)
+          if [ -f "$history_source/.gitleaks.toml" ]; then
+            gitleaks_history_args+=(--config "$history_source/.gitleaks.toml")
+          fi
+          timeout "${GITLEAKS_HISTORY_TIMEOUT:-10m}" "$gitleaks_bin" "${gitleaks_history_args[@]}"
           history_status=$?
           echo "$history_status" > "$REPORT_DIR/gitleaks-history.exit"
           if [ ! -f "$REPORT_DIR/gitleaks-history.json" ]; then
@@ -646,6 +655,7 @@ jobs:
 
       - name: Upload security report artifact
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: security-report-${{ github.event.repository.name }}-${{ github.run_id }}
@@ -838,6 +848,7 @@ jobs:
 
       - name: Upload CodeQL result artifact
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: codeql-results-${{ matrix.language }}-${{ github.run_id }}
